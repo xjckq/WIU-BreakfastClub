@@ -15,6 +15,6 @@ MonoBehaviour:
   title: Save the TPY Dragon
   desc: Save the TPY Dragon!!
   objectiveType: 2
-  requiredAmount: 0
+  requiredAmount: 3
   moneyReward: 0
   landmarkToRestore: {fileID: 11400000, guid: f5d1adf0522272c4ea7abd71f24c59e4, type: 2}
