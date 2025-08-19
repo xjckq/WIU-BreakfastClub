@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class QuestManager : MonoBehaviour
 {
@@ -7,6 +8,11 @@ public class QuestManager : MonoBehaviour
     public List<QuestData> allQuests; 
     public List<QuestData> activeQuests;
     public List<QuestData> completedQuests;
+
+    [SerializeField] TMP_Text questName;
+    [SerializeField] TMP_Text questDesc;
+
+    public int killEnemyCount;
 
     private void Awake()
     {
@@ -29,6 +35,16 @@ public class QuestManager : MonoBehaviour
     {
         if (completedQuests.Contains(quest) == false && activeQuests.Contains(quest) == false)
             activeQuests.Add(quest);
+        else
+        {
+            Debug.Log("quest have already been completed");
+            return;
+        }
+
+        questName.text = quest.name;
+        questDesc.text = quest.desc;
+        if (quest.objectiveType == QuestData.questObj.killEnemies)
+            questDesc.text += killEnemyCount + " / " + quest.requiredAmount;
 
         Debug.Log("quest started");
     }
@@ -37,10 +53,14 @@ public class QuestManager : MonoBehaviour
     {
         if (activeQuests.Contains(quest))
         {
+            killEnemyCount = 0;
             activeQuests.Remove(quest);
             completedQuests.Add(quest);
             RestoreLandmark(quest);
         }
+
+        questName.text = "Quest Name";
+        questDesc.text = "There's no quests";
         Debug.Log("quest completed");
     }
 
