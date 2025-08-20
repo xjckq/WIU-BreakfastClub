@@ -36,8 +36,7 @@ public class QuestManager : MonoBehaviour
 
     int killCount, itemCount, craftCount;
 
-    public PlayerData playerData;
-
+ 
     private void Awake()
     {
         if (Instance == null)
