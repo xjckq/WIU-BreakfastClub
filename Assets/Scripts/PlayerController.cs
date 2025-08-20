@@ -71,17 +71,18 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // -- all for testing purposes --
         if (Input.GetKeyDown(KeyCode.C))
+            QuestManager.Instance.EnemyKilled();
 
+        if (Input.GetKeyDown(KeyCode.V))
+            QuestManager.Instance.ItemCollected();
 
-            QuestManager.Instance.killEnemyCount++;
-
-        if (QuestManager.Instance.killEnemyCount == 3)
+        if (Input.GetKeyDown(KeyCode.T))
         {
-            Debug.Log("Quest Done");
+            QuestManager.Instance.playerData.TakeDmg(5);
+            Debug.Log("player has " + QuestManager.Instance.playerData.health + "now");
         }
-
-
     }
 
     void FixedUpdate()
