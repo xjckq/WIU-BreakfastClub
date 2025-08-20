@@ -14,9 +14,6 @@ public class InventoryUI : MonoBehaviour
     public TMP_Text potionInUseText;
     public TMP_Text HPfullText;
 
-    // status
-    public Image buffStatus;
-
     void Start()
     {
         // populate from playerData
@@ -41,6 +38,7 @@ public class InventoryUI : MonoBehaviour
         // hide HP full text if HP not full
         if (HPfullText.gameObject.activeSelf && playerData.health < playerData.maxHealth)
         {
+            Debug.Log("HP not full, hiding HP full text");
             HPfullText.gameObject.SetActive(false);
         }
     }
@@ -89,7 +87,6 @@ public class InventoryUI : MonoBehaviour
         playerData.buffPotionRemainingTime = 0;
 
         potionInUseText.gameObject.SetActive(false);
-        buffStatus.gameObject.SetActive(false);
     }
 
     public void UseItem(Button selectedItemButton)
@@ -114,14 +111,14 @@ public class InventoryUI : MonoBehaviour
                     playerData.buffPotionRemainingTime = 10f;
 
                     potionInUseText.gameObject.SetActive(true);
-                    buffStatus.gameObject.SetActive(true);
                     StartCoroutine(BuffPotionTimer(10));
                 }
             }
 
             // heal potion check
-            if (currentImage.sprite.name == "fatto_idle1")
+            if (currentImage.sprite.name == "fatto_idle1_0")
             {
+                Debug.Log("teto");
                 if (playerData.health >= playerData.maxHealth)
                 {
                     Debug.Log("HP full");

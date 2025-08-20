@@ -53,11 +53,9 @@ public class InventorySystem : MonoBehaviour
 
     public void Update()
     {
-        Debug.Log("i love ashlyn");
         if (playerData.buffPotionActive)
         {
             playerData.buffPotionRemainingTime -= Time.deltaTime;
-            Debug.Log("TESTYTYTYYYT");
             // revert speed buff
             if (playerData.buffPotionRemainingTime <= 0f)
             {
