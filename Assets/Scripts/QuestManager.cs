@@ -191,37 +191,37 @@ public class QuestManager : MonoBehaviour
 
     public void EnemyKilled()
     {
-        foreach (QuestData quest in activeQuests)
+        for (int i = activeQuests.Count - 1; i >= 0; i--) // loops through all the active quests
         {
-            if (quest.objectiveType == QuestData.questObj.killEnemies)
-                UpdateQuestProgress(quest, 1);
+            if (activeQuests[i].objectiveType == QuestData.questObj.killEnemies) // check quest obj
+                UpdateQuestProgress(activeQuests[i], 1); // update progress count
         }
     }
 
     public void ItemCollected()
     {
-        foreach (QuestData quest in activeQuests)
+        for (int i = activeQuests.Count - 1; i >= 0; i--)
         {
-            if (quest.objectiveType == QuestData.questObj.collectItems)
-                UpdateQuestProgress(quest, 1);
+            if (activeQuests[i].objectiveType == QuestData.questObj.collectItems)
+                UpdateQuestProgress(activeQuests[i], 1);
         }
     }
 
     public void ItemCrafted()
     {
-        foreach (QuestData quest in activeQuests)
+        for (int i = activeQuests.Count - 1; i >= 0; i--)
         {
-            if (quest.objectiveType == QuestData.questObj.craftItems)
-                UpdateQuestProgress(quest, 1);
+            if (activeQuests[i].objectiveType == QuestData.questObj.craftItems)
+                UpdateQuestProgress(activeQuests[i], 1);
         }
     }
 
     public void MinigameCompleted()
     {
-        foreach (QuestData quest in activeQuests)
+        for (int i = activeQuests.Count - 1; i >= 0; i--)
         {
-            if (quest.objectiveType == QuestData.questObj.completeMG)
-                UpdateQuestProgress(quest, 1);
+            if (activeQuests[i].objectiveType == QuestData.questObj.completeMG)
+                UpdateQuestProgress(activeQuests[i], 1);
         }
     }
 }

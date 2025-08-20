@@ -143,7 +143,10 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.V))
             QuestManager.Instance.ItemCollected();
-            
+
+        if (Input.GetKeyDown(KeyCode.G))
+            QuestManager.Instance.ItemCrafted();
+
         if (Input.GetKeyDown(KeyCode.T))
         {
             TakeDmg(5);

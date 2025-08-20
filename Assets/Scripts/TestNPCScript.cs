@@ -15,7 +15,6 @@ public class TestNPCScript : MonoBehaviour
     {
         if (playerIsNearby && Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log("Quest is added!");
             QuestManager.Instance.StartQuest(questData);
 
             if (QuestManager.Instance.killEnemyCount == questData.requiredAmount)

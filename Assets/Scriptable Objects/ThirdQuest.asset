@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5eaebad2e3cb89e43a59c64827af844e, type: 3}
-  m_Name: FirstQuest 1
+  m_Name: ThirdQuest
   m_EditorClassIdentifier: 
-  title: To
-  desc: To
-  objectiveType: 0
+  title: Testing
+  desc: Testing
+  objectiveType: 2
   requiredAmount: 3
   moneyReward: 0
-  landmarkToRestore: {fileID: 11400000, guid: f5d1adf0522272c4ea7abd71f24c59e4, type: 2}
+  landmarkToRestore: {fileID: 11400000, guid: f7c90431ebc545347bb9d3117d7eaa67, type: 2}
