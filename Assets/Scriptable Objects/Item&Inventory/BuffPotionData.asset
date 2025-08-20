@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BuffPotionData
   m_EditorClassIdentifier: 
   itemName: Buff Potion
-  itemImage: {fileID: 770509406, guid: 5d2e9979fdef5814b88986488e9f2709, type: 3}
+  itemImage: {fileID: -6819781099888879877, guid: 285a47300b6fed64bb01ab7e5205b2c1, type: 3}

@@ -4,29 +4,25 @@ using System.Collections;
 [CreateAssetMenu(fileName = "BuffPotionEffect", menuName = "Scriptable Objects/BuffPotionEffect")]
 public class BuffPotionEffect : ItemEffect
 {
-    [SerializeField] private int ATK;
-    [SerializeField] private int buffAmount = 5;
-
-    public override void Use(GameObject user)
+    public override void Use(PlayerData playerData)
     {
-        var player = user.GetComponent<PlayerController>();
-        if (player != null)
-        {
-            ATK += buffAmount;
-            Debug.Log($"player ATK increased by {buffAmount}, new ATK: {ATK}");
+        if (playerData == null) return;
 
-            // revert buff after duration
-            if (duration > 0)
-                user.GetComponent<MonoBehaviour>().StartCoroutine(RemoveBuffAfterTime(player));
+        // use buff potion
+        playerData.currentSpeed += 2;
+
+        if (playerData.buffPotionActive)
+        { 
+            // if already in use, refresh timer
+            playerData.buffPotionRemainingTime += duration;
+            Debug.Log($"Buff refreshed, new remaining time: {playerData.buffPotionRemainingTime:F1}s");
+        }
+        else
+        {
+            // buff speed 
+            playerData.buffPotionActive = true;
+            playerData.buffPotionRemainingTime = duration;
+            Debug.Log($"Buff applied for {duration:F1}s");
         }
     }
-
-    // borrow player script's Update(); cuz S0 doesnt have it
-    private IEnumerator RemoveBuffAfterTime(PlayerController player)
-    {
-        yield return new WaitForSeconds(duration);// pause until duration is over
-        ATK -= buffAmount;
-        Debug.Log($"buff expired, player ATK reverted to {ATK}");
-    }
-
 }

@@ -8,14 +8,18 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D body;
     InputAction moveAction;
     Vector2 moveDirection;
-    public float speed = 5;
 
+    public PlayerData playerData;
 
     void Awake()
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         body = GetComponent<Rigidbody2D>();
+
+        // init speed
+        if (playerData != null)
+            playerData.currentSpeed = playerData.speed;
     }
 
     private void OnEnable()
@@ -87,9 +91,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 movement = moveDirection.normalized * speed;
+        Vector2 movement = moveDirection.normalized * playerData.currentSpeed;
         body.linearVelocity = movement;
     }
-
-
 }

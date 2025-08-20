@@ -5,12 +5,12 @@ public class HealPotionEffect : ItemEffect
 {
     public int healAmount;
 
-    public override void Use(GameObject user)
+    public override void Use(PlayerData playerData)
     {
-        var health=user.GetComponent<HealthSystem>();
-        if (health != null)
+        if (playerData != null)
         {
-            health.Heal(healAmount);
+            playerData.Heal(healAmount);
+            Debug.Log($"Healed {healAmount}, current HP = {playerData.health}/{playerData.maxHealth}");
         }
     }
 }

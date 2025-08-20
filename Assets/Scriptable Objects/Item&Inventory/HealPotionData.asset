@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: HealPotionData
   m_EditorClassIdentifier: 
   itemName: Health Potion
-  itemImage: {fileID: 1866492864, guid: 5d2e9979fdef5814b88986488e9f2709, type: 3}
+  itemImage: {fileID: 764873588904309136, guid: 9a78689f92244fa4584b879a3bfd19e6, type: 3}

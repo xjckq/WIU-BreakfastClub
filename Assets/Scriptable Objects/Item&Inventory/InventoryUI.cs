@@ -7,7 +7,6 @@ public class InventoryUI : MonoBehaviour
 {
     public PlayerData playerData;
     public InventorySystem inventorySystem;
-    public HealthSystem healthSystem;
 
     // potions
     public Transform potionCell;
@@ -20,29 +19,27 @@ public class InventoryUI : MonoBehaviour
 
     void Start()
     {
-        // populate from gamedata
-        if (gameData != null && gameData.inventoryItems.Count > 0)
+        // populate from playerData
+        if (playerData != null && playerData.inventoryItems.Count > 0)
         {
-            foreach (var item in gameData.inventoryItems)
+            foreach (var item in playerData.inventoryItems)
                 AddItemToInventoryGUI(item.itemData.itemImage);
         }
 
         // restore buff if active
-        if (gameData != null && gameData.buffPotionActive)
+        if (playerData != null && playerData.buffPotionActive)
         {
             buffPotionInUse = true;
             potionInUseText.gameObject.SetActive(true);
-            buffStatus.gameObject.SetActive(true);
 
-            // restart timer coroutine with remaining time
-            StartCoroutine(BuffPotionTimer(gameData.buffPotionRemainingTime));
+            StartCoroutine(BuffPotionTimer(playerData.buffPotionRemainingTime));
         }
     }
 
     void Update()
     {
         // hide HP full text if HP not full
-        if (HPfullText.gameObject.activeSelf && healthSystem.Health < healthSystem.MaxHealth)
+        if (HPfullText.gameObject.activeSelf && playerData.health < playerData.maxHealth)
         {
             HPfullText.gameObject.SetActive(false);
         }
@@ -52,27 +49,26 @@ public class InventoryUI : MonoBehaviour
     {
         foreach (Transform cell in potionCell)
         {
-            Debug.Log(cell);
             Image itemImage = cell.GetComponentInChildren<Image>();
 
+            // replace item image in empty slot
             if (itemImage != null && itemImage.sprite == null)
             {
-                Debug.Log("item collected");
                 itemImage.sprite = newItem;
                 itemImage.enabled = true;
                 itemImage.color = Color.white;
-                break; 
+                break;
             }
         }
     }
 
-    public void AddItemToGameData(ItemInstance item)
+    public void AddItemToPlayerData(ItemInstance item)
     {
-        if (gameData != null)
+        if (playerData != null)
             playerData.inventoryItems.Add(item);
     }
 
-    public void RemoveItemFromplayerData(int index)
+    public void RemoveItemFromPlayerData(int index)
     {
         if (playerData != null && index >= 0 && index < playerData.inventoryItems.Count)
             playerData.inventoryItems.RemoveAt(index);
@@ -80,7 +76,6 @@ public class InventoryUI : MonoBehaviour
 
     private IEnumerator BuffPotionTimer(float duration)
     {
-        Debug.Log("buff timer started");
         float remaining = duration;
         while (remaining > 0)
         {
@@ -95,9 +90,7 @@ public class InventoryUI : MonoBehaviour
 
         potionInUseText.gameObject.SetActive(false);
         buffStatus.gameObject.SetActive(false);
-        Debug.Log("buff effect expired.");
     }
-
 
     public void UseItem(Button selectedItemButton)
     {
@@ -107,17 +100,15 @@ public class InventoryUI : MonoBehaviour
         if (currentImage.sprite != null)
         {
             // buff potion check
-            if(currentImage.sprite.name == "SprTiles_56")
+            if (currentImage.sprite.name == "majulah")
             {
                 if (buffPotionInUse)
                 {
-                    // if buff potion alr in use, dont use again
                     Debug.Log("buff potion already used");
                     return;
                 }
                 else
                 {
-                    // start timer fo buff potion
                     buffPotionInUse = true;
                     playerData.buffPotionActive = true;
                     playerData.buffPotionRemainingTime = 10f;
@@ -129,11 +120,10 @@ public class InventoryUI : MonoBehaviour
             }
 
             // heal potion check
-            if (currentImage.sprite.name == "SprTiles_57")
+            if (currentImage.sprite.name == "fatto_idle1")
             {
-                if (healthSystem.playerData.currentHP >= healthSystem.MaxHealth)
+                if (playerData.health >= playerData.maxHealth)
                 {
-                    // if HP full, dont use heal potion
                     Debug.Log("HP full");
                     HPfullText.gameObject.SetActive(true);
                     return;
@@ -146,15 +136,17 @@ public class InventoryUI : MonoBehaviour
             if (index >= 0 && index < playerData.inventoryItems.Count)
             {
                 ItemInstance item = playerData.inventoryItems[index];
-                item.itemEffect.Use(healthSystem.gameObject);
+
+                // apply effect
+                item.itemEffect.Use(playerData);
                 playerData.inventoryItems.RemoveAt(index);
             }
 
-            Image itemImage = selectedItemButton.GetComponentInChildren<Image>();
-            itemImage.sprite = null;
-            itemImage.color = new Color(0.7176471f, 0.4431373f, 0.4431373f, 1f);
-            Debug.Log(selectedItemButton.name + " was pressed");
+            // clear slot image
+            currentImage.sprite = null;
+            currentImage.color = new Color(0, 0.7f, 0.7f, 1);
 
+            // shift remaining items left
             for (int i = index; i < potionCell.childCount - 1; i++)
             {
                 currentImage = potionCell.GetChild(i).GetComponentInChildren<Image>();
@@ -164,11 +156,11 @@ public class InventoryUI : MonoBehaviour
                     currentImage.sprite = childImage.sprite;
                     currentImage.color = Color.white;
                     childImage.sprite = null;
-                    childImage.color = new Color(0.7176471f, 0.4431373f, 0.4431373f, 1f);
+                    childImage.color = new Color(0, 0.7f, 0.7f, 1);
                 }
                 else
                 {
-                    currentImage.color = new Color(0.7176471f, 0.4431373f, 0.4431373f, 1f);
+                    currentImage.color = new Color(0, 0.7f, 0.7f, 1);
                     break;
                 }
             }
@@ -184,7 +176,7 @@ public class InventoryUI : MonoBehaviour
             if (img != null)
             {
                 img.sprite = null;
-                img.color = new Color(0.7176471f, 0.4431373f, 0.4431373f, 1f);
+                img.color = new Color(0, 0.7f, 0.7f, 1);
             }
         }
 
@@ -194,5 +186,4 @@ public class InventoryUI : MonoBehaviour
             AddItemToInventoryGUI(playerData.inventoryItems[i].itemData.itemImage);
         }
     }
-
 }

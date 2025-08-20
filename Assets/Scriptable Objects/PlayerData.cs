@@ -1,11 +1,27 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PlayerData", menuName = "Scriptable Objects/PlayerData")]
 public class PlayerData : ScriptableObject
 {
+    // stats
     public int health;
     public int maxHealth;
     public int money;
+
+    // movement
+    public int speed;
+    public int currentSpeed;
+
+    // spd buff
+    public bool buffPotionActive = false;
+    public float buffPotionRemainingTime;
+
+    // inventory
+    public List<ItemInstance> inventoryItems = new List<ItemInstance>();
+    public int maxInventorySize = 10;
+
+    
 
     public void AddMoney(int amt)
     {
@@ -23,7 +39,7 @@ public class PlayerData : ScriptableObject
     {
 
         health += amt;
-        if (health > maxHealth)
+        if (health >= maxHealth)
             health = maxHealth;
     }
 
@@ -32,6 +48,10 @@ public class PlayerData : ScriptableObject
         health = 100;
         money = 0;
         maxHealth = 100;
+
+        currentSpeed = speed;
+        buffPotionActive = false;
+        buffPotionRemainingTime = 0f;
     }
 
 }

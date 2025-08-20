@@ -7,7 +7,7 @@ public class Inventory : ScriptableObject
     public int maxItems = 4;
     public List<ItemInstance> items = new List<ItemInstance>();
 
-    public bool AddItem(ItemInstance item, MaterialInstance material)
+    public bool AddItem(ItemInstance item)
     {
         if (items.Count > maxItems) return false;
         items.Add(item);

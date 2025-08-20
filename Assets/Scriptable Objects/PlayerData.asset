@@ -15,3 +15,9 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   money: 0
+  speed: 5
+  currentSpeed: 7
+  buffPotionActive: 1
+  buffPotionRemainingTime: 7.2810154
+  inventoryItems: []
+  maxInventorySize: 10

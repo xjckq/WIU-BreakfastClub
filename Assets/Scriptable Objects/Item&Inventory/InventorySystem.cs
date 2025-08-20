@@ -4,11 +4,9 @@ public class InventorySystem : MonoBehaviour
 {
     public InventoryUI inventoryUI;
     public PlayerData playerData;
-    public int maxItems = 10;
 
     void Start()
     {
-        // populate from playerData
         if (playerData != null)
             inventoryUI.RefreshInventoryUI();
     }
@@ -17,26 +15,56 @@ public class InventorySystem : MonoBehaviour
     {
         if (other.TryGetComponent(out Item item))
         {
-            if (playerData.inventoryItems.Count >= maxItems)
+            // check inventory for space
+            if (playerData.inventoryItems.Count >= playerData.maxInventorySize)
             {
                 Debug.Log("Inventory full");
                 return;
             }
 
-            // add item to playerData
-            playerData.inventoryItems.Add(item.TakeItem());
-            inventoryUI.RefreshInventoryUI();
+            ItemInstance picked = item.TakeItem();
+            if (picked != null)
+            {
+                // add to inventory
+                playerData.inventoryItems.Add(picked);
+                inventoryUI.RefreshInventoryUI();
+
+                Destroy(other.gameObject);
+                Debug.Log($"Picked up {picked.itemData.itemName}");
+            }
+            else
+            {
+                Debug.LogWarning("Item.TakeItem() returned null!");
+            }
         }
     }
 
-    public void UseItem(int index, GameObject user)
+    public void UseItem(int index)
     {
         if (index < 0 || index >= playerData.inventoryItems.Count) return;
 
         ItemInstance item = playerData.inventoryItems[index];
-        item.itemEffect.Use(user);
-        playerData.inventoryItems.RemoveAt(index);
 
+        item.itemEffect.Use(playerData);
+
+        playerData.inventoryItems.RemoveAt(index);
         inventoryUI.RefreshInventoryUI();
+    }
+
+    public void Update()
+    {
+        Debug.Log("i love ashlyn");
+        if (playerData.buffPotionActive)
+        {
+            playerData.buffPotionRemainingTime -= Time.deltaTime;
+            Debug.Log("TESTYTYTYYYT");
+            // revert speed buff
+            if (playerData.buffPotionRemainingTime <= 0f)
+            {
+                playerData.buffPotionActive = false;
+                playerData.currentSpeed -= 2;
+                Debug.Log("buff reverted");
+            }
+        }
     }
 }
