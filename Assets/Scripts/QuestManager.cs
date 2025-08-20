@@ -1,36 +1,156 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
+[System.Serializable]
+public class QuestProgress // to track quest progress
+{
+    public QuestData quest;
+    public int progress;
+}
+
+[System.Serializable]
+public class QuestUIPanel // to update quest ui
+{
+    public TMP_Text questName;
+    public TMP_Text questDesc;
+    public GameObject questPanel;
+}
 
 public class QuestManager : MonoBehaviour
 {
     public static QuestManager Instance;
-    public List<QuestData> allQuests; 
+    public List<QuestData> allQuests;
     public List<QuestData> activeQuests;
     public List<QuestData> completedQuests;
+    public List<Landmark> restoredLandmarks;
+    public List<QuestProgress> questProgressList;
+
+    public List<QuestUIPanel> QuestUIPanels = new List<QuestUIPanel>(); 
+    public int maxActiveQuests = 3; 
+
+    public int killEnemyCount;
+    QuestData currentQuest;
+    string currentProgressTxt;
+    QuestProgress newProgress;
+
+    int killCount, itemCount, craftCount;
+
+    public PlayerData playerData;
 
     private void Awake()
     {
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        UpdateQuestUI();
+    }
+
+    public void UpdateQuestUI()
+    {
+        // update for each quest
+        for (int i = 0; i < QuestUIPanels.Count; i++)
+        {
+            if (i < activeQuests.Count && QuestUIPanels[i].questName != null && QuestUIPanels[i].questDesc != null)
+            {
+                currentQuest = activeQuests[i];
+                QuestUIPanels[i].questName.text = currentQuest.title;
+
+                currentProgressTxt = GetQuestProgressTxt(currentQuest);
+                QuestUIPanels[i].questDesc.text = currentQuest.desc + currentProgressTxt;
+
+                QuestUIPanels[i].questPanel.SetActive(true);
+            }
+            else
+            {
+                QuestUIPanels[i].questPanel.SetActive(false);
+            }
+        }
+    }
+
+    
+    private string GetQuestProgressTxt(QuestData quest) // set progress txt based on the type of quest objective
+    {
+        switch (quest.objectiveType)
+        {
+            case QuestData.questObj.killEnemies:
+                killCount = GetQuestProgress(quest);
+                return " (" + killCount + "/" + quest.requiredAmount + ")";
+            case QuestData.questObj.collectItems:
+                itemCount = GetQuestProgress(quest);
+                return " (" + itemCount + "/" + quest.requiredAmount + ")";
+
+            case QuestData.questObj.craftItems:
+                craftCount = GetQuestProgress(quest);
+                return " (" + craftCount + "/" + quest.requiredAmount + ")";
+
+            case QuestData.questObj.completeMG:
+                return " (Complete minigame)";
+            default:
+                return "";
+        }
     }
 
     public void StartQuest(QuestData quest)
     {
-        if (completedQuests.Contains(quest) == false && activeQuests.Contains(quest) == false)
-            activeQuests.Add(quest);
+        // don't start if quest alr completed/is active/alr have 3 active quests
+        if (completedQuests.Contains(quest) || activeQuests.Contains(quest) || activeQuests.Count == maxActiveQuests)
+            return;
+        
+     
+        activeQuests.Add(quest);   // add quest to active quest list
+        newProgress = new QuestProgress(); // new progress tracking for the new quest
+        newProgress.quest = quest;
+        newProgress.progress = 0;
+        questProgressList.Add(newProgress);
 
-        Debug.Log("quest started");
+        Debug.Log("quest started: " + quest.title);
+    }
+
+    public void UpdateQuestProgress(QuestData quest, int amount = 1)
+    {
+
+        if (!activeQuests.Contains(quest)) // don't update if not active quest
+            return;
+
+        // find the progress for this quest
+        for (int i = 0; i < questProgressList.Count; i++)
+        {
+            if (questProgressList[i].quest == quest)
+            {
+                questProgressList[i].progress += amount;
+
+                // check if quest is complete
+                if (questProgressList[i].progress >= quest.requiredAmount)
+                {
+                    CompleteQuest(quest);
+                }
+                return;
+            }
+        }
+    }
+
+    public int GetQuestProgress(QuestData quest)  // get current progress amount for quest
+    {
+        for (int i = 0; i < questProgressList.Count; i++) // loop through all the quest in progress
+        {
+            if (questProgressList[i].quest == quest)
+            {
+                return questProgressList[i].progress;
+            }
+        }
+        return 0;
     }
 
     public void CompleteQuest(QuestData quest)
@@ -40,8 +160,19 @@ public class QuestManager : MonoBehaviour
             activeQuests.Remove(quest);
             completedQuests.Add(quest);
             RestoreLandmark(quest);
+
+            // remove quest progress
+            for (int i = questProgressList.Count - 1; i >= 0; i--)
+            {
+                if (questProgressList[i].quest == quest)
+                {
+                    questProgressList.RemoveAt(i);
+                    break;
+                }
+            }
         }
-        Debug.Log("quest completed");
+
+        Debug.Log("quest completed: " + quest.title);
     }
 
     public bool IsQuestActive(QuestData quest)
@@ -56,8 +187,42 @@ public class QuestManager : MonoBehaviour
 
     private void RestoreLandmark(QuestData quest)
     {
-        // restore landmark
+       //
+    }
 
-        Debug.Log("restored landmark");
+    public void EnemyKilled()
+    {
+        foreach (QuestData quest in activeQuests)
+        {
+            if (quest.objectiveType == QuestData.questObj.killEnemies)
+                UpdateQuestProgress(quest, 1);
+        }
+    }
+
+    public void ItemCollected()
+    {
+        foreach (QuestData quest in activeQuests)
+        {
+            if (quest.objectiveType == QuestData.questObj.collectItems)
+                UpdateQuestProgress(quest, 1);
+        }
+    }
+
+    public void ItemCrafted()
+    {
+        foreach (QuestData quest in activeQuests)
+        {
+            if (quest.objectiveType == QuestData.questObj.craftItems)
+                UpdateQuestProgress(quest, 1);
+        }
+    }
+
+    public void MinigameCompleted()
+    {
+        foreach (QuestData quest in activeQuests)
+        {
+            if (quest.objectiveType == QuestData.questObj.completeMG)
+                UpdateQuestProgress(quest, 1);
+        }
     }
 }
