@@ -7,7 +7,7 @@ public class CheckTrigger : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (isLoading) return; // already loading, ignore further triggers
+       // if (isLoading) return; // already loading, ignore further triggers
 
         foreach (CollisionTarget target in targets)
         {

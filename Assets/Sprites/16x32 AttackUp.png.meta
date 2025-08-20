@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0eb67da654ec0974a86aec601fe99f29
+guid: be9747b0abc11ae48b81a33fb26083de
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3555704942112626511
-    second: 16x32 Walk Front_0
+      213: -3818664411031926515
+    second: 16x32 AttackUp_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 16x32 Walk Front_0
+      name: 16x32 AttackUp_0
       rect:
         serializedVersion: 2
         x: 0
@@ -126,16 +126,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 0025f40d5365f67489a446705c3a19d8
-      internalID: 704866768
+      spriteID: d09040843f0610bc0800000000000000
+      internalID: -3818664411031926515
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 16x32 Walk Front_1
+      name: 16x32 AttackUp_1
       rect:
         serializedVersion: 2
         x: 16
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 181ce70bf1b911c489799e11483c2535
-      internalID: -1907917490
+      spriteID: 2bb0f38fca9bd6f43880d6fd840ce761
+      internalID: 64605889
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 16x32 Walk Front_2
+      name: 16x32 AttackUp_2
       rect:
         serializedVersion: 2
         x: 32
@@ -172,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a49e1ec9580b98c48892cc7ee524a51b
-      internalID: 1124348329
+      spriteID: 5287c1485d9e3bc40ba263debdef36e7
+      internalID: 575871071
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 16x32 Walk Front_3
+      name: 16x32 AttackUp_3
       rect:
         serializedVersion: 2
         x: 48
@@ -194,8 +194,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a5321e16af20ce4f8e93f4e81a9bdf7
-      internalID: -1145685864
+      spriteID: 2fb85f2856b2f2147a98e91facb94419
+      internalID: 659929790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x32 AttackUp_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3043eb325642a80489718e97ca82e28d
+      internalID: -819490314
       vertices: []
       indices: 
       edges: []
@@ -204,7 +226,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ae1138109cbebb843959f6ccea9f1d41
+    spriteID: e70e59ae3667cbc41ad053c2750919a6
     internalID: 0
     vertices: []
     indices: 
@@ -214,10 +236,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      16x32 Walk Front_0: 704866768
-      16x32 Walk Front_1: -1907917490
-      16x32 Walk Front_2: 1124348329
-      16x32 Walk Front_3: -1145685864
+      16x32 AttackUp_0: -3818664411031926515
+      16x32 AttackUp_1: 64605889
+      16x32 AttackUp_2: 575871071
+      16x32 AttackUp_3: 659929790
+      16x32 AttackUp_4: -819490314
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

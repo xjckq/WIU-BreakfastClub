@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 0eb67da654ec0974a86aec601fe99f29
+guid: 3887fb068b7b96746b134504990ae413
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3555704942112626511
-    second: 16x32 Walk Front_0
+      213: -5838385132157236973
+    second: 16x32 AttackSide_0
+  - first:
+      213: 1916946826608148903
+    second: 16x32 AttackSide_1
+  - first:
+      213: 7688196275779288008
+    second: 16x32 AttackSide_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 16x32 Walk Front_0
+      name: 16x32 AttackSide_0
       rect:
         serializedVersion: 2
         x: 0
@@ -126,16 +132,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 0025f40d5365f67489a446705c3a19d8
-      internalID: 704866768
+      spriteID: 31988d7c7a3e9fea0800000000000000
+      internalID: -5838385132157236973
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 16x32 Walk Front_1
+      name: 16x32 AttackSide_1
       rect:
         serializedVersion: 2
         x: 16
@@ -148,16 +154,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 181ce70bf1b911c489799e11483c2535
-      internalID: -1907917490
+      spriteID: 7a18a4d7bfc5a9a10800000000000000
+      internalID: 1916946826608148903
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 16x32 Walk Front_2
+      name: 16x32 AttackSide_2
       rect:
         serializedVersion: 2
         x: 32
@@ -170,16 +176,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: a49e1ec9580b98c48892cc7ee524a51b
-      internalID: 1124348329
+      spriteID: 8cb3e4d67c5f1ba60800000000000000
+      internalID: 7688196275779288008
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 16x32 Walk Front_3
+      name: 16x32 AttackSide_3
       rect:
         serializedVersion: 2
         x: 48
@@ -194,8 +200,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a5321e16af20ce4f8e93f4e81a9bdf7
-      internalID: -1145685864
+      spriteID: bdaf4316cb836f8409f31ea51d9a2288
+      internalID: 2133316794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x32 AttackSide_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f88b48264df891c46bab297e51dee9fb
+      internalID: 884794092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x32 AttackSide_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8977de3a98d1bd1458c7b9f7849523bd
+      internalID: -382791344
       vertices: []
       indices: 
       edges: []
@@ -204,7 +254,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ae1138109cbebb843959f6ccea9f1d41
+    spriteID: ca344f324cc0f3d4ca85fdcc10e40e57
     internalID: 0
     vertices: []
     indices: 
@@ -214,10 +264,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      16x32 Walk Front_0: 704866768
-      16x32 Walk Front_1: -1907917490
-      16x32 Walk Front_2: 1124348329
-      16x32 Walk Front_3: -1145685864
+      16x32 AttackSide_0: -5838385132157236973
+      16x32 AttackSide_1: 1916946826608148903
+      16x32 AttackSide_2: 7688196275779288008
+      16x32 AttackSide_3: 2133316794
+      16x32 AttackSide_4: 884794092
+      16x32 AttackSide_5: -382791344
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
