@@ -1,5 +1,7 @@
 using Pathfinding;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AIChicken : MonoBehaviour
 {
@@ -8,15 +10,15 @@ public class AIChicken : MonoBehaviour
         IDLE,
         CHASE,
         ESCAPE,
-        CAPTURE
+        CAPTURE,
+        RUNAWAY
     };
 
     public EnemyState CurrentState { get; set; }
     public GameObject target;
     public float chaseRange = 5;
 
-    // Push settings
-    public float pushDetectionRadius = 1.5f;
+    public float pushRadius = 1.5f;
     public float pushDistance = 1.2f;
     public float pushSpeed = 4;
     public float pushDuration = 0.8f;
@@ -24,8 +26,7 @@ public class AIChicken : MonoBehaviour
     private AIDestinationSetter aiDest;
     private Rigidbody2D playerRB;
 
-    // Push variables
-    private float pushTimer = 0f;
+    private float pushTimer = 0;
     private Vector2 pushTargetPos;
 
     [SerializeField] Animator animator;
@@ -67,18 +68,23 @@ public class AIChicken : MonoBehaviour
             case EnemyState.ESCAPE:
                 Escape();
                 break;
+            case EnemyState.RUNAWAY:
+                Destroy(gameObject);
+                break;
+            default:
+                break;
         }
 
-        CheckForPush();
+        Push();
     }
 
-    private void CheckForPush()
+    private void Push()
     {
         Vector2 chickenPos = transform.position;
         Vector2 playerPos = target.transform.position;
         float distanceToPlayer = Vector2.Distance(chickenPos, playerPos);
 
-        if (distanceToPlayer < pushDetectionRadius)
+        if (distanceToPlayer < pushRadius)
             Push(chickenPos, playerPos);
     }
 
@@ -88,10 +94,8 @@ public class AIChicken : MonoBehaviour
 
         Vector2 pushDirection = (chickenPos - playerPos).normalized;
 
-        // set where the chicken will be pushed to
         pushTargetPos = chickenPos + pushDirection * pushDistance;
 
-        // start the push timer
         pushTimer = pushDuration;
 
         // face away from player
@@ -154,6 +158,9 @@ public class AIChicken : MonoBehaviour
             case EnemyState.CAPTURE:
                 aiDest.target = null;
                 break;
+            case EnemyState.RUNAWAY:
+                aiDest.target = null;
+                break;
         }
         CurrentState = nextState;
     }
@@ -170,7 +177,14 @@ public class AIChicken : MonoBehaviour
     {
         if (collision.gameObject.tag == "CaptureZone")
         {
+            Debug.Log("capture zone testest");
             ChangeState(EnemyState.CAPTURE);
+        }
+
+        if (collision.gameObject.tag == "EscapeZone")
+        {
+            Debug.Log("escape zone testest");
+            ChangeState(EnemyState.RUNAWAY);
         }
     }
 }

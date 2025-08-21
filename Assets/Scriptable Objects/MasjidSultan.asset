@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ba3efa7892f4242931c1f0b4076f93, type: 3}
   m_Name: MasjidSultan
   m_EditorClassIdentifier: 
-  landmarkName: MasjidSultan
-  gameObject: {fileID: 0}
-  fadedSprite: {fileID: 0}
-  restoredSprite: {fileID: 0}
+  landmarkName: Masjid Sultan
+  landmarkSceneName: MasjidSultan
+  restoredColor: {r: 1, g: 1, b: 1, a: 1}
+  originalColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - NPC
   - CaptureZone
+  - EscapeZone
   layers:
   - Default
   - TransparentFX
