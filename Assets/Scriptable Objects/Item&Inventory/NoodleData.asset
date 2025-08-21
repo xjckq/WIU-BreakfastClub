@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c4257d3b72e5cc48aa1398a4968a872, type: 3}
-  m_Name: BuffPotionData
+  m_Name: NoodleData
   m_EditorClassIdentifier: 
-  itemName: Buff Food
-  itemImage: {fileID: 1564915983560958764, guid: 06ad4862c75a9d54d91485b53a805e0f, type: 3}
+  itemName: Noodles
+  itemImage: {fileID: 8406823489743734843, guid: 38c5964ca2af0b04bb52713b900e814b, type: 3}

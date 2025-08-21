@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 748f9a879f7ceda4499aed0be01f900c, type: 3}
-  m_Name: BuffPotionEffect
+  m_Script: {fileID: 11500000, guid: 0c4257d3b72e5cc48aa1398a4968a872, type: 3}
+  m_Name: BananaData
   m_EditorClassIdentifier: 
-  duration: 10
-  buffAmount: 10
+  itemName: Banana
+  itemImage: {fileID: -9182177788924653191, guid: 77b4faed9f52184469fe0dc854b8ad82, type: 3}
