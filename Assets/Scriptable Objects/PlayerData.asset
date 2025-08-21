@@ -15,3 +15,9 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   money: 0
+  speed: 5
+  currentSpeed: 5
+  buffFoodActive: 0
+  buffFoodRemainingTime: 0
+  inventoryItems: []
+  maxInventorySize: 10

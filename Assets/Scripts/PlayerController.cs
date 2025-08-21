@@ -10,20 +10,25 @@ public class PlayerController : MonoBehaviour
     InputAction moveAction;
     InputAction attackAction;
     Vector2 moveDirection;
-    public float speed = 5;
 
     public PlayerData playerData;
+
 
     bool isAttacking, isMoving;
     Vector2 facingDir = Vector2.down;
 
     public HealthbarScript healthbar;
 
+
     void Awake()
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         body = GetComponent<Rigidbody2D>();
+
+        // init speed
+        if (playerData != null)
+            playerData.currentSpeed = playerData.speed;
     }
 
     void Start()
@@ -157,6 +162,9 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        Vector2 movement = moveDirection.normalized * playerData.currentSpeed;
+
         if (isAttacking)
         {
             body.linearVelocity = Vector2.zero;
@@ -195,6 +203,4 @@ public class PlayerController : MonoBehaviour
         playerData.money = 0;
         playerData.maxHealth = 100;
     }
-
-
 }
