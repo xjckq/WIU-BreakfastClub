@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c4257d3b72e5cc48aa1398a4968a872, type: 3}
-  m_Name: HealPotionData
+  m_Script: {fileID: 11500000, guid: 0d798953e9dcccd48a2669d829b0b839, type: 3}
+  m_Name: HealFoodEffect
   m_EditorClassIdentifier: 
-  itemName: Health Potion
-  itemImage: {fileID: 764873588904309136, guid: 9a78689f92244fa4584b879a3bfd19e6, type: 3}
+  duration: 1
+  healAmount: 20

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "Inventory", menuName = "Scriptable Objects/Inventory")]
 public class Inventory : ScriptableObject
 {
-    public int maxItems = 4;
+    public int maxItems;
     public List<ItemInstance> items = new List<ItemInstance>();
 
     public bool AddItem(ItemInstance item)

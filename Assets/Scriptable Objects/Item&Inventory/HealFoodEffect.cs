@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "HealPotionEffect", menuName = "Scriptable Objects/HealPotionEffect")]
-public class HealPotionEffect : ItemEffect
+[CreateAssetMenu(fileName = "HealFoodEffect", menuName = "Scriptable Objects/HealFoodEffect")]
+public class HealFoodEffect : ItemEffect
 {
     public int healAmount;
 

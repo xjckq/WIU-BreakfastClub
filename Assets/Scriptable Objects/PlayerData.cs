@@ -14,8 +14,8 @@ public class PlayerData : ScriptableObject
     public int currentSpeed;
 
     // spd buff
-    public bool buffPotionActive = false;
-    public float buffPotionRemainingTime;
+    public bool buffFoodActive = false;
+    public float buffFoodRemainingTime;
 
     // inventory
     public List<ItemInstance> inventoryItems = new List<ItemInstance>();
@@ -50,8 +50,9 @@ public class PlayerData : ScriptableObject
         maxHealth = 100;
 
         currentSpeed = speed;
-        buffPotionActive = false;
-        buffPotionRemainingTime = 0f;
-    }
+        buffFoodActive = false;
+        buffFoodRemainingTime = 0f;
 
+        inventoryItems.Clear();
+    }
 }

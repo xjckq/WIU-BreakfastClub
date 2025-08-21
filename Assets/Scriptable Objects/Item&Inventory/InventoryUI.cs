@@ -8,30 +8,34 @@ public class InventoryUI : MonoBehaviour
     public PlayerData playerData;
     public InventorySystem inventorySystem;
 
-    // potions
-    public Transform potionCell;
-    public bool buffPotionInUse = false;
-    public TMP_Text potionInUseText;
-    public TMP_Text HPfullText;
+    // foods
+    public Transform foodCell;
+    public bool buffFoodInUse = false;
+    public TMP_Text foodInUseText;
+    public TMP_Text HPfullText; 
+    private Coroutine buffFoodCoroutine;
 
-    void Start()
+    void Awake()
     {
-        // populate from playerData
-        if (playerData != null && playerData.inventoryItems.Count > 0)
-        {
-            foreach (var item in playerData.inventoryItems)
-                AddItemToInventoryGUI(item.itemData.itemImage);
-        }
-
-        // restore buff if active
-        if (playerData != null && playerData.buffPotionActive)
-        {
-            buffPotionInUse = true;
-            potionInUseText.gameObject.SetActive(true);
-
-            StartCoroutine(BuffPotionTimer(playerData.buffPotionRemainingTime));
-        }
+        RefreshInventoryUI();
+        ResetBuffs();
     }
+
+    public void ResetBuffs()
+    {
+        // stop food buff coroutine
+        if (buffFoodCoroutine != null)
+        {
+            StopCoroutine(buffFoodCoroutine);
+            buffFoodCoroutine = null;
+        }
+
+        buffFoodInUse = false;
+        playerData.buffFoodActive = false;
+        playerData.buffFoodRemainingTime = 0f;
+        foodInUseText.gameObject.SetActive(false);
+    }
+
 
     void Update()
     {
@@ -45,7 +49,7 @@ public class InventoryUI : MonoBehaviour
 
     public void AddItemToInventoryGUI(Sprite newItem)
     {
-        foreach (Transform cell in potionCell)
+        foreach (Transform cell in foodCell)
         {
             Image itemImage = cell.GetComponentInChildren<Image>();
 
@@ -72,21 +76,21 @@ public class InventoryUI : MonoBehaviour
             playerData.inventoryItems.RemoveAt(index);
     }
 
-    private IEnumerator BuffPotionTimer(float duration)
+    private IEnumerator BuffFoodTimer(float duration)
     {
         float remaining = duration;
         while (remaining > 0)
         {
-            playerData.buffPotionRemainingTime = remaining;
+            playerData.buffFoodRemainingTime = remaining;
             remaining -= Time.deltaTime;
             yield return null;
         }
 
-        buffPotionInUse = false;
-        playerData.buffPotionActive = false;
-        playerData.buffPotionRemainingTime = 0;
+        buffFoodInUse = false;
+        playerData.buffFoodActive = false;
+        playerData.buffFoodRemainingTime = 0;
 
-        potionInUseText.gameObject.SetActive(false);
+        foodInUseText.gameObject.SetActive(false);
     }
 
     public void UseItem(Button selectedItemButton)
@@ -96,29 +100,33 @@ public class InventoryUI : MonoBehaviour
         Image currentImage = selectedItemButton.GetComponentInChildren<Image>();
         if (currentImage.sprite != null)
         {
-            // buff potion check
-            if (currentImage.sprite.name == "majulah")
+            // buff food check
+            if (currentImage.sprite.name == "wantonnoodle_0")
             {
-                if (buffPotionInUse)
+                // if in use, refresh timer
+                if (buffFoodInUse)
                 {
-                    Debug.Log("buff potion already used");
-                    return;
+                    if (buffFoodCoroutine != null)
+                    {
+                        StopCoroutine(buffFoodCoroutine);
+                    }
+                    playerData.buffFoodRemainingTime += 10f;
+                    buffFoodCoroutine = StartCoroutine(BuffFoodTimer(playerData.buffFoodRemainingTime));
                 }
                 else
                 {
-                    buffPotionInUse = true;
-                    playerData.buffPotionActive = true;
-                    playerData.buffPotionRemainingTime = 10f;
+                    buffFoodInUse = true;
+                    playerData.buffFoodActive = true;
+                    playerData.buffFoodRemainingTime = 10f;
 
-                    potionInUseText.gameObject.SetActive(true);
-                    StartCoroutine(BuffPotionTimer(10));
+                    foodInUseText.gameObject.SetActive(true);
+                    buffFoodCoroutine = StartCoroutine(BuffFoodTimer(playerData.buffFoodRemainingTime));
                 }
             }
 
-            // heal potion check
-            if (currentImage.sprite.name == "fatto_idle1_0")
+            // heal food check
+            if (currentImage.sprite.name == "gorengpisang_0")
             {
-                Debug.Log("teto");
                 if (playerData.health >= playerData.maxHealth)
                 {
                     Debug.Log("HP full");
@@ -144,10 +152,10 @@ public class InventoryUI : MonoBehaviour
             currentImage.color = new Color(0, 0.7f, 0.7f, 1);
 
             // shift remaining items left
-            for (int i = index; i < potionCell.childCount - 1; i++)
+            for (int i = index; i < foodCell.childCount - 1; i++)
             {
-                currentImage = potionCell.GetChild(i).GetComponentInChildren<Image>();
-                Image childImage = potionCell.GetChild(i + 1).GetComponentInChildren<Image>();
+                currentImage = foodCell.GetChild(i).GetComponentInChildren<Image>();
+                Image childImage = foodCell.GetChild(i + 1).GetComponentInChildren<Image>();
                 if (childImage.sprite != null)
                 {
                     currentImage.sprite = childImage.sprite;
@@ -167,7 +175,7 @@ public class InventoryUI : MonoBehaviour
     public void RefreshInventoryUI()
     {
         // clear all cells first
-        foreach (Transform cell in potionCell)
+        foreach (Transform cell in foodCell)
         {
             Image img = cell.GetComponentInChildren<Image>();
             if (img != null)

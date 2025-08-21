@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c4257d3b72e5cc48aa1398a4968a872, type: 3}
   m_Name: BuffPotionData
   m_EditorClassIdentifier: 
-  itemName: Buff Potion
-  itemImage: {fileID: -6819781099888879877, guid: 285a47300b6fed64bb01ab7e5205b2c1, type: 3}
+  itemName: Buff Food
+  itemImage: {fileID: 1564915983560958764, guid: 06ad4862c75a9d54d91485b53a805e0f, type: 3}

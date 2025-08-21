@@ -53,14 +53,14 @@ public class InventorySystem : MonoBehaviour
 
     public void Update()
     {
-        if (playerData.buffPotionActive)
+        if (playerData.buffFoodActive)
         {
-            playerData.buffPotionRemainingTime -= Time.deltaTime;
+            playerData.buffFoodRemainingTime -= Time.deltaTime;
             // revert speed buff
-            if (playerData.buffPotionRemainingTime <= 0f)
+            if (playerData.buffFoodRemainingTime <= 0f)
             {
-                playerData.buffPotionActive = false;
-                playerData.currentSpeed -= 2;
+                playerData.buffFoodActive = false;
+                playerData.currentSpeed = playerData.speed;
                 Debug.Log("buff reverted");
             }
         }
