@@ -1,26 +1,20 @@
 using UnityEngine;
-using UnityEngine.Events;
-
-[System.Serializable]
-public class CollisionTarget
-{
-    public Collider2D collider;
-    public UnityEvent onCollisionEnter;
-    public UnityEvent onCollisionExit;
-}
 
 public class CheckTrigger : MonoBehaviour
 {
     public CollisionTarget[] targets;
+    private bool isLoading = false;
 
     public void OnTriggerEnter2D(Collider2D other)
     {
+       // if (isLoading) return; // already loading, ignore further triggers
+
         foreach (CollisionTarget target in targets)
         {
             if (other == target.collider)
             {
-                Debug.Log("Touched: " + target.collider.name);
                 target.onCollisionEnter.Invoke();
+                isLoading = true; // prevent multiple loads
                 return;
             }
         }
