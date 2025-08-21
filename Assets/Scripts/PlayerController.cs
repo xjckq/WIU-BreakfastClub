@@ -10,6 +10,11 @@ public class PlayerController : MonoBehaviour
     Vector2 moveDirection;
     public float speed = 5;
 
+    public bool canMove = true;
+
+    public GameObject questTab;
+    public bool isQuestTabOpen = false;
+
 
     void Awake()
     {
@@ -33,6 +38,8 @@ public class PlayerController : MonoBehaviour
 
     private void onMove(InputAction.CallbackContext ctx)
     {
+        if (!canMove) return;
+
         moveDirection = ctx.ReadValue<Vector2>();
 
         animator.SetBool("isMovingSide", false);
@@ -58,7 +65,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     private void onMoveCancel(InputAction.CallbackContext ctx)
     {
         moveDirection = Vector2.zero;
@@ -82,6 +88,20 @@ public class PlayerController : MonoBehaviour
         {
             QuestManager.Instance.playerData.TakeDmg(5);
             Debug.Log("player has " + QuestManager.Instance.playerData.health + "now");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (!isQuestTabOpen)
+            {
+                questTab.SetActive(true);
+                isQuestTabOpen = true;
+            }
+            else
+            {
+                questTab.SetActive(false);
+                isQuestTabOpen = false;
+            }
         }
     }
 
