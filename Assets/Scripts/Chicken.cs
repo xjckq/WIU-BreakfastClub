@@ -1,3 +1,4 @@
+using Pathfinding;
 using UnityEngine;
 
 public class Chicken : MonoBehaviour
@@ -20,9 +21,12 @@ public class Chicken : MonoBehaviour
 
     Rigidbody2D playerRB;
 
+    AIDestinationSetter target;
+
     void Start()
     {
         playerRB = player.GetComponent<Rigidbody2D>();
+        target = GetComponent<AIDestinationSetter>();
     }
 
     void Update()
@@ -46,6 +50,7 @@ public class Chicken : MonoBehaviour
         // check for push behavior
         if (distanceToPlayer < pushDetectionRadius && IsPlayerMovingTowardsChicken())
         {
+            target = null; // stop AI movement
             Vector2 pushDirection = (chickenPos - playerPos).normalized;
 
             // set push target position
@@ -61,12 +66,6 @@ public class Chicken : MonoBehaviour
             return;
         }
 
-        // follow player
-        if (distanceToPlayer > stopDistance)
-        {
-            newPos = Vector2.MoveTowards(chickenPos, playerPos, speed * Time.deltaTime);
-            transform.position = new Vector3(newPos.x, newPos.y, transform.position.z);
-        }
     }
 
     bool IsPlayerMovingTowardsChicken()
