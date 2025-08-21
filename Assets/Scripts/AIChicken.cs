@@ -7,17 +7,18 @@ public class AIChicken : MonoBehaviour
     {
         IDLE,
         CHASE,
-        ESCAPE
+        ESCAPE,
+        CAPTURE
     };
 
     public EnemyState CurrentState { get; set; }
     public GameObject target;
-    public float chaseRange = 5f;
+    public float chaseRange = 5;
 
     // Push settings
     public float pushDetectionRadius = 1.5f;
     public float pushDistance = 1.2f;
-    public float pushSpeed = 4f;
+    public float pushSpeed = 4;
     public float pushDuration = 0.8f;
 
     private AIDestinationSetter aiDest;
@@ -42,6 +43,9 @@ public class AIChicken : MonoBehaviour
 
     void Update()
     {
+        if (CurrentState == EnemyState.CAPTURE)
+            return;
+
         pushTimer -= Time.deltaTime;
 
         if (pushTimer > 0)
@@ -118,7 +122,7 @@ public class AIChicken : MonoBehaviour
 
         if (distanceToPlayer > chaseRange)
             ChangeState(EnemyState.IDLE);
-        
+
     }
 
     private void Escape()
@@ -146,6 +150,10 @@ public class AIChicken : MonoBehaviour
             case EnemyState.ESCAPE:
                 aiDest.target = null;
                 break;
+
+            case EnemyState.CAPTURE:
+                aiDest.target = null;
+                break;
         }
         CurrentState = nextState;
     }
@@ -156,5 +164,13 @@ public class AIChicken : MonoBehaviour
             transform.localScale = new Vector3(scaleX, transform.localScale.y, transform.localScale.z);
         else
             transform.localScale = new Vector3(-scaleX, transform.localScale.y, transform.localScale.z);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "CaptureZone")
+        {
+            ChangeState(EnemyState.CAPTURE);
+        }
     }
 }
