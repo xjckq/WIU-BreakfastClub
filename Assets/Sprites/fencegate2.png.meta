@@ -1,40 +1,40 @@
 fileFormatVersion: 2
-guid: 443aa5aeb3067064392e1d6d8ec0a984
+guid: 7ac63c92ae7ab6643aa901c56930a778
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2025457947715669918
-    second: fencegate_0
+      213: 7579955001596819164
+    second: fencegate2_0
   - first:
-      213: 821600210872928099
-    second: fencegate_1
+      213: -1375270857675860680
+    second: fencegate2_1
   - first:
-      213: 2369238168497783607
-    second: fencegate_2
+      213: -1461404787044962161
+    second: fencegate2_2
   - first:
-      213: 2994899961014331207
-    second: fencegate_3
+      213: 6002471729755908931
+    second: fencegate2_3
   - first:
-      213: 128765171053939074
-    second: fencegate_4
+      213: 2749105728090914885
+    second: fencegate2_4
   - first:
-      213: 4962565352382829653
-    second: fencegate_5
+      213: -974753805475416795
+    second: fencegate2_5
   - first:
-      213: 8426291085165070680
-    second: fencegate_6
+      213: -8878552150166850892
+    second: fencegate2_6
   - first:
-      213: 7651468417699589019
-    second: fencegate_7
+      213: 964176923034749726
+    second: fencegate2_7
   - first:
-      213: 4134146939913861581
-    second: fencegate_8
+      213: 778333024414757910
+    second: fencegate2_8
   - first:
-      213: -2764012836033625498
-    second: fencegate_9
+      213: 1459110142883807551
+    second: fencegate2_9
   - first:
-      213: 4719620890936464929
-    second: fencegate_10
+      213: -2467956304005182081
+    second: fencegate2_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -81,7 +81,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -130,155 +130,155 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fencegate_0
+      name: fencegate2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 64
         height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 253538cf3a6b36144a7ca9807459ff01
-      internalID: 1618914906
+      spriteID: c84d1e0118249134aa84db324610f136
+      internalID: 339901523
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fencegate_1
+      name: fencegate2_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 64
         height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b1df89b12f5a5449aa395f9610021b4
-      internalID: -1671613137
+      spriteID: 5e0e1be355fef0f49a692c0c972f4059
+      internalID: -887558640
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fencegate_2
+      name: fencegate2_2
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 64
         height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 932dd904199287140a8a2ceacd97f9e5
-      internalID: 1650279720
+      spriteID: 9ed2aa5c1b628324a85f94473bd9518d
+      internalID: 651617077
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fencegate_3
+      name: fencegate2_3
       rect:
         serializedVersion: 2
         x: 192
         y: 0
         width: 64
         height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04bf1560a2205be4a8a9cca45df57b83
-      internalID: -746491363
+      spriteID: 08d2c854a87ca3342b26437389de9d17
+      internalID: -1957136664
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fencegate_4
+      name: fencegate2_4
       rect:
         serializedVersion: 2
         x: 256
         y: 0
         width: 64
         height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 654f73015f666da479a067a3e092fc95
-      internalID: 246678102
+      spriteID: 1a44e280f9469534cb5cc9a98e7ffde4
+      internalID: -703899306
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fencegate_5
+      name: fencegate2_5
       rect:
         serializedVersion: 2
         x: 320
         y: 0
         width: 64
         height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84ec9e3d88e77eb4eb927d3cc1f464ca
-      internalID: -1842783078
+      spriteID: c5bab852708aa1a4386665a10f733770
+      internalID: 1684267340
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fencegate_6
+      name: fencegate2_6
       rect:
         serializedVersion: 2
         x: 384
         y: 0
         width: 64
         height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9654de1b9ea0714088db8e27f9abece
-      internalID: 1157410770
+      spriteID: 06300cccd7c2dcc4bab3feb7fe04430c
+      internalID: -860068283
       vertices: []
       indices: 
       edges: []
@@ -287,7 +287,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e47132c3add14b44ae645ee28861fcc
+    spriteID: 56736620b7708264cb8a0e964315579c
     internalID: 0
     vertices: []
     indices: 
@@ -297,13 +297,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      fencegate_0: 1618914906
-      fencegate_1: -1671613137
-      fencegate_2: 1650279720
-      fencegate_3: -746491363
-      fencegate_4: 246678102
-      fencegate_5: -1842783078
-      fencegate_6: 1157410770
+      fencegate2_0: 339901523
+      fencegate2_1: -887558640
+      fencegate2_2: 651617077
+      fencegate2_3: -1957136664
+      fencegate2_4: -703899306
+      fencegate2_5: 1684267340
+      fencegate2_6: -860068283
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

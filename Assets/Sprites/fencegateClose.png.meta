@@ -1,40 +1,40 @@
 fileFormatVersion: 2
-guid: 443aa5aeb3067064392e1d6d8ec0a984
+guid: 60d4535a52f136a45944ddfdaa93f3a7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2025457947715669918
-    second: fencegate_0
+      213: 7246338221276646268
+    second: fencegateClose_0
   - first:
-      213: 821600210872928099
-    second: fencegate_1
+      213: 2398004134534936720
+    second: fencegateClose_1
   - first:
-      213: 2369238168497783607
-    second: fencegate_2
+      213: 5792568126574189604
+    second: fencegateClose_2
   - first:
-      213: 2994899961014331207
-    second: fencegate_3
+      213: -4069434597853767302
+    second: fencegateClose_3
   - first:
-      213: 128765171053939074
-    second: fencegate_4
+      213: -196932972719447238
+    second: fencegateClose_4
   - first:
-      213: 4962565352382829653
-    second: fencegate_5
+      213: -5154320449513999869
+    second: fencegateClose_5
   - first:
-      213: 8426291085165070680
-    second: fencegate_6
+      213: -404127536538524123
+    second: fencegateClose_6
   - first:
-      213: 7651468417699589019
-    second: fencegate_7
+      213: -3688444894209389365
+    second: fencegateClose_7
   - first:
-      213: 4134146939913861581
-    second: fencegate_8
+      213: 1134585214814035926
+    second: fencegateClose_8
   - first:
-      213: -2764012836033625498
-    second: fencegate_9
+      213: 4800394951749658389
+    second: fencegateClose_9
   - first:
-      213: 4719620890936464929
-    second: fencegate_10
+      213: 1368365831082040404
+    second: fencegateClose_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -130,7 +130,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fencegate_0
+      name: fencegateClose_0
       rect:
         serializedVersion: 2
         x: 0
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 253538cf3a6b36144a7ca9807459ff01
-      internalID: 1618914906
+      spriteID: 3f7bfe631e2fad64688c7a42555816c5
+      internalID: 585960333
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fencegate_1
+      name: fencegateClose_1
       rect:
         serializedVersion: 2
         x: 64
@@ -167,14 +167,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b1df89b12f5a5449aa395f9610021b4
-      internalID: -1671613137
+      spriteID: 9e1883a579b58734daf3538c8f46a63b
+      internalID: -831152525
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fencegate_2
+      name: fencegateClose_2
       rect:
         serializedVersion: 2
         x: 128
@@ -189,14 +189,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 932dd904199287140a8a2ceacd97f9e5
-      internalID: 1650279720
+      spriteID: 458834eaaa6eb7b43a616f42b588f7f9
+      internalID: -1250820118
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fencegate_3
+      name: fencegateClose_3
       rect:
         serializedVersion: 2
         x: 192
@@ -211,14 +211,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04bf1560a2205be4a8a9cca45df57b83
-      internalID: -746491363
+      spriteID: f0be742b2ca1e4e449ba0bf75a72efe5
+      internalID: -1323161632
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fencegate_4
+      name: fencegateClose_4
       rect:
         serializedVersion: 2
         x: 256
@@ -233,14 +233,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 654f73015f666da479a067a3e092fc95
-      internalID: 246678102
+      spriteID: abc92ca69b4eb4d41997dfb9f98c2cdd
+      internalID: 2009307225
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fencegate_5
+      name: fencegateClose_5
       rect:
         serializedVersion: 2
         x: 320
@@ -255,14 +255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84ec9e3d88e77eb4eb927d3cc1f464ca
-      internalID: -1842783078
+      spriteID: 70c72e8c539b98c47b767d96e7aea9d7
+      internalID: 1699068627
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fencegate_6
+      name: fencegateClose_6
       rect:
         serializedVersion: 2
         x: 384
@@ -277,8 +277,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9654de1b9ea0714088db8e27f9abece
-      internalID: 1157410770
+      spriteID: 33ca034b5d2e74c47b6ce9ff9f0d368b
+      internalID: 1112872176
       vertices: []
       indices: 
       edges: []
@@ -287,7 +287,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e47132c3add14b44ae645ee28861fcc
+    spriteID: 5dce09cc035881e4aaa5b9029e2a4175
     internalID: 0
     vertices: []
     indices: 
@@ -297,13 +297,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      fencegate_0: 1618914906
-      fencegate_1: -1671613137
-      fencegate_2: 1650279720
-      fencegate_3: -746491363
-      fencegate_4: 246678102
-      fencegate_5: -1842783078
-      fencegate_6: 1157410770
+      fencegateClose_0: 585960333
+      fencegateClose_1: -831152525
+      fencegateClose_2: -1250820118
+      fencegateClose_3: -1323161632
+      fencegateClose_4: 2009307225
+      fencegateClose_5: 1699068627
+      fencegateClose_6: 1112872176
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

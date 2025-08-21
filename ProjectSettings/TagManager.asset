@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 3
   tags:
   - NPC
+  - Enemy
+  - BottomBoundingBox
+  - RightBoundingBox
+  - TopBoundingBox
+  - LeftBoundingBox
   layers:
   - Default
   - TransparentFX
@@ -13,9 +18,9 @@ TagManager:
   - Water
   - UI
   - Obstacle
-  - 
-  - 
-  - 
+  - OpenDoor
+  - PlayerOpen
+  - PlayerOpenDoor
   - 
   - 
   - 

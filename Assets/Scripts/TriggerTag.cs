@@ -1,25 +1,25 @@
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEngine.GraphicsBuffer;
 
 [System.Serializable]
-public class CollisionTarget
+public class CollisionTagName
 {
-    public Collider2D collider;
+    public string tagName;
     public UnityEvent onCollisionEnter;
     public UnityEvent onCollisionExit;
 }
 
-public class CheckTrigger : MonoBehaviour
+public class TriggerTag : MonoBehaviour
 {
-    public CollisionTarget[] targets;
+    public CollisionTagName[] targets;
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        foreach (CollisionTarget target in targets)
+        foreach (CollisionTagName target in targets)
         {
-            if (other == target.collider)
+            if (other.CompareTag(target.tagName))
             {
-                Debug.Log("Touched: " + target.collider.name);
                 target.onCollisionEnter.Invoke();
                 return;
             }
@@ -28,9 +28,9 @@ public class CheckTrigger : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D other)
     {
-        foreach (CollisionTarget target in targets)
+        foreach(CollisionTagName target in targets)
         {
-            if (other == target.collider)
+            if (other.CompareTag(target.tagName))
             {
                 target.onCollisionExit.Invoke();
                 return;

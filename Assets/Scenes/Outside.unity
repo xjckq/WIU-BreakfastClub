@@ -10105,7 +10105,7 @@ GameObject:
   - component: {fileID: 619846800}
   - component: {fileID: 619846799}
   - component: {fileID: 619846798}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HitboxSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10584,7 +10584,7 @@ GameObject:
   - component: {fileID: 969455778}
   - component: {fileID: 969455779}
   - component: {fileID: 969455781}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HitboxDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12286,7 +12286,7 @@ GameObject:
   - component: {fileID: 1614578318}
   - component: {fileID: 1614578317}
   - component: {fileID: 1614578316}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HitboxUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14310,7 +14310,7 @@ GameObject:
   - component: {fileID: 4634886229325510892}
   - component: {fileID: 5050637776912304045}
   - component: {fileID: 9040987566913373091}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
