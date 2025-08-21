@@ -10,20 +10,25 @@ public class PlayerController : MonoBehaviour
     InputAction moveAction;
     InputAction attackAction;
     Vector2 moveDirection;
-    public float speed = 5;
 
     public PlayerData playerData;
+
 
     bool isAttacking, isMoving;
     Vector2 facingDir = Vector2.down;
 
     public HealthbarScript healthbar;
 
+
     void Awake()
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         body = GetComponent<Rigidbody2D>();
+
+        // init speed
+        if (playerData != null)
+            playerData.currentSpeed = playerData.speed;
     }
 
     void Start()
@@ -41,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
         attackAction = InputSystem.actions.FindAction("Attack");
         attackAction.started += onAttackStart;
-        attackAction.canceled += onAttackEnd;
+        attackAction.canceled+= onAttackEnd;
     }
 
     private void OnDisable()
@@ -119,14 +124,14 @@ public class PlayerController : MonoBehaviour
         {
             if (facingDir.y < 0)
                 animator.SetTrigger("isAttackDown");
-            else
+            else 
                 animator.SetTrigger("isAttackUp");
         }
 
         isAttacking = true;
     }
 
-    private void onAttackEnd(InputAction.CallbackContext ctx)
+    private void onAttackEnd (InputAction.CallbackContext ctx)
     {
         animator.ResetTrigger("isAttackDown");
         animator.ResetTrigger("isAttackUp");
@@ -157,6 +162,9 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        Vector2 movement = moveDirection.normalized * playerData.currentSpeed;
+
         if (isAttacking)
         {
             body.linearVelocity = Vector2.zero;
@@ -195,6 +203,4 @@ public class PlayerController : MonoBehaviour
         playerData.money = 0;
         playerData.maxHealth = 100;
     }
-
-
 }
