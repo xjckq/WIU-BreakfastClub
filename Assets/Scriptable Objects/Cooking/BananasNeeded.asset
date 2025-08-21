@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c4257d3b72e5cc48aa1398a4968a872, type: 3}
-  m_Name: HealFoodData
+  m_Script: {fileID: 11500000, guid: c382ebfb3be03214a90a9782de24fd22, type: 3}
+  m_Name: BananasNeeded
   m_EditorClassIdentifier: 
-  itemName: Health Food
-  itemImage: {fileID: -1838813238098323438, guid: ae3adfda36d298043917cb6392dcb777, type: 3}
+  ingredient: {fileID: 11400000, guid: df94808ad600fcd43bca73d998e3c7c7, type: 2}
+  amount: 1
