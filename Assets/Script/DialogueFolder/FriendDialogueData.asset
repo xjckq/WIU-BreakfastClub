@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8590a738d40f9d04b99c981feb766fa4, type: 3}
+  m_Name: FriendDialogueData
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - characterName: Mimi
+    diaTxt: Man, I didn't think we'd forget about that playground
+  - characterName: Mimi
+    diaTxt: I don't know what you did but, thanks!
+  - characterName: Xing Yi
+    diaTxt: Thanks for?
+  - characterName: Mimi
+    diaTxt: Getting our memories back, duh!!
+  - characterName: Mimi
+    diaTxt: We spend a lot of our childhood together there together!
+  FirstTalkLines:
+  - characterName: Xing Yi
+    diaTxt: Hi
+  - characterName: Mimi
+    diaTxt: Hi!! How's it going bud
+  - characterName: Xing Yi
+    diaTxt: Nothing much.
+  - characterName: Mimi
+    diaTxt: As always, shouldn't have expected anything less, haha.
+  - characterName: Xing Yi
+    diaTxt: What'd u call me for
+  - characterName: Mimi
+    diaTxt: I called you because of this.. area a few feet away from out block.
+  - characterName: Mimi
+    diaTxt: Hear me out for a bit yeah?
+  QuestOngoingLines:
+  - characterName: Mimi
+    diaTxt: It's a bit unnerving that I expect to see something there.
+  - characterName: Mimi
+    diaTxt: I can't keep thinking about it.
+  - characterName: Mimi
+    diaTxt: Like, I know it's important but I can't remember why and what.
+  - characterName: Mimi
+    diaTxt: Ugh, this sucks.
+  QuestCompletedLines:
+  - characterName: Mimi
+    diaTxt: This is..
+  - characterName: Mimi
+    diaTxt: Of course, it's the playground!
+  - characterName: Mimi
+    diaTxt: How could we have forgotten?
+  - characterName: Mimi
+    diaTxt: Such a small thing, yet it holds so much to people like us.
