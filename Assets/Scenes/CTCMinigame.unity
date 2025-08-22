@@ -255,6 +255,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 27278110}
   m_CullTransparentMesh: 1
+--- !u!1 &41464936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 41464938}
+  - component: {fileID: 41464937}
+  m_Layer: 0
+  m_Name: MinigameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &41464937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41464936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b47a98b93bf3522428c87fae852ee92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capturedNum: 0
+  escapedNum: 0
+  capturedNumTxt: {fileID: 27278112}
+  escapedNumTxt: {fileID: 1747877455}
+  acquiredNumTxt: {fileID: 1060847599}
+  timerTxt: {fileID: 2109417438}
+  resultsPanel: {fileID: 1113878170}
+--- !u!4 &41464938
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41464936}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 559.26166, y: 362.26965, z: -4.117529}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &43604701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1014,6 +1065,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2089603420}
   chaseRange: 7
+  manager: {fileID: 41464937}
   pushRadius: 1.5
   pushDistance: 1
   pushSpeed: 4
@@ -2082,6 +2134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2089603420}
   chaseRange: 7
+  manager: {fileID: 41464937}
   pushRadius: 1.5
   pushDistance: 1
   pushSpeed: 4
@@ -6421,6 +6474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2089603420}
   chaseRange: 7
+  manager: {fileID: 41464937}
   pushRadius: 1.5
   pushDistance: 1
   pushSpeed: 4
@@ -7615,6 +7669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2089603420}
   chaseRange: 7
+  manager: {fileID: 41464937}
   pushRadius: 1.5
   pushDistance: 1
   pushSpeed: 4
@@ -8345,6 +8400,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1544564709}
+  - {fileID: 41464938}
   - {fileID: 179058240}
   - {fileID: 2089603421}
   - {fileID: 577665866}

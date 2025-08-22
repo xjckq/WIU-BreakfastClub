@@ -18,6 +18,8 @@ public class AIChicken : MonoBehaviour
     public GameObject target;
     public float chaseRange = 5;
 
+    public CTCManager manager;
+
     public float pushRadius = 1.5f;
     public float pushDistance = 1.2f;
     public float pushSpeed = 4;
@@ -157,9 +159,11 @@ public class AIChicken : MonoBehaviour
 
             case EnemyState.CAPTURE:
                 aiDest.target = null;
+                manager.Captured();
                 break;
             case EnemyState.RUNAWAY:
                 aiDest.target = null;
+                manager.Escaped();
                 break;
         }
         CurrentState = nextState;
