@@ -142,33 +142,42 @@ public class InventoryUI : MonoBehaviour
             {
                 ItemInstance item = playerData.inventoryItems[index];
 
-                // apply effect
-                item.itemEffect.Use(playerData);
-                playerData.inventoryItems.RemoveAt(index);
-            }
-
-            // clear slot image
-            currentImage.sprite = null;
-            currentImage.color = new Color(0, 0.7f, 0.7f, 1);
-
-            // shift remaining items left
-            for (int i = index; i < foodCell.childCount - 1; i++)
-            {
-                currentImage = foodCell.GetChild(i).GetComponentInChildren<Image>();
-                Image childImage = foodCell.GetChild(i + 1).GetComponentInChildren<Image>();
-                if (childImage.sprite != null)
+                // only use if the item has an effect
+                if (item.itemEffect != null)
                 {
-                    currentImage.sprite = childImage.sprite;
-                    currentImage.color = Color.white;
-                    childImage.sprite = null;
-                    childImage.color = new Color(0, 0.7f, 0.7f, 1);
+                    item.itemEffect.Use(playerData);
+                    playerData.inventoryItems.RemoveAt(index);
+
+                    // clear slot image
+                    currentImage.sprite = null;
+                    currentImage.color = new Color(0, 0.7f, 0.7f, 1);
+
+                    // shift remaining items left
+                    for (int i = index; i < foodCell.childCount - 1; i++)
+                    {
+                        currentImage = foodCell.GetChild(i).GetComponentInChildren<Image>();
+                        Image childImage = foodCell.GetChild(i + 1).GetComponentInChildren<Image>();
+                        if (childImage.sprite != null)
+                        {
+                            currentImage.sprite = childImage.sprite;
+                            currentImage.color = Color.white;
+                            childImage.sprite = null;
+                            childImage.color = new Color(0, 0.7f, 0.7f, 1);
+                        }
+                        else
+                        {
+                            currentImage.color = new Color(0, 0.7f, 0.7f, 1);
+                            break;
+                        }
+                    }
                 }
                 else
                 {
-                    currentImage.color = new Color(0, 0.7f, 0.7f, 1);
-                    break;
+                    Debug.Log("item has no effect: " + item.itemData.itemName);
+                    return;
                 }
             }
+
         }
     }
 
