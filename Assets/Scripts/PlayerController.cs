@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
         attackAction = InputSystem.actions.FindAction("Attack");
         attackAction.started += onAttackStart;
-        attackAction.canceled+= onAttackEnd;
+        attackAction.canceled += onAttackEnd;
     }
 
     private void OnDisable()
@@ -130,14 +130,14 @@ public class PlayerController : MonoBehaviour
         {
             if (facingDir.y < 0)
                 animator.SetTrigger("isAttackDown");
-            else 
+            else
                 animator.SetTrigger("isAttackUp");
         }
 
         isAttacking = true;
     }
 
-    private void onAttackEnd (InputAction.CallbackContext ctx)
+    private void onAttackEnd(InputAction.CallbackContext ctx)
     {
         animator.ResetTrigger("isAttackDown");
         animator.ResetTrigger("isAttackUp");

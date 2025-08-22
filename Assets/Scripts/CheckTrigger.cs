@@ -7,12 +7,15 @@ public class CheckTrigger : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
+
         if (isLoading) return; // already loading, ignore further triggers
 
         foreach (CollisionTarget target in targets)
         {
             if (other == target.collider)
             {
+                Debug.Log("Collision");
+
                 target.onCollisionEnter.Invoke();
                 if (gameObject.layer != LayerMask.NameToLayer("Player"))
                 {
