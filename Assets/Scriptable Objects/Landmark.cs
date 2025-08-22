@@ -4,7 +4,7 @@ using UnityEngine;
 public class Landmark : ScriptableObject
 {
     public string landmarkName;
-    public string landmarkSceneName;
-    public Color restoredColor = Color.white; 
-    public Color originalColor = Color.grey; 
+    public GameObject gameObject; 
+    public Sprite fadedSprite;
+    public Sprite restoredSprite;
 }

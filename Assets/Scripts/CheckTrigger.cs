@@ -10,6 +10,8 @@ public class CheckTrigger : MonoBehaviour
 
         if (isLoading) return; // already loading, ignore further triggers
 
+       // if (isLoading) return; // already loading, ignore further triggers
+
         foreach (CollisionTarget target in targets)
         {
             if (other == target.collider)
@@ -17,10 +19,7 @@ public class CheckTrigger : MonoBehaviour
                 Debug.Log("Collision");
 
                 target.onCollisionEnter.Invoke();
-                if (gameObject.layer != LayerMask.NameToLayer("Player"))
-                {
-                    isLoading = true; // prevent multiple loads
-                }
+                isLoading = true; // prevent multiple loads
                 return;
             }
         }

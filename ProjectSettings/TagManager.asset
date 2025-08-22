@@ -5,9 +5,6 @@ TagManager:
   serializedVersion: 3
   tags:
   - NPC
-  - BlankSpace
-  - CaptureZone
-  - EscapeZone
   layers:
   - Default
   - TransparentFX

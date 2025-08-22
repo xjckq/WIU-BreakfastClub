@@ -12,20 +12,12 @@ public class PlayerController : MonoBehaviour
     Vector2 moveDirection;
     public float speed = 5;
 
-    public bool canMove = true;
-
-    public GameObject questTab;
-    public bool isQuestTabOpen = false;
-
-    public GameObject savePanel;
-    public bool isSavePanelOpen = false;
     public PlayerData playerData;
 
     bool isAttacking, isMoving;
     Vector2 facingDir = Vector2.down;
 
     public HealthbarScript healthbar;
-
 
     void Awake()
     {
@@ -62,12 +54,8 @@ public class PlayerController : MonoBehaviour
 
     private void onMove(InputAction.CallbackContext ctx)
     {
-
-        if (!canMove) return;
-
         if (isAttacking)
             return;
-
 
         moveDirection = ctx.ReadValue<Vector2>();
 
@@ -98,6 +86,7 @@ public class PlayerController : MonoBehaviour
 
         isMoving = true;
     }
+
 
     private void onMoveCancel(InputAction.CallbackContext ctx)
     {
@@ -162,34 +151,6 @@ public class PlayerController : MonoBehaviour
         {
             TakeDmg(5);
             Debug.Log("player has " + playerData.health + "now");
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.Q) && !isSavePanelOpen)
-        {
-            if (!isQuestTabOpen)
-            {
-                questTab.SetActive(true);
-                isQuestTabOpen = true;
-            }
-            else
-            {
-                questTab.SetActive(false);
-                isQuestTabOpen = false;
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.P) && !isQuestTabOpen)
-        {
-            if (!isSavePanelOpen)
-            {
-                savePanel.SetActive(true);
-                isSavePanelOpen = true;
-            }
-            else
-            {
-                savePanel.SetActive(false);
-                isSavePanelOpen = false;
-            }
         }
 
     }

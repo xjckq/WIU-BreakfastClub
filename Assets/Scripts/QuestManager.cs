@@ -186,27 +186,7 @@ public class QuestManager : MonoBehaviour
 
     private void RestoreLandmark(QuestData quest)
     {
-        if (quest.landmarkToRestore != null)
-        {
-            if (!restoredLandmarks.Contains(quest.landmarkToRestore))
-            {
-                GameObject landmarkObj = GameObject.Find(quest.landmarkToRestore.landmarkSceneName);
-
-                if (landmarkObj != null)
-                {
-                    SpriteRenderer spriteRenderer = landmarkObj.GetComponent<SpriteRenderer>();
-                    spriteRenderer.color = quest.landmarkToRestore.restoredColor;
-                    restoredLandmarks.Add(quest.landmarkToRestore);
-
-                    Debug.Log("landmark restored: " + quest.landmarkToRestore.landmarkName);
-
-                }
-                else
-                {
-                    Debug.LogWarning("can't find: " + quest.landmarkToRestore.landmarkSceneName) ;
-                }
-            }
-        }
+       //
     }
 
     public void EnemyKilled()

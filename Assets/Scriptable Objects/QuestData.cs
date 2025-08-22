@@ -17,5 +17,7 @@ public class QuestData : ScriptableObject
     public int requiredAmount;
     public int moneyReward;
     public Landmark landmarkToRestore;
+    //public ItemData requiredItem;
+    //public string Item[] itemReward;
 
 }
