@@ -36,8 +36,7 @@ public class QuestManager : MonoBehaviour
 
     int killCount, itemCount, craftCount;
 
-    public PlayerData playerData;
-
+ 
     private void Awake()
     {
         if (Instance == null)
@@ -187,42 +186,62 @@ public class QuestManager : MonoBehaviour
 
     private void RestoreLandmark(QuestData quest)
     {
-       //
+        if (quest.landmarkToRestore != null)
+        {
+            if (!restoredLandmarks.Contains(quest.landmarkToRestore))
+            {
+                GameObject landmarkObj = GameObject.Find(quest.landmarkToRestore.landmarkSceneName);
+
+                if (landmarkObj != null)
+                {
+                    SpriteRenderer spriteRenderer = landmarkObj.GetComponent<SpriteRenderer>();
+                    spriteRenderer.color = quest.landmarkToRestore.restoredColor;
+                    restoredLandmarks.Add(quest.landmarkToRestore);
+
+                    Debug.Log("landmark restored: " + quest.landmarkToRestore.landmarkName);
+
+                }
+                else
+                {
+                    Debug.LogWarning("can't find: " + quest.landmarkToRestore.landmarkSceneName) ;
+                }
+            }
+        }
     }
 
     public void EnemyKilled()
     {
-        foreach (QuestData quest in activeQuests)
+        for (int i = activeQuests.Count - 1; i >= 0; i--) // loops through all the active quests
         {
-            if (quest.objectiveType == QuestData.questObj.killEnemies)
-                UpdateQuestProgress(quest, 1);
+            if (activeQuests[i].objectiveType == QuestData.questObj.killEnemies) // check quest obj
+                UpdateQuestProgress(activeQuests[i], 1); // update progress count
         }
     }
 
     public void ItemCollected()
     {
-        foreach (QuestData quest in activeQuests)
+        for (int i = activeQuests.Count - 1; i >= 0; i--)
         {
-            if (quest.objectiveType == QuestData.questObj.collectItems)
-                UpdateQuestProgress(quest, 1);
+            if (activeQuests[i].objectiveType == QuestData.questObj.collectItems)
+                UpdateQuestProgress(activeQuests[i], 1);
         }
     }
 
     public void ItemCrafted()
     {
-        foreach (QuestData quest in activeQuests)
+        for (int i = activeQuests.Count - 1; i >= 0; i--)
         {
-            if (quest.objectiveType == QuestData.questObj.craftItems)
-                UpdateQuestProgress(quest, 1);
+            if (activeQuests[i].objectiveType == QuestData.questObj.craftItems)
+                UpdateQuestProgress(activeQuests[i], 1);
         }
     }
 
     public void MinigameCompleted()
     {
-        foreach (QuestData quest in activeQuests)
+        for (int i = activeQuests.Count - 1; i >= 0; i--)
         {
-            if (quest.objectiveType == QuestData.questObj.completeMG)
-                UpdateQuestProgress(quest, 1);
+            if (activeQuests[i].objectiveType == QuestData.questObj.completeMG)
+                UpdateQuestProgress(activeQuests[i], 1);
         }
     }
 }
