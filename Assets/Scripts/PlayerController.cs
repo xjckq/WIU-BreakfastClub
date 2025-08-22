@@ -171,7 +171,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        //Vector2 movement = moveDirection.normalized * speed;
+        Vector2 movement = moveDirection.normalized * speed;
         body.linearVelocity = movement;
 
     }
