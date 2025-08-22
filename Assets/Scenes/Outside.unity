@@ -9374,13 +9374,14 @@ GameObject:
   - component: {fileID: 484312199}
   - component: {fileID: 484312201}
   - component: {fileID: 484312200}
+  - component: {fileID: 484312202}
   m_Layer: 5
   m_Name: QuestUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &484312199
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9443,6 +9444,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 484312198}
   m_CullTransparentMesh: 1
+--- !u!114 &484312202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484312198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4044c501083155488eaed5d7b49d00c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questNames:
+  - {fileID: 447070943}
+  - {fileID: 1943105280}
+  - {fileID: 1034422926}
+  questDescs:
+  - {fileID: 234479190}
+  - {fileID: 1979467506}
+  - {fileID: 365063486}
+  questPanels:
+  - {fileID: 1652292073}
+  - {fileID: 248571490}
+  - {fileID: 150039423}
 --- !u!1 &501255972
 GameObject:
   m_ObjectHideFlags: 0
@@ -10945,16 +10970,6 @@ MonoBehaviour:
   completedQuests: []
   restoredLandmarks: []
   questProgressList: []
-  QuestUIPanels:
-  - questName: {fileID: 447070943}
-    questDesc: {fileID: 234479190}
-    questPanel: {fileID: 1652292073}
-  - questName: {fileID: 1943105280}
-    questDesc: {fileID: 1979467506}
-    questPanel: {fileID: 248571490}
-  - questName: {fileID: 1034422926}
-    questDesc: {fileID: 365063486}
-    questPanel: {fileID: 150039423}
   maxActiveQuests: 3
   killEnemyCount: 0
 --- !u!4 &1188819637
@@ -13303,7 +13318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   canMove: 1
-  questTab: {fileID: 0}
+  questTab: {fileID: 484312198}
   isQuestTabOpen: 0
   savePanel: {fileID: 0}
   isSavePanelOpen: 0
@@ -13928,6 +13943,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 501255975}
   - {fileID: 1188819637}
+  - {fileID: 121088182}
   - {fileID: 4188355410987911254}
   - {fileID: 7159670650025485800}
   - {fileID: 8600590118510590995}
@@ -13938,7 +13954,6 @@ SceneRoots:
   - {fileID: 407244347}
   - {fileID: 1806896083}
   - {fileID: 1974758345}
-  - {fileID: 121088182}
   - {fileID: 267584722}
   - {fileID: 1507662730}
   - {fileID: 1184435290}

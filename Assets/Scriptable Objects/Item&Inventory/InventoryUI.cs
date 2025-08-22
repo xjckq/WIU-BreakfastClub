@@ -12,7 +12,7 @@ public class InventoryUI : MonoBehaviour
     public Transform foodCell;
     public bool buffFoodInUse = false;
     public TMP_Text foodInUseText;
-    public TMP_Text HPfullText; 
+    public TMP_Text HPfullText;
     private Coroutine buffFoodCoroutine;
 
     void Awake()
@@ -152,24 +152,7 @@ public class InventoryUI : MonoBehaviour
                     currentImage.sprite = null;
                     currentImage.color = new Color(0, 0.7f, 0.7f, 1);
 
-                    // shift remaining items left
-                    for (int i = index; i < foodCell.childCount - 1; i++)
-                    {
-                        currentImage = foodCell.GetChild(i).GetComponentInChildren<Image>();
-                        Image childImage = foodCell.GetChild(i + 1).GetComponentInChildren<Image>();
-                        if (childImage.sprite != null)
-                        {
-                            currentImage.sprite = childImage.sprite;
-                            currentImage.color = Color.white;
-                            childImage.sprite = null;
-                            childImage.color = new Color(0, 0.7f, 0.7f, 1);
-                        }
-                        else
-                        {
-                            currentImage.color = new Color(0, 0.7f, 0.7f, 1);
-                            break;
-                        }
-                    }
+                    ShiftCells(index);
                 }
                 else
                 {
@@ -178,6 +161,64 @@ public class InventoryUI : MonoBehaviour
                 }
             }
 
+        }
+    }
+
+    public void DropItem(Button selectedItemButton)
+    {
+        if (playerData == null) return;
+        int index = int.Parse(selectedItemButton.name[selectedItemButton.name.Length - 1].ToString()) - 1;
+
+        if (index < 0 || index >= playerData.inventoryItems.Count) return;
+        ItemInstance droppedItem = playerData.inventoryItems[index];
+
+        // remove from player data
+        playerData.inventoryItems.RemoveAt(index);
+
+        // clear slot image
+        Image currentImage = foodCell.GetChild(index).GetComponentInChildren<Image>();
+        currentImage.sprite = null;
+        currentImage.color = new Color(0, 0.7f, 0.7f, 1);
+
+        ShiftCells(index);
+
+        // drop item next to player
+        GameObject droppedObj = new GameObject(droppedItem.itemData.itemName);
+        droppedObj.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position + Vector3.right;
+
+        // set scale and add components
+        droppedObj.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+        var sr = droppedObj.AddComponent<SpriteRenderer>();
+        sr.sprite = droppedItem.itemData.itemImage;
+        var col = droppedObj.AddComponent<CircleCollider2D>();
+        col.isTrigger = true;
+        var itemComp = droppedObj.AddComponent<Item>();
+        itemComp.item = droppedItem;
+
+        Debug.Log($"dropped {droppedItem.itemData.itemName}");
+    }
+
+    // shift remaining items
+    private void ShiftCells(int startIndex)
+    {
+        for (int i = startIndex; i < foodCell.childCount - 1; i++)
+        {
+            Image thisImg = foodCell.GetChild(i).GetComponentInChildren<Image>();
+            Image nextImg = foodCell.GetChild(i + 1).GetComponentInChildren<Image>();
+
+            if (nextImg.sprite != null)
+            {
+                thisImg.sprite = nextImg.sprite;
+                thisImg.color = Color.white;
+                nextImg.sprite = null;
+                nextImg.color = new Color(0, 0.7f, 0.7f, 1);
+            }
+            else
+            {
+                thisImg.sprite = null;
+                thisImg.color = new Color(0, 0.7f, 0.7f, 1);
+                break;
+            }
         }
     }
 
