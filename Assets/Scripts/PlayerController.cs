@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public GameObject questTab;
     public bool isQuestTabOpen = false;
 
+    public GameObject savePanel;
+    public bool isSavePanelOpen = false;
 
     void Awake()
     {
@@ -90,7 +92,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("player has " + QuestManager.Instance.playerData.health + "now");
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && !isSavePanelOpen)
         {
             if (!isQuestTabOpen)
             {
@@ -101,6 +103,19 @@ public class PlayerController : MonoBehaviour
             {
                 questTab.SetActive(false);
                 isQuestTabOpen = false;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.P) && !isQuestTabOpen)
+        {
+            if (!isSavePanelOpen)
+            {
+                savePanel.SetActive(true);
+                isSavePanelOpen = true;
+            }
+            else
+            {
+                savePanel.SetActive(false);
+                isSavePanelOpen = false;
             }
         }
     }

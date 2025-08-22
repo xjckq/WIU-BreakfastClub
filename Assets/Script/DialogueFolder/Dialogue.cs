@@ -51,6 +51,8 @@ public class Dialogue : MonoBehaviour
 
     void Update()
     {
+        if (dialoguelines == null || dialoguelines.Length == 0) return;
+
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))
         {
             if (isTyping)
