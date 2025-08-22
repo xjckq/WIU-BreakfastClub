@@ -1,15 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[System.Serializable]
-public class CollisionTarget
-{
-    public Collider2D collider;
-
-    public UnityEvent onCollisionEnter;
-    public UnityEvent onCollisionExit;
-}
-
 public class CheckCollider : MonoBehaviour
 {
     public CollisionTarget[] targets;
