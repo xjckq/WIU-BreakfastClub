@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     Vector2 facingDir = Vector2.down;
 
     public HealthbarScript healthbar;
-
+    public QuestManager questManager;
 
     void Awake()
     {
@@ -39,6 +39,10 @@ public class PlayerController : MonoBehaviour
         ResetData();
         healthbar.SetMaxHealth(playerData.maxHealth);
         healthbar.SetHealth(playerData.health);
+
+        GameObject theQManager = GameObject.FindGameObjectWithTag("QManager");
+        if (theQManager != null)
+            questManager = theQManager.GetComponent<QuestManager>();
     }
 
     private void OnEnable()

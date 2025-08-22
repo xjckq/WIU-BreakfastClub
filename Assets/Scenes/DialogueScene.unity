@@ -1706,7 +1706,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 4.16
+  orthographic size: 3.28
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4586,7 +4586,7 @@ GameObject:
   - component: {fileID: 877688590}
   m_Layer: 0
   m_Name: QuestManager
-  m_TagString: Untagged
+  m_TagString: QManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4604,8 +4604,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allQuests:
-  - {fileID: 11400000, guid: 251debbd360a2d94aaed65379e96e2a7, type: 2}
   - {fileID: 11400000, guid: 075af733eadec1e4a804a6b25e1fd920, type: 2}
+  - {fileID: 11400000, guid: 4aff1c316407d52489e87bcfc5f22694, type: 2}
   activeQuests: []
   completedQuests: []
   restoredLandmarks: []
@@ -4622,7 +4622,6 @@ MonoBehaviour:
     questPanel: {fileID: 784145127}
   maxActiveQuests: 3
   killEnemyCount: 0
-  playerData: {fileID: 11400000, guid: 491cca77d0c1fca46bd356aa3061b826, type: 2}
 --- !u!4 &877688591
 Transform:
   m_ObjectHideFlags: 0
@@ -14494,6 +14493,14 @@ PrefabInstance:
       propertyPath: savePanel
       value: 
       objectReference: {fileID: 1640075549}
+    - target: {fileID: 2322691205255656325, guid: c1d1773bf83f54c45be9a58f92b448b0, type: 3}
+      propertyPath: playerData
+      value: 
+      objectReference: {fileID: 11400000, guid: 491cca77d0c1fca46bd356aa3061b826, type: 2}
+    - target: {fileID: 2322691205255656325, guid: c1d1773bf83f54c45be9a58f92b448b0, type: 3}
+      propertyPath: questManager
+      value: 
+      objectReference: {fileID: 877688590}
     - target: {fileID: 2322691205255656325, guid: c1d1773bf83f54c45be9a58f92b448b0, type: 3}
       propertyPath: isQuestTabOpen
       value: 0

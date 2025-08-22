@@ -53,7 +53,7 @@ public class QuestManager : MonoBehaviour
 
     void Update()
     {
-        UpdateQuestUI();
+        //UpdateQuestUI();
     }
 
     public void UpdateQuestUI()
