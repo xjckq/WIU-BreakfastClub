@@ -66,7 +66,7 @@ MonoBehaviour:
     m_Start: 8.5
     m_ClipIn: 0
     m_Asset: {fileID: 2103307062921786096}
-    m_Duration: 4.283333333333333
+    m_Duration: 3.6500000000000004
     m_TimeScale: 1
     m_ParentTrack: {fileID: -4122195131146960182}
     m_EaseInDuration: 0
@@ -132,10 +132,10 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Active
   - m_Version: 1
-    m_Start: 15.616666666666667
+    m_Start: 15.85
     m_ClipIn: 0
     m_Asset: {fileID: -2365022327745738156}
-    m_Duration: 6.5
+    m_Duration: 19.066666666666663
     m_TimeScale: 1
     m_ParentTrack: {fileID: -4122195131146960182}
     m_EaseInDuration: 0
@@ -334,7 +334,7 @@ AnimationClip:
       value: {fileID: 643807265, guid: b2a0b9d3d03c56046a741a3b2d1f2ce5, type: 3}
     - time: 8.716666
       value: {fileID: -1064499345, guid: b2a0b9d3d03c56046a741a3b2d1f2ce5, type: 3}
-    - time: 10.816667
+    - time: 12.116667
       value: {fileID: 26843695, guid: 41adeae3fb7f56e43bfaba7d8f53a6f5, type: 3}
     attribute: m_Sprite
     path: 
@@ -401,7 +401,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 10.833333
+    m_StopTime: 12.133333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

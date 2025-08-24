@@ -101,14 +101,6 @@ public class DialogueC : MonoBehaviour
         panel.SetActive(false);
     }
 
-    void OnEnable()
-    {
-        if (dialoguelines != null && currLine < dialoguelines.Length)
-        {
-            AutoNextLine();
-        }
-    }
-
     public void AutoNextLine()
     {
         if (dialoguelines == null || currLine >= dialoguelines.Length)
@@ -119,14 +111,5 @@ public class DialogueC : MonoBehaviour
         {
             ShowCurrLine();
         }
-    }
-
-    public void ResumeDialogue()
-    {
-        if (dialoguelines == null || currLine >= dialoguelines.Length)
-            return;
-
-        panel.SetActive(true);
-        ShowCurrLine();
     }
 }

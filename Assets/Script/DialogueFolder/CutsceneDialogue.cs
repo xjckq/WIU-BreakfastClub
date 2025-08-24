@@ -9,7 +9,6 @@ public class CutsceneDialogue : MonoBehaviour
     public bool playOnSceneStart = true;
     private bool hasPlayed = false;
 
-
     void OnEnable()
     {
         if (playOnSceneStart && !hasPlayed)
