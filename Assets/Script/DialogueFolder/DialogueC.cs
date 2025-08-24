@@ -3,15 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-[System.Serializable]
-public struct DialoguePack
-{
-    public string characterName;
-    public string diaTxt;
-}
-
-
-public class Dialogue : MonoBehaviour
+public class DialogueC : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI dialogueTxt;
     [SerializeField] private TextMeshProUGUI characterNameTxt;
@@ -22,14 +14,9 @@ public class Dialogue : MonoBehaviour
     private bool isTyping = false;
     private bool isPlayingCutscene = false;
 
-    private PlayerController player;
-
-    public UnityEvent OnDialogueFinished;
-
     public void StartDialogue(DialoguePack[] dialogueLines, bool autoPlay = false)
     {
         dialoguelines = dialogueLines;
-        currLine = 0;
         isPlayingCutscene = autoPlay;
         OpenDialogue();
         ShowCurrLine();
@@ -38,17 +25,11 @@ public class Dialogue : MonoBehaviour
     void Start()
     {
         currLine = 0;
-        if (OnDialogueFinished == null)
-            OnDialogueFinished = new UnityEvent();
 
         if (dialoguelines != null && dialoguelines.Length > 0)
         {
             ShowCurrLine();
         }
-
-        GameObject thePlayer = GameObject.FindGameObjectWithTag("Player");
-        if (thePlayer != null)
-            player = thePlayer.GetComponent<PlayerController>();
     }
 
     void Update()
@@ -105,25 +86,47 @@ public class Dialogue : MonoBehaviour
 
         if (isPlayingCutscene)
         {
-            yield return new WaitForSeconds(2.0f);
+            yield return new WaitForSeconds(2.5f);
             GoToNextLine();
         }
     }
 
     public void OpenDialogue()
     {
-        if (player != null)
-            player.canMove = false;
         panel.SetActive(true);
     }
 
     public void CloseDialogue()
     {
-        if (player != null)
-            player.canMove = true;
         panel.SetActive(false);
-        currLine = 0;
+    }
 
-        OnDialogueFinished.Invoke();
+    void OnEnable()
+    {
+        if (dialoguelines != null && currLine < dialoguelines.Length)
+        {
+            AutoNextLine();
+        }
+    }
+
+    public void AutoNextLine()
+    {
+        if (dialoguelines == null || currLine >= dialoguelines.Length)
+            return;
+
+        currLine++;
+        if (currLine < dialoguelines.Length)
+        {
+            ShowCurrLine();
+        }
+    }
+
+    public void ResumeDialogue()
+    {
+        if (dialoguelines == null || currLine >= dialoguelines.Length)
+            return;
+
+        panel.SetActive(true);
+        ShowCurrLine();
     }
 }
