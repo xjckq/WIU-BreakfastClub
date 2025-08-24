@@ -21,15 +21,19 @@ public class AIChicken : MonoBehaviour
     public CTCManager manager;
 
     public float pushRadius = 1.5f;
-    public float pushDistance = 1.2f;
-    public float pushSpeed = 4;
+    public float pushForce = 15; 
     public float pushDuration = 0.8f;
+    public float drag = 8;
 
-    private AIDestinationSetter aiDest;
-    private Rigidbody2D playerRB;
+    AIDestinationSetter aiDest;
+    Rigidbody2D playerRB;
+    Rigidbody2D chickenRB; 
 
-    private float pushTimer = 0;
-    private Vector2 pushTargetPos;
+    float pushTimer = 0;
+    bool isPushing = false;
+    Vector2 pushDirection;
+
+    bool isCaptured;
 
     [SerializeField] Animator animator;
     [SerializeField] SpriteRenderer enemySprite;
@@ -39,6 +43,7 @@ public class AIChicken : MonoBehaviour
     {
         aiDest = GetComponent<AIDestinationSetter>();
         playerRB = target.GetComponent<Rigidbody2D>();
+        chickenRB = GetComponent<Rigidbody2D>();
         scaleX = transform.localScale.x;
 
         ChangeState(EnemyState.IDLE);
@@ -50,31 +55,45 @@ public class AIChicken : MonoBehaviour
             return;
 
         pushTimer -= Time.deltaTime;
+        
+        // apply push force when is getting pushed and timer is active
+        if (isPushing && pushTimer > 0)
+            chickenRB.AddForce(pushDirection * pushForce, ForceMode2D.Force);
 
-        if (pushTimer > 0)
+        // stop pushing and change state back to chase/idle when timer is up
+        if (pushTimer <= 0 && isPushing)
         {
-            Vector2 currentPos = transform.position;
-            Vector2 newPos = Vector2.MoveTowards(currentPos, pushTargetPos, pushSpeed * Time.deltaTime);
-            transform.position = new Vector3(newPos.x, newPos.y, transform.position.z);
-            return;
+            isPushing = false;
+
+            if (CurrentState == EnemyState.ESCAPE)
+            {
+                float distanceToPlayer = Vector3.Distance(target.transform.position, transform.position);
+                if (distanceToPlayer > chaseRange)
+                    ChangeState(EnemyState.IDLE);
+                else
+                    ChangeState(EnemyState.CHASE);
+            }
         }
 
-        switch (CurrentState)
+        if (!isPushing)
         {
-            case EnemyState.IDLE:
-                Idle();
-                break;
-            case EnemyState.CHASE:
-                Chase();
-                break;
-            case EnemyState.ESCAPE:
-                Escape();
-                break;
-            case EnemyState.RUNAWAY:
-                Destroy(gameObject);
-                break;
-            default:
-                break;
+            switch (CurrentState)
+            {
+                case EnemyState.IDLE:
+                    Idle();
+                    break;
+                case EnemyState.CHASE:
+                    Chase();
+                    break;
+                case EnemyState.ESCAPE:
+                    Escape();
+                    break;
+                case EnemyState.RUNAWAY:
+                    Destroy(gameObject);
+                    break;
+                default:
+                    break;
+            }
         }
 
         Push();
@@ -82,10 +101,14 @@ public class AIChicken : MonoBehaviour
 
     private void Push()
     {
+        if (isPushing)
+            return;
+
         Vector2 chickenPos = transform.position;
         Vector2 playerPos = target.transform.position;
         float distanceToPlayer = Vector2.Distance(chickenPos, playerPos);
 
+        // if player is within push radius then push the chicken away
         if (distanceToPlayer < pushRadius)
             Push(chickenPos, playerPos);
     }
@@ -94,13 +117,12 @@ public class AIChicken : MonoBehaviour
     {
         aiDest.target = null;
 
-        Vector2 pushDirection = (chickenPos - playerPos).normalized;
-
-        pushTargetPos = chickenPos + pushDirection * pushDistance;
+        pushDirection = (chickenPos - playerPos).normalized;
 
         pushTimer = pushDuration;
+        isPushing = true;
 
-        // face away from player
+        //face away from player
         if (pushDirection.x > 0)
             transform.localScale = new Vector3(scaleX, transform.localScale.y, transform.localScale.z);
         else
@@ -128,7 +150,6 @@ public class AIChicken : MonoBehaviour
 
         if (distanceToPlayer > chaseRange)
             ChangeState(EnemyState.IDLE);
-
     }
 
     private void Escape()
@@ -181,7 +202,10 @@ public class AIChicken : MonoBehaviour
     {
         if (collision.gameObject.tag == "CaptureZone")
         {
+            if (isCaptured)
+                return;
             Debug.Log("capture zone testest");
+            isCaptured = true;
             ChangeState(EnemyState.CAPTURE);
         }
 

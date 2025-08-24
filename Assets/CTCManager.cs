@@ -41,7 +41,7 @@ public class CTCManager : MonoBehaviour
     {
         capturedNumTxt.text = capturedNum.ToString();
         escapedNumTxt.text = escapedNum.ToString();
-        acquiredNumTxt.text = (capturedNum - escapedNum).ToString();
+        acquiredNumTxt.text = capturedNum.ToString();
     }
 
     public void Captured()
