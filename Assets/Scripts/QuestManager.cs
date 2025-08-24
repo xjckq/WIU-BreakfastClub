@@ -21,11 +21,8 @@ public class QuestManager : MonoBehaviour
     public int maxActiveQuests = 3; 
 
     public int killEnemyCount;
-    QuestData currentQuest;
-    string currentProgressTxt;
     QuestProgress newProgress;
 
-    int killCount, itemCount, craftCount;
 
  
     private void Awake()

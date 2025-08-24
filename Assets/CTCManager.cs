@@ -1,7 +1,6 @@
-using System.Threading;
+using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 public class CTCManager : MonoBehaviour
 {
 
@@ -14,27 +13,50 @@ public class CTCManager : MonoBehaviour
     [SerializeField] TMP_Text timerTxt;
     [SerializeField] GameObject resultsPanel;
 
-    
+    public PlayerData playerData;
+    public ItemData eggItemData;
 
+    bool gameOver, eggsGiven;
+    public int totalChickens = 4;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Time.timeScale = 1;
         resultsPanel.SetActive(false);
         timer = 30;
+        gameOver = false;
+        eggsGiven = false;
     }
     
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
-        timerTxt.text = Mathf.Ceil(timer).ToString();
-        if (timer <= 0)
+        if (!gameOver)
         {
-            Time.timeScale = 0;
-            resultsPanel.SetActive(true);
-            UpdateUI();
+            timer -= Time.deltaTime;
+            timerTxt.text = Mathf.Ceil(timer).ToString();
+            if (timer <= 0 || (capturedNum + escapedNum >= totalChickens))
+            {
+                gameOver = true;
+                displayResults();
+            }
         }
+    }
+
+    private void displayResults()
+    {
+        if (eggsGiven) 
+            return;
+
+        resultsPanel.SetActive(true);
+        for (int i = 0; i < capturedNum; i++)
+        {
+            ItemInstance egg = new ItemInstance(eggItemData, null);
+            playerData.inventoryItems.Add(egg);
+        }
+
+        UpdateUI();
+        eggsGiven = true;
     }
 
     public void UpdateUI()
