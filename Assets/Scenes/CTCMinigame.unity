@@ -293,6 +293,7 @@ MonoBehaviour:
   resultsPanel: {fileID: 1113878170}
   playerData: {fileID: 11400000, guid: 491cca77d0c1fca46bd356aa3061b826, type: 2}
   eggItemData: {fileID: 11400000, guid: f51ba95608815ca48beb41b82f0a13e5, type: 2}
+  totalChickens: 4
 --- !u!4 &41464938
 Transform:
   m_ObjectHideFlags: 0
