@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5493b8058b0e2544b4a9e3aaa87fb53, type: 3}
+  m_Name: BedDialogueData
+  m_EditorClassIdentifier: 
+  objectLines:
+  - characterName: Xing Yi
+    diaTxt: It's my bed.
+  - characterName: Xing Yi
+    diaTxt: My very comfortable bed.
+  - characterName: Xing Yi
+    diaTxt: I wish I could nap, but it's too early.
