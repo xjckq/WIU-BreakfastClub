@@ -190,6 +190,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+
     }
 
     void FixedUpdate()
@@ -230,6 +231,8 @@ public class PlayerController : MonoBehaviour
         playerData.health += amt;
         if (playerData.health > playerData.maxHealth)
             playerData.health = playerData.maxHealth;
+
+        healthbar.SetHealth(playerData.health);
     }
 
     public void ResetData()

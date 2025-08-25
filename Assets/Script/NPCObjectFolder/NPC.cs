@@ -25,6 +25,8 @@ public class NPC : MonoBehaviour
     public CinemachineCamera zoomOutCamera;
     public float zoomDuration = 5;
 
+    [SerializeField] NPCPatrol patrol;
+
     void Update()
     {
         if (isPlayerInRange && Input.GetKey(KeyCode.F))
@@ -58,7 +60,10 @@ public class NPC : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        DialoguePack[] selectedDialogue;
+        if (patrol != null)
+            patrol.isInDialogue = true; 
+
+            DialoguePack[] selectedDialogue;
 
         switch (currentState)
         {
@@ -82,6 +87,9 @@ public class NPC : MonoBehaviour
 
     private void OnDialogueEnd()
     {
+        if (patrol != null)
+            patrol.isInDialogue = false;
+
         dialogueUI.OnDialogueFinished.RemoveListener(OnDialogueEnd);
 
         QuestManager.Instance.TalkedToNPC(this);

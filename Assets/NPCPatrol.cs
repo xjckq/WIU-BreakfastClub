@@ -15,7 +15,7 @@ public class NPCPatrol : MonoBehaviour
 
     bool isWaiting;
     float waitTimer;
-
+    public bool isInDialogue;
     Animator animator;
     SpriteRenderer spriteRenderer;
     private void Awake()
@@ -36,13 +36,20 @@ public class NPCPatrol : MonoBehaviour
         rb.linearVelocity = direction * speed;
 
         isWaiting = false;
+        isInDialogue = false;
         waitTimer = 0;
     }
 
     void FixedUpdate()
     {
-        if (waypoints.Count == 0) 
+        if (waypoints.Count == 0 || isInDialogue)
+        {
+            rb.linearVelocity = Vector2.zero;
+            animator.SetBool("isMovingSide", false);
+            animator.SetBool("isMovingUp", false);
+            animator.SetBool("isMovingDown", false);
             return;
+        }
 
         if (isWaiting)
         {
