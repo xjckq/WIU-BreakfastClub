@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        ResetData();
+        //ResetData();
         healthbar.SetMaxHealth(playerData.maxHealth);
         healthbar.SetHealth(playerData.health);
     }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Object : MonoBehaviour
@@ -9,13 +10,32 @@ public class Object : MonoBehaviour
     public GameObject emote;
 
     public bool AutoTrigger;
+    private bool hasStarted = false;
+
+    void Start()
+    {
+        if (!hasStarted)
+        {
+            StartDialogueAfterDelay();
+            hasStarted = true;
+        }
+    }
 
 
     void Update()
     {
         if (isPlayerInRange && Input.GetKey(KeyCode.F) && !AutoTrigger)
         {
-            dialogueUI.StartDialogue(objectData.objectDialogueData.objectLines);
+            dialogueUI.StartDialogue(objectData.objectDialogueData.objectLines, false);
+        }
+    }
+
+    private IEnumerator StartDialogueAfterDelay()
+    {
+        yield return new WaitForSeconds(5.0f);
+        if (dialogueUI != null)
+        {
+            dialogueUI.StartDialogue(objectData.objectDialogueData.objectLines, true);
         }
     }
 

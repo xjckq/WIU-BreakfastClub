@@ -20,15 +20,17 @@ public class Dialogue : MonoBehaviour
     private DialoguePack[] dialoguelines;
     private int currLine = 0;
     private bool isTyping = false;
+    private bool isPlayingCutscene = false;
 
     private PlayerController player;
 
     public UnityEvent OnDialogueFinished;
 
-    public void StartDialogue(DialoguePack[] dialogueLines)
+    public void StartDialogue(DialoguePack[] dialogueLines, bool autoPlay = false)
     {
         dialoguelines = dialogueLines;
         currLine = 0;
+        isPlayingCutscene = autoPlay;
         OpenDialogue();
         ShowCurrLine();
     }
@@ -51,7 +53,7 @@ public class Dialogue : MonoBehaviour
 
     void Update()
     {
-        if (dialoguelines == null || dialoguelines.Length == 0) return;
+        if (dialoguelines == null || dialoguelines.Length == 0 || isPlayingCutscene) return;
 
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))
         {
@@ -70,8 +72,6 @@ public class Dialogue : MonoBehaviour
 
     private void ShowCurrLine()
     {
-        //dialogueTxt.text = dialoguelines[currLine].diaTxt;
-        //characterNameTxt.text = dialoguelines[currLine].characterName;
         StopAllCoroutines();
         characterNameTxt.text = dialoguelines[currLine].characterName;
         StartCoroutine(TypeLine(dialoguelines[currLine].diaTxt));
@@ -102,6 +102,12 @@ public class Dialogue : MonoBehaviour
         }
 
         isTyping = false;
+
+        if (isPlayingCutscene)
+        {
+            yield return new WaitForSeconds(2.0f);
+            GoToNextLine();
+        }
     }
 
     public void OpenDialogue()
