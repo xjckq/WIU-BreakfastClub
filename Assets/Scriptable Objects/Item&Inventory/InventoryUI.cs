@@ -189,6 +189,7 @@ public class InventoryUI : MonoBehaviour
         // set scale and add components
         droppedObj.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         var sr = droppedObj.AddComponent<SpriteRenderer>();
+        sr.sortingOrder = 5;
         sr.sprite = droppedItem.itemData.itemImage;
         var col = droppedObj.AddComponent<CircleCollider2D>();
         col.isTrigger = true;
