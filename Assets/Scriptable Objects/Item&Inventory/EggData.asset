@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: EggData
   m_EditorClassIdentifier: 
   itemName: Egg
-  itemImage: {fileID: -4072622106568590741, guid: 8355aea5a4816294f842e09ce69b7db4, type: 3}
+  itemImage: {fileID: -4072622106568590741, guid: 4543ec7bf8732144491c8d18fe62a8ed, type: 3}

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: FlourData
   m_EditorClassIdentifier: 
   itemName: Flour
-  itemImage: {fileID: 9132784678072903462, guid: 6723a1abb14769041bcdfcf01bb29b2e, type: 3}
+  itemImage: {fileID: 9132784678072903462, guid: 7ed155a1c74d5c54490545dac698da3d, type: 3}

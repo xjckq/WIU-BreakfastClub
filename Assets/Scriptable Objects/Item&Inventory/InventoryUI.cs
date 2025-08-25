@@ -12,7 +12,7 @@ public class InventoryUI : MonoBehaviour
     public Transform foodCell;
     public bool buffFoodInUse = false;
     public TMP_Text foodInUseText;
-    public TMP_Text HPfullText; 
+    public TMP_Text HPfullText;
     private Coroutine buffFoodCoroutine;
 
     void Awake()
@@ -182,30 +182,9 @@ public class InventoryUI : MonoBehaviour
 
         ShiftCells(index);
 
-        // check for nearby colliders
-        Transform player = GameObject.FindGameObjectWithTag("Player").transform;
-        Vector3[] directions = new Vector3[]
-        {
-            Vector3.right,
-            Vector3.left,
-            Vector3.up,
-            Vector3.down
-        };
-
-        // drop items in first available direction
-        Vector3 dropPos = player.position;
-        foreach (var dir in directions)
-        {
-            if (!Physics2D.OverlapCircle(player.position + dir, 0.5f))
-            {
-                dropPos = player.position + dir;
-                break;
-            }
-        }
-
-        // create dropped object
+        // drop item next to player
         GameObject droppedObj = new GameObject(droppedItem.itemData.itemName);
-        droppedObj.transform.position = dropPos;
+        droppedObj.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position + Vector3.right;
 
         // set scale and add components
         droppedObj.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
