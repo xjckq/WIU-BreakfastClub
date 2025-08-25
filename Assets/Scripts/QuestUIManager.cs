@@ -29,7 +29,22 @@ public class QuestUIManager : MonoBehaviour
                     questNames[i].text = currentQuest.title;
 
                 if (questDescs[i] != null)
-                    questDescs[i].text = currentQuest.desc + GetQuestProgressTxt(currentQuest);
+                {
+                    if (QuestManager.Instance.IsQuestReadyToTurnIn(currentQuest))
+                    {
+                        string npcName;
+                        if (currentQuest.questGiver != null)
+                            npcName = currentQuest.questGiver.npcData.npcName;
+                        else
+                            npcName = "NPC";
+
+                        questDescs[i].text = "Go back to talk to " + npcName;
+                    }
+                    else
+                    {
+                        questDescs[i].text = currentQuest.desc + GetQuestProgressTxt(currentQuest);
+                    }
+                }
 
                 questPanels[i].SetActive(true);
             }
@@ -42,17 +57,6 @@ public class QuestUIManager : MonoBehaviour
 
     private string GetQuestProgressTxt(QuestData quest)
     {
-        if (QuestManager.Instance.IsQuestReadyToTurnIn(quest))
-        {
-            string npcName;
-
-            if (quest.questGiver != null)
-                npcName = quest.questGiver.npcData.npcName;
-            else
-                npcName = "NPC";
-
-            return " - Go back to talk to " + npcName;
-        }
 
         progress = QuestManager.Instance.GetQuestProgress(quest);
 

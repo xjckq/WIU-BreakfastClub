@@ -2599,7 +2599,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &395333024
 Animator:
   serializedVersion: 7
@@ -23995,6 +23995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitionAnim: {fileID: 395333024}
   transitionTime: 1
+  playerTransform: {fileID: 1041662832}
 --- !u!1 &1961852980
 GameObject:
   m_ObjectHideFlags: 0

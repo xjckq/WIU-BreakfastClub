@@ -41,6 +41,8 @@ public class CheckTrigger : MonoBehaviour
                 }
         }
     }
+
+
     public void OnTriggerEnter2D(Collider2D other)
     {
 

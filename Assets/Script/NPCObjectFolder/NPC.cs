@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using Unity.Cinemachine;
 
 public enum DialogueState
 {
@@ -19,6 +21,9 @@ public class NPC : MonoBehaviour
     public GameObject emote;
 
     [SerializeField] QuestData questData;
+
+    public CinemachineCamera zoomOutCamera;
+    public float zoomDuration = 5;
 
     void Update()
     {
@@ -96,8 +101,12 @@ public class NPC : MonoBehaviour
         {
             if (questData != null)
             {
-                QuestManager.Instance.CompleteQuest(questData); 
-                currentState = DialogueState.Default;
+
+                if (zoomOutCamera != null)
+                {
+                    zoomOutCamera.gameObject.SetActive(true);
+                    StartCoroutine(ZoomOutCam());
+                }
             }
         }
     }
@@ -121,5 +130,14 @@ public class NPC : MonoBehaviour
             if (activeNPC == this)
                 activeNPC = null;
         }
+    }
+
+    private IEnumerator ZoomOutCam()
+    {
+        yield return new WaitForSeconds(zoomDuration / 2);
+        QuestManager.Instance.CompleteQuest(questData);
+        yield return new WaitForSeconds(zoomDuration / 2);
+        currentState = DialogueState.Default;
+        zoomOutCamera.gameObject.SetActive(false);
     }
 }
