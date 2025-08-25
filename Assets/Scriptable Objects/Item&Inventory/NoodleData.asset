@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: NoodleData
   m_EditorClassIdentifier: 
   itemName: Noodles
-  itemImage: {fileID: 8406823489743734843, guid: 38c5964ca2af0b04bb52713b900e814b, type: 3}
+  itemImage: {fileID: 8406823489743734843, guid: d114ce8f32853b7419d20bbfb255dbba, type: 3}
