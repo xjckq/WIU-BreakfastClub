@@ -39,10 +39,15 @@ public class NPC : MonoBehaviour
                 currentState = DialogueState.FirstTalk;
         }
 
-        if (questData != null && QuestManager.Instance.IsQuestCompleted(questData))
+        //if (questData != null && QuestManager.Instance.IsQuestCompleted(questData))
+        //{
+        //    currentState = DialogueState.QuestCompleted;
+        //    QuestManager.Instance.CompleteQuest(questData);
+        //}
+
+        if (questData != null && QuestManager.Instance.IsQuestReadyToTurnIn(questData))
         {
             currentState = DialogueState.QuestCompleted;
-            QuestManager.Instance.CompleteQuest(questData);
         }
     }
 
@@ -84,6 +89,14 @@ public class NPC : MonoBehaviour
             }
             else
             {
+                currentState = DialogueState.Default;
+            }
+        }
+        else if (currentState == DialogueState.QuestCompleted)
+        {
+            if (questData != null)
+            {
+                QuestManager.Instance.CompleteQuest(questData); 
                 currentState = DialogueState.Default;
             }
         }

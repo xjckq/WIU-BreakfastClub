@@ -1,12 +1,13 @@
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEngine;
 
 public class QuestUIManager : MonoBehaviour
 {
 
-    public List<TMP_Text> questNames;   
-    public List<TMP_Text> questDescs;    
+    public List<TMP_Text> questNames;
+    public List<TMP_Text> questDescs;
     public List<GameObject> questPanels;
     int progress;
 
@@ -20,7 +21,7 @@ public class QuestUIManager : MonoBehaviour
 
         for (int i = 0; i < questPanels.Count; i++)
         {
-            if (i < QuestManager.Instance.activeQuests.Count) 
+            if (i < QuestManager.Instance.activeQuests.Count)
             {
                 QuestData currentQuest = QuestManager.Instance.activeQuests[i];
 
@@ -41,7 +42,19 @@ public class QuestUIManager : MonoBehaviour
 
     private string GetQuestProgressTxt(QuestData quest)
     {
-       progress = QuestManager.Instance.GetQuestProgress(quest);
+        if (QuestManager.Instance.IsQuestReadyToTurnIn(quest))
+        {
+            string npcName;
+
+            if (quest.questGiver != null)
+                npcName = quest.questGiver.npcData.npcName;
+            else
+                npcName = "NPC";
+
+            return " - Go back to talk to " + npcName;
+        }
+
+        progress = QuestManager.Instance.GetQuestProgress(quest);
 
         switch (quest.objectiveType)
         {

@@ -7,6 +7,7 @@ public class QuestProgress // to track quest progress
 {
     public QuestData quest;
     public int progress;
+    public bool canTurnInQuest = false;
 }
 
 public class QuestManager : MonoBehaviour
@@ -69,10 +70,11 @@ public class QuestManager : MonoBehaviour
             {
                 questProgressList[i].progress += amount;
 
-                // check if quest is complete
+                // check if can turn in quest
                 if (questProgressList[i].progress >= quest.requiredAmount)
                 {
-                    CompleteQuest(quest);
+                    questProgressList[i].canTurnInQuest = true;
+                    Debug.Log("can turn  in: " + quest.title);
                 }
                 return;
             }
@@ -123,6 +125,17 @@ public class QuestManager : MonoBehaviour
         return completedQuests.Contains(quest);
     }
 
+    public bool IsQuestReadyToTurnIn(QuestData quest)
+    {
+        for (int i = 0; i < questProgressList.Count; i++)
+        {
+            if (questProgressList[i].quest == quest)
+                return questProgressList[i].canTurnInQuest;
+        }
+        return false;
+    }
+
+
     private void RestoreLandmark(QuestData quest)
     {
         if (quest.landmarkToRestore != null)
@@ -135,6 +148,13 @@ public class QuestManager : MonoBehaviour
                 {
                     SpriteRenderer spriteRenderer = landmarkObj.GetComponent<SpriteRenderer>();
                     spriteRenderer.color = quest.landmarkToRestore.restoredColor;
+
+                    ParticleSystem particle = landmarkObj.GetComponentInChildren<ParticleSystem>();
+                    if (particle != null)
+                    {
+                        particle.Play();
+                    }
+
                     restoredLandmarks.Add(quest.landmarkToRestore);
 
                     Debug.Log("landmark restored: " + quest.landmarkToRestore.landmarkName);

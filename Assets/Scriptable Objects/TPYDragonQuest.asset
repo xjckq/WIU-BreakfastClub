@@ -18,3 +18,4 @@ MonoBehaviour:
   requiredAmount: 3
   moneyReward: 5
   landmarkToRestore: {fileID: 11400000, guid: f5d1adf0522272c4ea7abd71f24c59e4, type: 2}
+  questGiver: {fileID: 2269029799180533389, guid: ed9fac8a3eb4f7248a53a25e32cb2865, type: 3}
