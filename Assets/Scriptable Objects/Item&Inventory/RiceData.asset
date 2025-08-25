@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: RiceData
   m_EditorClassIdentifier: 
   itemName: Rice
-  itemImage: {fileID: 9135130128162984572, guid: b3bbec6014ee7624e955ab65fd418def, type: 3}
+  itemImage: {fileID: 9135130128162984572, guid: 75dceade0e9147d40b40034235014d41, type: 3}

@@ -9,17 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: cbc23af45a6b76d459a82f09134d7676
   - enabled: 1
-    path: Assets/Scenes/Home.unity
-    guid: 9e334841645e5634da9fed0fba77ad48
+    path: Assets/Scenes/SampleScene1.unity
+    guid: 8299dcfc09f247b4e96f782403cdc44c
   - enabled: 1
-    path: Assets/Scenes/DialogueScene.unity
-    guid: bb356997f62e4964aae26fefc59127f4
-  - enabled: 1
-    path: Assets/Scenes/Outside.unity
-    guid: fbd8dd7e81407da46be39cd52fef62a7
-  - enabled: 1
-    path: Assets/Scenes/CTCMinigame.unity
-    guid: 872d6294e3076f342824281560bfd547
+    path: Assets/Scenes/SampleScene2.unity
+    guid: 081e85ee24b9d054682ac1d3ad3f3bbf
   - enabled: 1
     path: Assets/Scenes/Inventory&Crafting.unity
     guid: c028c248b9b29b247a283870f293cee3

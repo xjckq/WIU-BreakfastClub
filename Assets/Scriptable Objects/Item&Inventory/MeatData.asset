@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: MeatData
   m_EditorClassIdentifier: 
   itemName: Meat
-  itemImage: {fileID: -2844531463381759980, guid: c59c750395d54a647bcad37126b1d1a4, type: 3}
+  itemImage: {fileID: -2844531463381759980, guid: a11eaac5c988e3a45ab70c95e4bfdbb7, type: 3}

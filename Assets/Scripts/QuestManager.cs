@@ -9,6 +9,14 @@ public class QuestProgress // to track quest progress
     public int progress;
 }
 
+[System.Serializable]
+public class QuestUIPanel // to update quest ui
+{
+    public TMP_Text questName;
+    public TMP_Text questDesc;
+    public GameObject questPanel;
+}
+
 public class QuestManager : MonoBehaviour
 {
     public static QuestManager Instance;
@@ -18,11 +26,15 @@ public class QuestManager : MonoBehaviour
     public List<Landmark> restoredLandmarks;
     public List<QuestProgress> questProgressList;
 
+    public List<QuestUIPanel> QuestUIPanels = new List<QuestUIPanel>(); 
     public int maxActiveQuests = 3; 
 
     public int killEnemyCount;
+    QuestData currentQuest;
+    string currentProgressTxt;
     QuestProgress newProgress;
 
+    int killCount, itemCount, craftCount;
 
  
     private void Awake()
@@ -39,6 +51,55 @@ public class QuestManager : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        UpdateQuestUI();
+    }
+
+    public void UpdateQuestUI()
+    {
+        // update for each quest
+        for (int i = 0; i < QuestUIPanels.Count; i++)
+        {
+            if (i < activeQuests.Count && QuestUIPanels[i].questName != null && QuestUIPanels[i].questDesc != null)
+            {
+                currentQuest = activeQuests[i];
+                QuestUIPanels[i].questName.text = currentQuest.title;
+
+                currentProgressTxt = GetQuestProgressTxt(currentQuest);
+                QuestUIPanels[i].questDesc.text = currentQuest.desc + currentProgressTxt;
+
+                QuestUIPanels[i].questPanel.SetActive(true);
+            }
+            else
+            {
+                QuestUIPanels[i].questPanel.SetActive(false);
+            }
+        }
+    }
+
+    
+    private string GetQuestProgressTxt(QuestData quest) // set progress txt based on the type of quest objective
+    {
+        switch (quest.objectiveType)
+        {
+            case QuestData.questObj.killEnemies:
+                killCount = GetQuestProgress(quest);
+                return " (" + killCount + "/" + quest.requiredAmount + ")";
+            case QuestData.questObj.collectItems:
+                itemCount = GetQuestProgress(quest);
+                return " (" + itemCount + "/" + quest.requiredAmount + ")";
+
+            case QuestData.questObj.craftItems:
+                craftCount = GetQuestProgress(quest);
+                return " (" + craftCount + "/" + quest.requiredAmount + ")";
+
+            case QuestData.questObj.completeMG:
+                return " (Complete minigame)";
+            default:
+                return "";
+        }
+    }
 
     public void StartQuest(QuestData quest)
     {
@@ -125,27 +186,7 @@ public class QuestManager : MonoBehaviour
 
     private void RestoreLandmark(QuestData quest)
     {
-        if (quest.landmarkToRestore != null)
-        {
-            if (!restoredLandmarks.Contains(quest.landmarkToRestore))
-            {
-                GameObject landmarkObj = GameObject.Find(quest.landmarkToRestore.landmarkSceneName);
-
-                if (landmarkObj != null)
-                {
-                    SpriteRenderer spriteRenderer = landmarkObj.GetComponent<SpriteRenderer>();
-                    spriteRenderer.color = quest.landmarkToRestore.restoredColor;
-                    restoredLandmarks.Add(quest.landmarkToRestore);
-
-                    Debug.Log("landmark restored: " + quest.landmarkToRestore.landmarkName);
-
-                }
-                else
-                {
-                    Debug.LogWarning("can't find: " + quest.landmarkToRestore.landmarkSceneName) ;
-                }
-            }
-        }
+       //
     }
 
     public void EnemyKilled()
