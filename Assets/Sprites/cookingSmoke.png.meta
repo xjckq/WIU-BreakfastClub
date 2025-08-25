@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cookingSmoke_0: -6833308393719649022
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

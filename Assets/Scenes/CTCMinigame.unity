@@ -293,6 +293,7 @@ MonoBehaviour:
   resultsPanel: {fileID: 1113878170}
   playerData: {fileID: 11400000, guid: 491cca77d0c1fca46bd356aa3061b826, type: 2}
   eggItemData: {fileID: 11400000, guid: f51ba95608815ca48beb41b82f0a13e5, type: 2}
+  totalChickens: 4
 --- !u!4 &41464938
 Transform:
   m_ObjectHideFlags: 0
@@ -704,6 +705,7 @@ GameObject:
   - component: {fileID: 179058240}
   - component: {fileID: 179058239}
   - component: {fileID: 179058238}
+  - component: {fileID: 179058241}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1363,7 +1365,7 @@ SpriteRenderer:
   m_Size: {x: 0.125, y: 0.890625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &403239780
@@ -1497,7 +1499,7 @@ SpriteRenderer:
   m_Size: {x: 0.125, y: 0.890625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &404187938
@@ -1637,27 +1639,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c79b261ba00cd14991457de92f9ccad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets:
-  - collider: {fileID: 0}
-    onCollisionEnter:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: TestEnemy, Assembly-CSharp
-          m_MethodName: TakeDmg
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 5
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    onCollisionExit:
-      m_PersistentCalls:
-        m_Calls: []
-    triggerType: 0
 --- !u!61 &478060360
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1875,7 +1856,7 @@ SpriteRenderer:
   m_Size: {x: 0.125, y: 0.890625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &504171692
@@ -2362,27 +2343,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c79b261ba00cd14991457de92f9ccad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets:
-  - collider: {fileID: 0}
-    onCollisionEnter:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: TestEnemy, Assembly-CSharp
-          m_MethodName: TakeDmg
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 5
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    onCollisionExit:
-      m_PersistentCalls:
-        m_Calls: []
-    triggerType: 0
 --- !u!61 &666786579
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2704,7 +2664,7 @@ SpriteRenderer:
   m_Size: {x: 0.125, y: 0.890625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &726891282
@@ -3247,27 +3207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c79b261ba00cd14991457de92f9ccad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets:
-  - collider: {fileID: 0}
-    onCollisionEnter:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: TestEnemy, Assembly-CSharp
-          m_MethodName: TakeDmg
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 5
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    onCollisionExit:
-      m_PersistentCalls:
-        m_Calls: []
-    triggerType: 0
 --- !u!61 &1102772420
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3527,7 +3466,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -5
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.03333336, y: 0.03333336, z: 0}
+  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -7579,7 +7518,7 @@ SpriteRenderer:
   m_Size: {x: 0.125, y: 0.890625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1854489843
@@ -7788,7 +7727,7 @@ SpriteRenderer:
   m_Size: {x: 0.125, y: 0.890625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1956583170
@@ -8206,7 +8145,7 @@ SpriteRenderer:
   m_Size: {x: 0.125, y: 0.890625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &2016912662
@@ -8414,7 +8353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ba4054e12e5074c996185345f6c24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
   canMove: 1
   questTab: {fileID: 0}
   isQuestTabOpen: 0
