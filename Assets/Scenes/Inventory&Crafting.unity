@@ -5641,7 +5641,6 @@ GameObject:
   m_Component:
   - component: {fileID: 851961582}
   - component: {fileID: 851961584}
-  - component: {fileID: 851961583}
   m_Layer: 5
   m_Name: CookingBar
   m_TagString: Untagged
@@ -5671,19 +5670,6 @@ RectTransform:
   m_AnchoredPosition: {x: -2, y: 148}
   m_SizeDelta: {x: 120.8665, y: 29.3}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &851961583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 851961581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd501263be1041d42beac04ee610b359, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthSlider: {fileID: 851961584}
 --- !u!114 &851961584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5773,7 +5759,7 @@ RectTransform:
   m_Father: {fileID: 851961582}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 14.450008, y: -0.000015258789}
   m_SizeDelta: {x: -20.433487, y: -10.666981}
   m_Pivot: {x: 0, y: 0.5}
