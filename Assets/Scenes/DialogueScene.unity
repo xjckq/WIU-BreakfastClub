@@ -7157,6 +7157,7 @@ MonoBehaviour:
   questProgressList: []
   maxActiveQuests: 3
   killEnemyCount: 0
+  playerData: {fileID: 11400000, guid: 491cca77d0c1fca46bd356aa3061b826, type: 2}
 --- !u!4 &877688591
 Transform:
   m_ObjectHideFlags: 0

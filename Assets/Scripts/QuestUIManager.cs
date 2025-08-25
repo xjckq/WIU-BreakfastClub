@@ -60,18 +60,21 @@ public class QuestUIManager : MonoBehaviour
 
         progress = QuestManager.Instance.GetQuestProgress(quest);
 
-        switch (quest.objectiveType)
-        {
-            case QuestData.questObj.killEnemies:
-                return $" ({progress}/{quest.requiredAmount})";
-            case QuestData.questObj.collectItems:
-                return $" ({progress}/{quest.requiredAmount})";
-            case QuestData.questObj.craftItems:
-                return $" ({progress}/{quest.requiredAmount})";
-            case QuestData.questObj.completeMG:
-                return " (Complete minigame)";
-            default:
-                return "";
-        }
+    switch (quest.objectiveType)
+    {
+        case QuestData.questObj.killEnemies:
+        case QuestData.questObj.collectItems:
+        case QuestData.questObj.craftItems:
+            return $" ({progress}/{quest.requiredAmount})";
+
+        case QuestData.questObj.completeMG:
+            return " (Complete minigame)";
+
+        case QuestData.questObj.talkToNPC:
+            return $" (Talk to {quest.npcToTalkTo.npcName})";
+
+        default:
+            return "";
+    }
     }
 }

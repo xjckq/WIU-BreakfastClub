@@ -155,8 +155,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.V))
             QuestManager.Instance.ItemCollected();
 
-        if (Input.GetKeyDown(KeyCode.G))
-            QuestManager.Instance.ItemCrafted();
 
         if (Input.GetKeyDown(KeyCode.T))
         {
@@ -201,6 +199,12 @@ public class PlayerController : MonoBehaviour
             body.linearVelocity = Vector2.zero;
             return;
         }
+
+        if (CTCManager.Instance != null && CTCManager.Instance.gameOver)
+        {
+            canMove = false;
+        }
+
 
         Vector2 movement = moveDirection.normalized * speed;
         body.linearVelocity = movement;

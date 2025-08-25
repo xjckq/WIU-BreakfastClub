@@ -293,6 +293,7 @@ MonoBehaviour:
   resultsPanel: {fileID: 1113878170}
   playerData: {fileID: 11400000, guid: 491cca77d0c1fca46bd356aa3061b826, type: 2}
   eggItemData: {fileID: 11400000, guid: f51ba95608815ca48beb41b82f0a13e5, type: 2}
+  gameOver: 0
   totalChickens: 4
 --- !u!4 &41464938
 Transform:
@@ -1020,7 +1021,7 @@ MonoBehaviour:
   chaseRange: 7
   manager: {fileID: 41464937}
   pushRadius: 1.5
-  pushForce: 50
+  pushForce: 8
   pushDuration: 0.5
   drag: 8
   animator: {fileID: 315804422}
@@ -2089,7 +2090,7 @@ MonoBehaviour:
   chaseRange: 7
   manager: {fileID: 41464937}
   pushRadius: 1.5
-  pushForce: 50
+  pushForce: 8
   pushDuration: 0.5
   drag: 8
   animator: {fileID: 614722355}
@@ -6210,6 +6211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitionAnim: {fileID: 1440132005}
   transitionTime: 1
+  playerTransform: {fileID: 0}
 --- !u!114 &1463098666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6532,7 +6534,7 @@ MonoBehaviour:
   chaseRange: 7
   manager: {fileID: 41464937}
   pushRadius: 1.5
-  pushForce: 50
+  pushForce: 8
   pushDuration: 0.5
   drag: 8
   animator: {fileID: 1476926886}
@@ -7863,7 +7865,7 @@ MonoBehaviour:
   chaseRange: 7
   manager: {fileID: 41464937}
   pushRadius: 1.5
-  pushForce: 50
+  pushForce: 8
   pushDuration: 0.5
   drag: 8
   animator: {fileID: 1982765394}

@@ -24,8 +24,8 @@ public class QuestManager : MonoBehaviour
     public int killEnemyCount;
     QuestProgress newProgress;
 
+    public PlayerData playerData;
 
- 
     private void Awake()
     {
         if (Instance == null)
@@ -130,11 +130,41 @@ public class QuestManager : MonoBehaviour
         for (int i = 0; i < questProgressList.Count; i++)
         {
             if (questProgressList[i].quest == quest)
-                return questProgressList[i].canTurnInQuest;
+            {
+                switch (quest.objectiveType)
+                {
+                    case QuestData.questObj.collectItems:
+                        return HasRequiredItemsInInventory(quest);
+
+                    case QuestData.questObj.talkToNPC:
+                        return questProgressList[i].progress >= quest.requiredAmount;
+
+                    default:
+                        return questProgressList[i].canTurnInQuest;
+                }
+            }
         }
         return false;
     }
 
+    private bool HasRequiredItemsInInventory(QuestData quest)
+    {
+        if (quest.requiredItem == null || playerData == null) 
+            return false;
+
+        int count = 0;
+        foreach (ItemInstance item in playerData.inventoryItems)
+        {
+            if (item.itemData == quest.requiredItem)
+            {
+                count++;
+                if (count >= quest.requiredAmount) 
+                    return true; // found
+            }
+        }
+        // not enough items in inventory
+        return false; 
+    }
 
     private void RestoreLandmark(QuestData quest)
     {
@@ -186,12 +216,17 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    public void ItemCrafted()
+    public void ItemCrafted(ItemData craftedItem)
     {
         for (int i = activeQuests.Count - 1; i >= 0; i--)
         {
             if (activeQuests[i].objectiveType == QuestData.questObj.craftItems)
-                UpdateQuestProgress(activeQuests[i], 1);
+            {
+                if (activeQuests[i].requiredItem == craftedItem)
+                {
+                    UpdateQuestProgress(activeQuests[i], 1);
+                }
+            }
         }
     }
 
@@ -203,4 +238,22 @@ public class QuestManager : MonoBehaviour
                 UpdateQuestProgress(activeQuests[i], 1);
         }
     }
+
+    public void TalkedToNPC(NPC npc)
+    {
+        if (npc == null) return;
+
+        for (int i = activeQuests.Count - 1; i >= 0; i--)
+        {
+            QuestData quest = activeQuests[i];
+
+            if (quest.objectiveType == QuestData.questObj.talkToNPC && quest.npcToTalkTo == npc.npcData)
+            {
+                UpdateQuestProgress(quest, 1);
+                return;
+            }
+        }
+    }
+
+
 }

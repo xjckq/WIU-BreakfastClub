@@ -84,6 +84,8 @@ public class NPC : MonoBehaviour
     {
         dialogueUI.OnDialogueFinished.RemoveListener(OnDialogueEnd);
 
+        QuestManager.Instance.TalkedToNPC(this);
+
         if (currentState == DialogueState.FirstTalk)
         {
             if (questData != null)
@@ -107,8 +109,10 @@ public class NPC : MonoBehaviour
                     zoomOutCamera.gameObject.SetActive(true);
                     StartCoroutine(ZoomOutCam());
                 }
+
             }
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
