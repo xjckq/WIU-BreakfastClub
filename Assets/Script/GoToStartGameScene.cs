@@ -12,7 +12,7 @@ public class GoToStartGameScene : MonoBehaviour
 
     
     private IEnumerator NextScene(){
-        yield return new WaitForSeconds(35.5f);
+        yield return new WaitForSeconds(1f); // original wait 35.5
         SceneManager.LoadScene("DialogueScene");
     }
 }

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4928907079edec458bdf84ec0af1f25, type: 3}
+  m_Name: GorengPisangRecipeData
+  m_EditorClassIdentifier: 
+  recipeName: Goreng Pisang
+  recipeImage: {fileID: -1838813238098323438, guid: ae3adfda36d298043917cb6392dcb777, type: 3}
+  ingredientsNeeded:
+  - {fileID: 11400000, guid: 59bc8a110a1ca174c88713bc07148e4f, type: 2}
+  - {fileID: 11400000, guid: 19b4cb83c2d2520469d261c463546499, type: 2}
+  resultItem: {fileID: 11400000, guid: db2b537cf2ef3044d85be23a13f7ab30, type: 2}
+  resultEffect: {fileID: 11400000, guid: c0fc7e26d7e72294d9cc77563f88adf5, type: 2}

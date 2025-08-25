@@ -8,7 +8,7 @@ TagManager:
   - BlankSpace
   - CaptureZone
   - EscapeZone
-  - QManager
+  - StoveTrigger
   layers:
   - Default
   - TransparentFX
