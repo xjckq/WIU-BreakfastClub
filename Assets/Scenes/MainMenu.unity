@@ -1077,6 +1077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitionAnim: {fileID: 901347549}
   transitionTime: 1
+  playerTransform: {fileID: 0}
 --- !u!114 &1036639805
 MonoBehaviour:
   m_ObjectHideFlags: 0

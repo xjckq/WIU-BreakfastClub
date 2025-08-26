@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using Unity.Cinemachine;
 
 public enum DialogueState
 {
@@ -20,6 +22,11 @@ public class NPC : MonoBehaviour
 
     [SerializeField] QuestData questData;
 
+    public CinemachineCamera zoomOutCamera;
+    public float zoomDuration = 5;
+
+    [SerializeField] NPCPatrol patrol;
+
     void Update()
     {
         if (isPlayerInRange && Input.GetKey(KeyCode.F))
@@ -39,16 +46,24 @@ public class NPC : MonoBehaviour
                 currentState = DialogueState.FirstTalk;
         }
 
-        if (questData != null && QuestManager.Instance.IsQuestCompleted(questData))
+        //if (questData != null && QuestManager.Instance.IsQuestCompleted(questData))
+        //{
+        //    currentState = DialogueState.QuestCompleted;
+        //    QuestManager.Instance.CompleteQuest(questData);
+        //}
+
+        if (questData != null && QuestManager.Instance.IsQuestReadyToTurnIn(questData))
         {
             currentState = DialogueState.QuestCompleted;
-            QuestManager.Instance.CompleteQuest(questData);
         }
     }
 
     public void TriggerDialogue()
     {
-        DialoguePack[] selectedDialogue;
+        if (patrol != null)
+            patrol.isInDialogue = true; 
+
+            DialoguePack[] selectedDialogue;
 
         switch (currentState)
         {
@@ -72,7 +87,12 @@ public class NPC : MonoBehaviour
 
     private void OnDialogueEnd()
     {
+        if (patrol != null)
+            patrol.isInDialogue = false;
+
         dialogueUI.OnDialogueFinished.RemoveListener(OnDialogueEnd);
+
+        QuestManager.Instance.TalkedToNPC(this);
 
         if (currentState == DialogueState.FirstTalk)
         {
@@ -87,6 +107,20 @@ public class NPC : MonoBehaviour
                 currentState = DialogueState.Default;
             }
         }
+        else if (currentState == DialogueState.QuestCompleted)
+        {
+            if (questData != null)
+            {
+
+                if (zoomOutCamera != null)
+                {
+                    zoomOutCamera.gameObject.SetActive(true);
+                    StartCoroutine(ZoomOutCam());
+                }
+
+            }
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -108,5 +142,15 @@ public class NPC : MonoBehaviour
             if (activeNPC == this)
                 activeNPC = null;
         }
+    }
+
+    private IEnumerator ZoomOutCam()
+    {
+        yield return new WaitForSeconds(zoomDuration / 2);
+        QuestManager.Instance.CompleteQuest(questData);
+        currentState = DialogueState.Default;
+        yield return new WaitForSeconds(zoomDuration / 2);
+        currentState = DialogueState.Default;
+        zoomOutCamera.gameObject.SetActive(false);
     }
 }

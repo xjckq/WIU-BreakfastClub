@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 public class CTCManager : MonoBehaviour
 {
-
+    public static CTCManager Instance;
     float timer;
     public int capturedNum;
     public int escapedNum;
@@ -16,8 +16,19 @@ public class CTCManager : MonoBehaviour
     public PlayerData playerData;
     public ItemData eggItemData;
 
-    bool gameOver, eggsGiven;
+    public bool gameOver;
+    bool eggsGiven;
     public int totalChickens = 4;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

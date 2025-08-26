@@ -17,4 +17,7 @@ MonoBehaviour:
   objectiveType: 2
   requiredAmount: 3
   moneyReward: 0
-  landmarkToRestore: {fileID: 11400000, guid: f7c90431ebc545347bb9d3117d7eaa67, type: 2}
+  landmarkToRestore: {fileID: 11400000, guid: c7bdc0f2b21069c40aab808ab3e1d3a3, type: 2}
+  questGiver: {fileID: 0}
+  npcToTalkTo: {fileID: 0}
+  requiredItem: {fileID: 0}

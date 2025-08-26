@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     InputAction moveAction;
     InputAction attackAction;
     Vector2 moveDirection;
-    public float speed = 5;
+    //public float speed = 5;
 
     public bool canMove = true;
 
@@ -155,8 +155,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.V))
             QuestManager.Instance.ItemCollected();
 
-        if (Input.GetKeyDown(KeyCode.G))
-            QuestManager.Instance.ItemCrafted();
 
         if (Input.GetKeyDown(KeyCode.T))
         {
@@ -192,6 +190,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+
     }
 
     void FixedUpdate()
@@ -202,7 +201,13 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        Vector2 movement = moveDirection.normalized * speed;
+        if (CTCManager.Instance != null && CTCManager.Instance.gameOver)
+        {
+            canMove = false;
+        }
+
+
+        Vector2 movement = moveDirection.normalized * playerData.currentSpeed;
         body.linearVelocity = movement;
 
     }
@@ -226,6 +231,8 @@ public class PlayerController : MonoBehaviour
         playerData.health += amt;
         if (playerData.health > playerData.maxHealth)
             playerData.health = playerData.maxHealth;
+
+        healthbar.SetHealth(playerData.health);
     }
 
     public void ResetData()

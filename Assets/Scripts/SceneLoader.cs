@@ -1,11 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
     [SerializeField] Animator transitionAnim;
     [SerializeField] private float transitionTime = 1f;
-
+    [SerializeField] private Transform playerTransform; 
     public void LoadScene(string sceneName)
     {
         //SceneManager.LoadScene(sceneName);
@@ -34,5 +35,6 @@ public class SceneLoader : MonoBehaviour
     {
         Time.timeScale = scale;
     }
+
 
 }

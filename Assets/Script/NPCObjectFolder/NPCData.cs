@@ -6,4 +6,5 @@ public class NPCData : ScriptableObject
     public string npcName;
     public DialogueData dialogueData;
     public string description;
+    internal object npcData;
 }
