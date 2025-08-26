@@ -14,6 +14,13 @@ public class SaveData
     public List<QuestProgressData> questProgresses = new List<QuestProgressData>(); // get the progress of ongoing quests
     public List<string> restoredLandmarkIDs = new List<string>(); // get the state of activated landmarks
     public List<NPCSaveData> npcStates = new List<NPCSaveData>(); // get the npcStates [their dialogue]
+    public List<ItemSaveData> savedInventory = new List<ItemSaveData>(); 
+}
+
+[Serializable]
+public class ItemSaveData
+{
+    public string itemID;
 }
 
 [System.Serializable]

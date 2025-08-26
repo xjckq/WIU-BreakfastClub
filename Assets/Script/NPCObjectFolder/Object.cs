@@ -24,7 +24,7 @@ public class Object : MonoBehaviour
 
     void Update()
     {
-        if (isPlayerInRange && Input.GetKey(KeyCode.F) && !AutoTrigger)
+        if (isPlayerInRange && Input.GetKey(KeyCode.E) && !AutoTrigger)
         {
             dialogueUI.StartDialogue(objectData.objectDialogueData.objectLines, false);
         }

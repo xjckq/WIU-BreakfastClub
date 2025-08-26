@@ -163,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27f1d8578e80c6c4daba3621390f1899
-      internalID: 356932408
+      spriteID: 296d97c039feffb4d904bb14fddc8a13
+      internalID: 1334948743
       vertices: []
       indices: 
       edges: []
@@ -185,8 +185,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8f61d5823c0c114ca3b6d12cfdbb6be
-      internalID: 1574255684
+      spriteID: f48317b08e951f345b59635a1969b190
+      internalID: -704893437
       vertices: []
       indices: 
       edges: []
@@ -207,8 +207,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32091e1018ae1da48ba18724bc12e85a
-      internalID: 823192309
+      spriteID: a8dc53832a4b6414ba9031a3c54b2b20
+      internalID: 1955084755
       vertices: []
       indices: 
       edges: []
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da87dd991d5d2af42ae323eb09d0ec73
-      internalID: -1495741502
+      spriteID: 001d079cc710c484583e077136a22838
+      internalID: -1725689642
       vertices: []
       indices: 
       edges: []
@@ -251,8 +251,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c3b048221c63654796608c177524b20
-      internalID: 2124371469
+      spriteID: 493b450157df2054db9f93e19a8afb37
+      internalID: -328656983
       vertices: []
       indices: 
       edges: []
@@ -261,7 +261,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4dcb2cdbb131bbe439a8785eab377c25
+    spriteID: 420caddbdc927774ca7f129be56e4162
     internalID: 0
     vertices: []
     indices: 
@@ -272,11 +272,11 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       InteractBubble_0: -5421483301547203941
-      InteractBubble_1: 356932408
-      InteractBubble_2: 1574255684
-      InteractBubble_3: 823192309
-      InteractBubble_4: -1495741502
-      InteractBubble_5: 2124371469
+      InteractBubble_1: 1334948743
+      InteractBubble_2: -704893437
+      InteractBubble_3: 1955084755
+      InteractBubble_4: -1725689642
+      InteractBubble_5: -328656983
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

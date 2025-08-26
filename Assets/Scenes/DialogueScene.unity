@@ -5953,7 +5953,6 @@ GameObject:
   - component: {fileID: 779707838}
   - component: {fileID: 779707837}
   - component: {fileID: 779707839}
-  - component: {fileID: 779707840}
   m_Layer: 0
   m_Name: Stove
   m_TagString: Untagged
@@ -6078,23 +6077,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1.125}
   m_EdgeRadius: 0
---- !u!114 &779707840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 779707836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68e0154fdc82b3a408876363cd50f5e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectData: {fileID: 11400000, guid: f3fd1db8151ba404c8bf2d5f2b8e5571, type: 2}
-  dialogueUI: {fileID: 794573391}
-  isPlayerInRange: 0
-  emote: {fileID: 503880976006099451}
-  AutoTrigger: 0
 --- !u!1 &781145992
 GameObject:
   m_ObjectHideFlags: 0
@@ -9677,6 +9659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryUI: {fileID: 1697159335}
   playerData: {fileID: 11400000, guid: 491cca77d0c1fca46bd356aa3061b826, type: 2}
+  allItemData: []
 --- !u!1 &1042813546
 GameObject:
   m_ObjectHideFlags: 0
@@ -16239,6 +16222,9 @@ MonoBehaviour:
   allQuests:
   - {fileID: 11400000, guid: 075af733eadec1e4a804a6b25e1fd920, type: 2}
   questManager: {fileID: 877688590}
+  inventorySystem: {fileID: 1041662834}
+  itemDatabase: {fileID: 11400000, guid: d3135d9d8933b184ead379c988226c89, type: 2}
+  inventoryUI: {fileID: 1697159335}
   isLoadingSavedGame: 0
 --- !u!1 &1645656673
 GameObject:

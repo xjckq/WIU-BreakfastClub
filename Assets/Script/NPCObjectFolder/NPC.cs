@@ -38,7 +38,7 @@ public class NPC : MonoBehaviour
 
     void Update()
     {
-        if (isPlayerInRange && Input.GetKey(KeyCode.F))
+        if (isPlayerInRange && Input.GetKey(KeyCode.E))
         {
             TriggerDialogue();
         }

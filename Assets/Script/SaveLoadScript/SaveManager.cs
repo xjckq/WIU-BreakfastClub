@@ -10,6 +10,10 @@ public class SaveManager : MonoBehaviour
     public PlayerData playerData;
     public List<QuestData> allQuests;
     public QuestManager questManager;
+    public InventorySystem inventorySystem;
+    public ItemDatabase itemDatabase;
+    public InventoryUI inventoryUI;
+
     public bool isLoadingSavedGame = false;
 
     private SaveData loadedSaveData;
@@ -43,6 +47,18 @@ public class SaveManager : MonoBehaviour
         }
         data.playerHealth = playerData.health;
 
+        if (inventorySystem != null && playerData != null)
+        {
+            foreach (var itemInstance in playerData.inventoryItems)
+            {
+                data.savedInventory.Add(new ItemSaveData
+                {
+                    itemID = itemInstance.itemData.itemName
+                });
+                Debug.Log(data.savedInventory);
+            }
+        }
+
         // save the ongoing quests
         foreach (QuestData quest in questManager.activeQuests)
             data.activeQuestIDs.Add(quest.title);
@@ -74,8 +90,8 @@ public class SaveManager : MonoBehaviour
                 isFinished = npc.isFinished
             });
         }
-        Debug.Log($"Saving active quests: {string.Join(", ", data.activeQuestIDs)}");
-        Debug.Log($"Saving completed quests: {string.Join(", ", data.completedQuestIDs)}");
+        //Debug.Log($"Saving active quests: {string.Join(", ", data.activeQuestIDs)}");
+        //Debug.Log($"Saving completed quests: {string.Join(", ", data.completedQuestIDs)}");
         SaveSystem.SaveGame(data);
     }
 
@@ -113,6 +129,29 @@ public class SaveManager : MonoBehaviour
             player.transform.position = new Vector3(data.playerPosition[0], data.playerPosition[1], 0);
         }
         playerData.health = data.playerHealth;
+
+        if (playerData != null)
+        {
+            playerData.inventoryItems.Clear();
+
+            foreach (ItemSaveData savedItem in data.savedInventory)
+            {
+                ItemData itemData = itemDatabase.GetItemByName(savedItem.itemID);
+                if (itemData != null)
+                {
+                    ItemInstance newItem = new ItemInstance(itemData, null);
+                    playerData.inventoryItems.Add(newItem);
+                }
+                else
+                {
+                    Debug.LogWarning($"Item not found in database: {savedItem.itemID}");
+                }
+            }
+        }
+
+        // Then refresh the UI
+        inventoryUI.RefreshInventoryUI();
+
 
         // reset the current quest data and larnmark stuff
         questManager.activeQuests.Clear();
