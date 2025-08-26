@@ -27,6 +27,10 @@ public class QuestManager : MonoBehaviour
     public int killEnemyCount;
     QuestProgress newProgress;
 
+    public QuestData mainQuest1; 
+    public QuestData mainQuest2; 
+    public QuestData mainQuest3;
+
     public PlayerData playerData;
 
     bool NPCprogressUpdated;
@@ -137,12 +141,22 @@ public class QuestManager : MonoBehaviour
         }
 
         Debug.Log("quest completed: " + quest.title);
+
+        if (IsQuestCompleted(mainQuest1) && IsQuestCompleted(mainQuest2) &&IsQuestCompleted(mainQuest3))
+            GameWin();
+
+    }
+
+    private void GameWin()
+    {
+        Debug.Log("main quests have all been completed, you win!");
     }
 
     private void removeItemFromInventory(ItemData itemToRemove, int amountToRemove)
     {
         int removedCount = 0;
 
+        // loop through inventory backwards to safely remove items and if itemdata matches then remove from ivnentory
         for (int i = playerData.inventoryItems.Count - 1; i >= 0 && removedCount < amountToRemove; i--)
         {
             if (playerData.inventoryItems[i].itemData == itemToRemove)

@@ -7514,15 +7514,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allQuests:
-  - {fileID: 11400000, guid: 251debbd360a2d94aaed65379e96e2a7, type: 2}
   - {fileID: 11400000, guid: 075af733eadec1e4a804a6b25e1fd920, type: 2}
+  - {fileID: 11400000, guid: e6684e9679bcc5345ad43daa5cd65c7b, type: 2}
+  - {fileID: 11400000, guid: 1ce06ae50bfaf3643b09331aef05a820, type: 2}
+  - {fileID: 11400000, guid: 6842a64d0c2873049ae4a0bff731575b, type: 2}
+  - {fileID: 11400000, guid: a531f1fba3b432a449587a3e4b8426af, type: 2}
+  - {fileID: 11400000, guid: 5f192e937d6f6ad44af3ed04977cc16b, type: 2}
   activeQuests: []
   completedQuests: []
   restoredLandmarks: []
   questProgressList: []
   maxActiveQuests: 3
-  inventoryUISystem: {fileID: 1697159335}
   killEnemyCount: 0
+  mainQuest1: {fileID: 11400000, guid: 075af733eadec1e4a804a6b25e1fd920, type: 2}
+  mainQuest2: {fileID: 11400000, guid: 5f192e937d6f6ad44af3ed04977cc16b, type: 2}
+  mainQuest3: {fileID: 11400000, guid: a531f1fba3b432a449587a3e4b8426af, type: 2}
   playerData: {fileID: 11400000, guid: 491cca77d0c1fca46bd356aa3061b826, type: 2}
 --- !u!4 &877688591
 Transform:
