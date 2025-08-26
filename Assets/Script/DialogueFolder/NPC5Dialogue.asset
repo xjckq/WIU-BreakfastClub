@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8590a738d40f9d04b99c981feb766fa4, type: 3}
+  m_Name: NPC5Dialogue
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - characterName: Meihua
+    diaTxt: Whenever you're free, can follow my uncle go catch chicken again.
+  FirstTalkLines:
+  - characterName: Meihua
+    diaTxt: Aiyoh! Disaster lah!
+  - characterName: Xing Yi
+    diaTxt: What happened?
+  - characterName: Meihua
+    diaTxt: My best chickens have escaped their coop!
+  - characterName: Meihua
+    diaTxt: How am I supposed to sell eggs with no chickens? I'm too old to run after
+      them.
+  - characterName: Meihua
+    diaTxt: Can you please help me catch them in this minigame? I'll give you free
+      eggs after, I promise!
+  - characterName: Xing Yi
+    diaTxt: Okay.
+  - characterName: Meihua
+    diaTxt: You can follow my uncle, he's also going there.
+  - characterName: Meihua
+    diaTxt: Just take the yellow car in front with him can already.
+  QuestOngoingLines:
+  - characterName: Meihua
+    diaTxt: My uncle waiting for you in the yellow car in front.
+  QuestCompletedLines:
+  - characterName: Meihua
+    diaTxt: 'Thank you, dear! You are a lifesaver! '
+  - characterName: Meihua
+    diaTxt: These chickens are like my old friends; I've raised them since they were
+      chicks.
+  - characterName: Meihua
+    diaTxt: "You know, wet markets has been here since before I was born. It\u2019s
+      a place where neighbours meet and stories are shared over the counter."
+  - characterName: Meihua
+    diaTxt: Don't let places like this become just a memory, okay?
+  - characterName: Xing Yi
+    diaTxt: Okay.
+  - characterName: Meihua
+    diaTxt: Here are your eggs.
+  - characterName: Meihua
+    diaTxt: Whenever you're free, can follow my uncle go catch chicken again. I won't
+      charge you!

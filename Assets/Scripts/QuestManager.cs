@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+using static QuestData;
 
 [System.Serializable]
 public class QuestProgress // to track quest progress
@@ -8,6 +10,8 @@ public class QuestProgress // to track quest progress
     public QuestData quest;
     public int progress;
     public bool canTurnInQuest = false;
+
+    public List<NPCData> talkedToNPCs = new List<NPCData>();
 }
 
 public class QuestManager : MonoBehaviour
@@ -19,13 +23,13 @@ public class QuestManager : MonoBehaviour
     public List<Landmark> restoredLandmarks;
     public List<QuestProgress> questProgressList;
 
-    public int maxActiveQuests = 3; 
-
+    public int maxActiveQuests = 3;
     public int killEnemyCount;
     QuestProgress newProgress;
 
     public PlayerData playerData;
 
+    bool NPCprogressUpdated;
     private void Awake()
     {
         if (Instance == null)
@@ -87,6 +91,10 @@ public class QuestManager : MonoBehaviour
         {
             if (questProgressList[i].quest == quest)
             {
+                if (quest.objectiveType == QuestData.questObj.talkToNPC && quest.npcsToTalkTo != null && quest.npcsToTalkTo.Count > 0)
+                {
+                    return questProgressList[i].talkedToNPCs.Count;
+                }
                 return questProgressList[i].progress;
             }
         }
@@ -101,6 +109,22 @@ public class QuestManager : MonoBehaviour
             completedQuests.Add(quest);
             RestoreLandmark(quest);
 
+            if(quest.moneyReward > 0)
+            {
+                playerData.money += quest.moneyReward;
+                Debug.Log("money received: " + quest.moneyReward);
+            }
+
+            if (quest.objectiveType == QuestData.questObj.collectItems && quest.requiredItem != null || quest.objectiveType == QuestData.questObj.craftItems && quest.requiredItem != null)
+            {
+                removeItemFromInventory(quest.requiredItem, quest.requiredAmount);
+                // refresh inventory UI
+                var inventory = FindAnyObjectByType<InventorySystem>();
+                if (inventory != null)
+                    inventory.inventoryUI.RefreshInventoryUI();
+            }
+
+
             // remove quest progress
             for (int i = questProgressList.Count - 1; i >= 0; i--)
             {
@@ -113,6 +137,21 @@ public class QuestManager : MonoBehaviour
         }
 
         Debug.Log("quest completed: " + quest.title);
+    }
+
+    private void removeItemFromInventory(ItemData itemToRemove, int amountToRemove)
+    {
+        int removedCount = 0;
+
+        for (int i = playerData.inventoryItems.Count - 1; i >= 0 && removedCount < amountToRemove; i--)
+        {
+            if (playerData.inventoryItems[i].itemData == itemToRemove)
+            {
+                playerData.inventoryItems.RemoveAt(i);
+                removedCount++;
+                Debug.Log("removed " + itemToRemove.itemName + " from inventory");
+            }
+        }
     }
 
     public bool IsQuestActive(QuestData quest)
@@ -137,7 +176,14 @@ public class QuestManager : MonoBehaviour
                         return HasRequiredItemsInInventory(quest);
 
                     case QuestData.questObj.talkToNPC:
-                        return questProgressList[i].progress >= quest.requiredAmount;
+                        if (quest.npcsToTalkTo != null && quest.npcsToTalkTo.Count > 0)
+                        {
+                            return questProgressList[i].talkedToNPCs.Count >= quest.npcsToTalkTo.Count;
+                        }
+                        else
+                        {
+                            return questProgressList[i].progress >= quest.requiredAmount;
+                        }
 
                     default:
                         return questProgressList[i].canTurnInQuest;
@@ -149,22 +195,65 @@ public class QuestManager : MonoBehaviour
 
     private bool HasRequiredItemsInInventory(QuestData quest)
     {
-        if (quest.requiredItem == null || playerData == null) 
-            return false;
+        for (int i = 0; i < questProgressList.Count; i++)
+        {
+            if (questProgressList[i].quest == quest)
+            {
+                return questProgressList[i].canTurnInQuest;
+            }
+        }
+        return false;
+    }
 
-        int count = 0;
+    public void ItemCollected(ItemData collectedItem)
+    {
+        for (int i = activeQuests.Count - 1; i >= 0; i--)
+        {
+            QuestData quest = activeQuests[i];
+
+            if (quest.objectiveType == QuestData.questObj.collectItems && quest.requiredItem == collectedItem)
+            {
+                UpdateCollectionQuestProgress(quest);
+            }
+        }
+    }
+
+    private void UpdateCollectionQuestProgress(QuestData quest)
+    {
+        if (quest.requiredItem == null || playerData == null)
+            return;
+
+        // how many of the required item the player has
+        int currentCount = 0;
         foreach (ItemInstance item in playerData.inventoryItems)
         {
             if (item.itemData == quest.requiredItem)
             {
-                count++;
-                if (count >= quest.requiredAmount) 
-                    return true; // found
+                currentCount++;
             }
         }
-        // not enough items in inventory
-        return false; 
+
+        // find and update the quest progress
+        for (int i = 0; i < questProgressList.Count; i++)
+        {
+            if (questProgressList[i].quest == quest)
+            {
+                if (currentCount >= quest.requiredAmount)
+                {
+                    questProgressList[i].progress = quest.requiredAmount;
+                    questProgressList[i].canTurnInQuest = true;
+                    Debug.Log("can turn in: " + quest.title);
+                }
+                else
+                {
+                    questProgressList[i].progress = currentCount;
+                    questProgressList[i].canTurnInQuest = false;
+                }
+                break;
+            }
+        }
     }
+
 
     private void RestoreLandmark(QuestData quest)
     {
@@ -198,21 +287,19 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    public void EnemyKilled()
+    public void EnemyKilled(EnemyType enemyType)
     {
         for (int i = activeQuests.Count - 1; i >= 0; i--) // loops through all the active quests
         {
-            if (activeQuests[i].objectiveType == QuestData.questObj.killEnemies) // check quest obj
-                UpdateQuestProgress(activeQuests[i], 1); // update progress count
-        }
-    }
+            QuestData quest = activeQuests[i];
 
-    public void ItemCollected()
-    {
-        for (int i = activeQuests.Count - 1; i >= 0; i--)
-        {
-            if (activeQuests[i].objectiveType == QuestData.questObj.collectItems)
-                UpdateQuestProgress(activeQuests[i], 1);
+            if (quest.objectiveType == QuestData.questObj.killEnemies)
+            {
+                if  (quest.targetEnemy == enemyType)
+                {
+                    UpdateQuestProgress(quest, 1);
+                }
+            }
         }
     }
 
@@ -230,30 +317,67 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    public void MinigameCompleted()
+    public void MinigameCompleted(QuestData.MinigameType type)
     {
-        for (int i = activeQuests.Count - 1; i >= 0; i--)
-        {
-            if (activeQuests[i].objectiveType == QuestData.questObj.completeMG)
-                UpdateQuestProgress(activeQuests[i], 1);
-        }
-    }
-
-    public void TalkedToNPC(NPC npc)
-    {
-        if (npc == null) return;
-
         for (int i = activeQuests.Count - 1; i >= 0; i--)
         {
             QuestData quest = activeQuests[i];
 
-            if (quest.objectiveType == QuestData.questObj.talkToNPC && quest.npcToTalkTo == npc.npcData)
+            if (quest.objectiveType == QuestData.questObj.completeMG && quest.minigameType == type)
             {
                 UpdateQuestProgress(quest, 1);
-                return;
+
+                if (IsQuestReadyToTurnIn(quest))
+                {
+                    Debug.Log("quest can be turned in: " + quest.title);
+                }
             }
         }
     }
+    public void TalkedToNPC(NPC npc)
+    {
+        if (npc == null) return;
+
+        NPCprogressUpdated = false;
+        for (int i = activeQuests.Count - 1; i >= 0; i--)
+        {
+            QuestData quest = activeQuests[i];
+
+            if (quest.objectiveType == QuestData.questObj.talkToNPC)
+            {
+                QuestProgress progress = questProgressList.Find(qp => qp.quest == quest);
+                if (progress == null) continue;
+
+                // for quest that requires u to only talk to 1 npc
+                if (quest.npcToTalkTo != null && quest.npcToTalkTo == npc.npcData)
+                {
+                    UpdateQuestProgress(quest, 1);
+                    NPCprogressUpdated = true;
+                    continue;
+                }
+
+                // for quest that requires u to talk to multiple npcs
+                if (quest.npcsToTalkTo != null && quest.npcsToTalkTo.Count > 0)
+                {
+                    if (quest.npcsToTalkTo.Contains(npc.npcData) && !progress.talkedToNPCs.Contains(npc.npcData))
+                    {
+                        progress.talkedToNPCs.Add(npc.npcData);
+                        progress.progress = progress.talkedToNPCs.Count;
+
+                        if (progress.progress >= quest.npcsToTalkTo.Count)
+                        {
+                            progress.canTurnInQuest = true;
+                            Debug.Log("all NPCs talked to for quest: " + quest.title);
+                        }
+                        NPCprogressUpdated = true;
+                        continue;
+                    }
+                }
+            }
+        }
+
+    }
+
 
 
 }

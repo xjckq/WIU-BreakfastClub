@@ -20,4 +20,6 @@ MonoBehaviour:
   landmarkToRestore: {fileID: 11400000, guid: f5d1adf0522272c4ea7abd71f24c59e4, type: 2}
   questGiver: {fileID: 6233887384908456385, guid: ed9fac8a3eb4f7248a53a25e32cb2865, type: 3}
   npcToTalkTo: {fileID: 11400000, guid: 8e460002a7a3bcf47aa56865a9accc9f, type: 2}
+  npcsToTalkTo: []
   requiredItem: {fileID: 0}
+  targetEnemy: 0

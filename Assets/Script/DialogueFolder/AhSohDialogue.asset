@@ -13,17 +13,25 @@ MonoBehaviour:
   m_Name: AhSohDialogue
   m_EditorClassIdentifier: 
   dialogueLines:
+  - characterName: Xing Yi
+    diaTxt: Hello Aunty, my friend sent me. Do you know what used to be in that empty
+      space over there?
   - characterName: Ah Soh
-    diaTxt: Kids last time used to play in the dragon playground.. wonder if people
-      still play here nowadays?
+    diaTxt: "Empty space? That\u2019s no empty space, child."
   - characterName: Ah Soh
-    diaTxt: Used to hear laughter all around.. now so quiet, like everyone forgot
+    diaTxt: "That\u2019s where the dragon playground stood! The grandest one in all
+      of Singapore!"
   - characterName: Ah Soh
-    diaTxt: If nobody talks about it, slowly the memory fades.. the dragon feels
-      lonely
+    diaTxt: Ah, it was magnificent. A huge red dragon with a winding body you could
+      run through.
   - characterName: Ah Soh
-    diaTxt: Ah girl, if you have time, tell others and share stories.. keep the dragon
-      alive in hearts
+    diaTxt: All the children loved it. My own sons played there every day until their
+      clothes were covered in sand.
+  - characterName: Ah Soh
+    diaTxt: It was the heart of this neighbourhood... a symbol of Toa Payoh.
+  - characterName: Ah Soh
+    diaTxt: "It\u2019s a shame to see it forgotten like this. Such a strong, beautiful
+      memory... it shouldn't fade away."
   FirstTalkLines: []
   QuestOngoingLines: []
   QuestCompletedLines: []

@@ -392,7 +392,7 @@ MonoBehaviour:
   OnDied:
     m_PersistentCalls:
       m_Calls: []
-  itemPrefab: {fileID: 4630389110044750991, guid: be3a1183b6e4c7141a3a6cdf10a77000, type: 3}
+  itemPrefab: {fileID: 5616232252232397321, guid: 3736566e1cdb19948afdfcccc44c72e5, type: 3}
 --- !u!58 &941714989286677703
 CircleCollider2D:
   m_ObjectHideFlags: 0

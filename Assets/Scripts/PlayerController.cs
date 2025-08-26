@@ -149,12 +149,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // -- all for testing purposes --
-        if (Input.GetKeyDown(KeyCode.C))
-            QuestManager.Instance.EnemyKilled();
-
-        if (Input.GetKeyDown(KeyCode.V))
-            QuestManager.Instance.ItemCollected();
-
 
         if (Input.GetKeyDown(KeyCode.T))
         {

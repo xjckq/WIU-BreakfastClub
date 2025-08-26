@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eaebad2e3cb89e43a59c64827af844e, type: 3}
+  m_Name: CollectMeat
+  m_EditorClassIdentifier: 
+  title: Need More Meat
+  desc: Take down the boars
+  objectiveType: 0
+  requiredAmount: 3
+  moneyReward: 300
+  landmarkToRestore: {fileID: 0}
+  questGiver: {fileID: 5335197361121480086, guid: 5b697076bd68a394790f0d33ce99261c, type: 3}
+  npcToTalkTo: {fileID: 11400000, guid: 3f4b59ba4933c8745a2ddcc6905dca28, type: 2}
+  npcsToTalkTo: []
+  requiredItem: {fileID: 11400000, guid: 98ea9656ccf26514e843d042d9c1c731, type: 2}
+  targetEnemy: 0
+  minigameType: 0

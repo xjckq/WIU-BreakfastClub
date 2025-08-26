@@ -72,6 +72,16 @@ public class EnemyHealthSystem : MonoBehaviour
     private void Die()
     {
         isDead = true;
+
+        QuestData.EnemyType enemyType = QuestData.EnemyType.None;
+
+        if (_boarMovement != null) 
+            enemyType = QuestData.EnemyType.Boar;
+        if (_monkeyMovement != null) 
+            enemyType = QuestData.EnemyType.Monkey;
+
+        QuestManager.Instance.EnemyKilled(enemyType);
+
         if (itemPrefab != null)
         {
             Instantiate(itemPrefab, transform.position, Quaternion.identity);

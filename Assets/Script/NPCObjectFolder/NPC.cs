@@ -117,6 +117,11 @@ public class NPC : MonoBehaviour
                     zoomOutCamera.gameObject.SetActive(true);
                     StartCoroutine(ZoomOutCam());
                 }
+                else
+                {
+                    QuestManager.Instance.CompleteQuest(questData);
+                    currentState = DialogueState.Default;
+                }
 
             }
         }

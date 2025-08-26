@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8590a738d40f9d04b99c981feb766fa4, type: 3}
+  m_Name: NPC6Dialogue
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - characterName: Mr. Tan
+    diaTxt: Thank you for helping me remember what it used to be.
+  FirstTalkLines:
+  - characterName: Mr. Tan
+    diaTxt: 'You feel it too, don''t you? A hollow feeling where something magnificent
+      should be. '
+  - characterName: Mr. Tan
+    diaTxt: I have an ache in my heart telling me this was a place of peace... but
+      the memory is just out of reach.
+  - characterName: Mr. Tan
+    diaTxt: I recall it was a temple... one of our oldest. It was built by seafarers,
+      I think? But the name... it's gone.
+  - characterName: Mr. Tan
+    diaTxt: My old legs aren't what they used to be. Young friend, please, be my
+      eyes and legs.
+  - characterName: Mr. Tan
+    diaTxt: Seek out those who might still hold the pieces
+  - characterName: Mr. Tan
+    diaTxt: Find Mr. Lim at the waterfront. The sea is in his soul.
+  - characterName: Mr. Tan
+    diaTxt: 'Speak with Mdm. Seow at the cultural club. She values our traditions.  '
+  - characterName: Mr. Tan
+    diaTxt: 'Ask Uncle Raj, my taxi driver friend. He has seen the whole of Singapore
+      change. '
+  - characterName: Mr. Tan
+    diaTxt: Bring their stories back to me. We must rebuild this memory together.
+  QuestOngoingLines:
+  - characterName: Mr. Tan
+    diaTxt: Have you talked to the three of them?
+  - characterName: Xing Yi
+    diaTxt: No, not yet.
+  - characterName: Mr. Tan
+    diaTxt: If you don't have the time, I understand.
+  QuestCompletedLines:
+  - characterName: Mr. Tan
+    diaTxt: It is all flooding back! It is the Yueh Hai Ching Temple! The Temple
+      of the Calm Sea!
+  - characterName: Mr. Tan
+    diaTxt: Built by the Teochew immigrants... a beacon of hope and gratitude.
+  - characterName: Mr. Tan
+    diaTxt: It wasn't just for them, it became a part of Singapore's soul.
+  - characterName: Mr. Tan
+    diaTxt: It survived redevelopment because we recognized its value.
+  - characterName: Mr. Tan
+    diaTxt: It is a symbol that we can honour our past while building our future.
+  - characterName: Mr. Tan
+    diaTxt: ' You have done a great thing today. You haven''t just restored a building,
+      you have revived a story.'

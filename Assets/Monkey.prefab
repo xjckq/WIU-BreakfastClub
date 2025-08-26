@@ -186,8 +186,20 @@ MonoBehaviour:
   healthBarOffset: {x: 0, y: 0.8, z: 0}
   OnDied:
     m_PersistentCalls:
-      m_Calls: []
-  itemPrefab: {fileID: 4630389110044750991, guid: be3a1183b6e4c7141a3a6cdf10a77000, type: 3}
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  itemPrefab: {fileID: 4642814715597057618, guid: dbb2dd2155498694e8b14a3085bacc46, type: 3}
 --- !u!58 &3914727086458071375
 CircleCollider2D:
   m_ObjectHideFlags: 0
