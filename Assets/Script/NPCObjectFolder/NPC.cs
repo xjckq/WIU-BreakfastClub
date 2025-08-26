@@ -148,6 +148,7 @@ public class NPC : MonoBehaviour
     {
         yield return new WaitForSeconds(zoomDuration / 2);
         QuestManager.Instance.CompleteQuest(questData);
+        currentState = DialogueState.Default;
         yield return new WaitForSeconds(zoomDuration / 2);
         currentState = DialogueState.Default;
         zoomOutCamera.gameObject.SetActive(false);

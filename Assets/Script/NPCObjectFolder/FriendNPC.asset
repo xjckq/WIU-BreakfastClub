@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a09019f05091cb4fabc929755be87fb, type: 3}
   m_Name: FriendNPC
   m_EditorClassIdentifier: 
-  npcName: Friend
+  npcName: Mimi
   dialogueData: {fileID: 11400000, guid: 5d6766364cb4089419ffcf002af0af71, type: 2}
   description: My closest friend, and one of the only ones I really talk to nowadays.

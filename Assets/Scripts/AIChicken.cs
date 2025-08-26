@@ -96,6 +96,12 @@ public class AIChicken : MonoBehaviour
             }
         }
 
+        // face away from player
+        if (pushDirection.x > 0 && EnemyState.ESCAPE == CurrentState)
+            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+        else if (pushDirection.x < 0 && EnemyState.ESCAPE == CurrentState)
+            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+
         Push();
     }
 
@@ -122,11 +128,11 @@ public class AIChicken : MonoBehaviour
         pushTimer = pushDuration;
         isPushing = true;
 
-        //face away from player
-        if (pushDirection.x > 0)
-            transform.localScale = new Vector3(scaleX, transform.localScale.y, transform.localScale.z);
-        else
-            transform.localScale = new Vector3(-scaleX, transform.localScale.y, transform.localScale.z);
+        // //face away from player
+        // if (pushDirection.x > 0)
+        //     transform.localScale = new Vector3(scaleX, transform.localScale.y, transform.localScale.z);
+        // else
+        //     transform.localScale = new Vector3(-scaleX, transform.localScale.y, transform.localScale.z);
 
         ChangeState(EnemyState.ESCAPE);
     }
@@ -160,6 +166,8 @@ public class AIChicken : MonoBehaviour
             ChangeState(EnemyState.IDLE);
         else if (distanceToPlayer < chaseRange)
             ChangeState(EnemyState.CHASE);
+
+            return;
     }
 
     private void ChangeState(EnemyState nextState)
@@ -193,9 +201,9 @@ public class AIChicken : MonoBehaviour
     private void Flip()
     {
         if (target.transform.position.x > transform.position.x)
-            transform.localScale = new Vector3(scaleX, transform.localScale.y, transform.localScale.z);
-        else
             transform.localScale = new Vector3(-scaleX, transform.localScale.y, transform.localScale.z);
+        else
+            transform.localScale = new Vector3(scaleX, transform.localScale.y, transform.localScale.z);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -96,7 +96,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 40
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -148,10 +148,10 @@ TextureImporter:
       name: Chicken_Sprite_Sheet_FB_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 97
-        width: 24
-        height: 30
+        x: 0
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,10 +170,10 @@ TextureImporter:
       name: Chicken_Sprite_Sheet_FB_1
       rect:
         serializedVersion: 2
-        x: 37
-        y: 97
-        width: 26
-        height: 30
+        x: 32
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,10 +192,10 @@ TextureImporter:
       name: Chicken_Sprite_Sheet_FB_2
       rect:
         serializedVersion: 2
-        x: 71
-        y: 97
-        width: 24
-        height: 30
+        x: 64
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,10 +214,10 @@ TextureImporter:
       name: Chicken_Sprite_Sheet_FB_3
       rect:
         serializedVersion: 2
-        x: 101
-        y: 97
-        width: 26
-        height: 30
+        x: 96
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,10 +236,10 @@ TextureImporter:
       name: Chicken_Sprite_Sheet_FB_4
       rect:
         serializedVersion: 2
-        x: 7
+        x: 0
         y: 64
-        width: 24
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,10 +258,10 @@ TextureImporter:
       name: Chicken_Sprite_Sheet_FB_5
       rect:
         serializedVersion: 2
-        x: 37
+        x: 32
         y: 64
-        width: 26
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -280,10 +280,10 @@ TextureImporter:
       name: Chicken_Sprite_Sheet_FB_6
       rect:
         serializedVersion: 2
-        x: 71
+        x: 64
         y: 64
-        width: 24
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -302,10 +302,10 @@ TextureImporter:
       name: Chicken_Sprite_Sheet_FB_7
       rect:
         serializedVersion: 2
-        x: 101
+        x: 96
         y: 64
-        width: 26
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -324,10 +324,10 @@ TextureImporter:
       name: Chicken_Sprite_Sheet_FB_8
       rect:
         serializedVersion: 2
-        x: 7
-        y: 33
-        width: 24
-        height: 30
+        x: 0
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -346,10 +346,10 @@ TextureImporter:
       name: Chicken_Sprite_Sheet_FB_9
       rect:
         serializedVersion: 2
-        x: 37
-        y: 33
-        width: 26
-        height: 30
+        x: 32
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,10 +368,10 @@ TextureImporter:
       name: Chicken_Sprite_Sheet_FB_10
       rect:
         serializedVersion: 2
-        x: 69
-        y: 33
-        width: 28
-        height: 30
+        x: 64
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -390,10 +390,10 @@ TextureImporter:
       name: Chicken_Sprite_Sheet_FB_11
       rect:
         serializedVersion: 2
-        x: 101
-        y: 33
-        width: 26
-        height: 30
+        x: 96
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -412,10 +412,10 @@ TextureImporter:
       name: Chicken_Sprite_Sheet_FB_12
       rect:
         serializedVersion: 2
-        x: 7
+        x: 0
         y: 0
-        width: 24
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -434,10 +434,10 @@ TextureImporter:
       name: Chicken_Sprite_Sheet_FB_13
       rect:
         serializedVersion: 2
-        x: 37
+        x: 32
         y: 0
-        width: 26
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -456,10 +456,10 @@ TextureImporter:
       name: Chicken_Sprite_Sheet_FB_14
       rect:
         serializedVersion: 2
-        x: 65
+        x: 64
         y: 0
-        width: 30
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -478,10 +478,10 @@ TextureImporter:
       name: Chicken_Sprite_Sheet_FB_15
       rect:
         serializedVersion: 2
-        x: 101
+        x: 96
         y: 0
-        width: 26
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -500,7 +500,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: dcdf85ecfb0c6494a8ad9e6536ca7029
     internalID: 0
     vertices: []
     indices: 

@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     InputAction moveAction;
     InputAction attackAction;
     Vector2 moveDirection;
-    public float speed = 5;
+    //public float speed = 5;
 
     public bool canMove = true;
 
@@ -207,7 +207,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        Vector2 movement = moveDirection.normalized * speed;
+        Vector2 movement = moveDirection.normalized * playerData.currentSpeed;
         body.linearVelocity = movement;
 
     }

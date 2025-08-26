@@ -55,7 +55,7 @@ public class Dialogue : MonoBehaviour
     {
         if (dialoguelines == null || dialoguelines.Length == 0 || isPlayingCutscene) return;
 
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (isTyping)
             {
