@@ -17,4 +17,4 @@ MonoBehaviour:
   - {fileID: 905534624205105433, guid: 73f2b6ff01836aa43ad58d6b98e5aba0, type: 3}
   - {fileID: 8519033470618369152, guid: 8648f46a5025b3c41b394d43ba1ffa5e, type: 3}
   totalEnemiesToSpawn: 5
-  spawnInterval: 5
+  spawnInterval: 3

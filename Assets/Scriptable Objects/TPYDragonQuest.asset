@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eaebad2e3cb89e43a59c64827af844e, type: 3}
+  m_Name: TPYDragonQuest
+  m_EditorClassIdentifier: 
+  title: What is Unknown
+  desc: Your friend thinks there's something missing, find out what it is.
+  objectiveType: 4
+  requiredAmount: 1
+  moneyReward: 0
+  landmarkToRestore: {fileID: 11400000, guid: f5d1adf0522272c4ea7abd71f24c59e4, type: 2}
+  questGiver: {fileID: 6233887384908456385, guid: ed9fac8a3eb4f7248a53a25e32cb2865, type: 3}
+  npcToTalkTo: {fileID: 11400000, guid: 8e460002a7a3bcf47aa56865a9accc9f, type: 2}
+  requiredItem: {fileID: 0}

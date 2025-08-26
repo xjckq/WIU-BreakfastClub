@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: NormalZombieData
   m_EditorClassIdentifier: 
   health: 50
-  moveSpeed: 2
+  moveSpeed: 3
   damage: 20

@@ -8,7 +8,8 @@ public class QuestData : ScriptableObject
         collectItems,
         craftItems,
         killEnemies,
-        completeMG
+        completeMG,
+        talkToNPC
     }
 
     public string title;
@@ -17,7 +18,8 @@ public class QuestData : ScriptableObject
     public int requiredAmount;
     public int moneyReward;
     public Landmark landmarkToRestore;
-    //public ItemData requiredItem;
-    //public string Item[] itemReward;
+    public NPC questGiver;
+    public NPCData npcToTalkTo;
+    public ItemData requiredItem;
 
 }

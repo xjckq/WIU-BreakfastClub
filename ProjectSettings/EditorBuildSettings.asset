@@ -6,8 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TestScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/MainMenu.unity
+    guid: cbc23af45a6b76d459a82f09134d7676
+  - enabled: 1
+    path: Assets/Scenes/Home.unity
+    guid: 9e334841645e5634da9fed0fba77ad48
+  - enabled: 1
+    path: Assets/Scenes/DialogueScene.unity
+    guid: bb356997f62e4964aae26fefc59127f4
+  - enabled: 1
+    path: Assets/Scenes/Outside.unity
+    guid: fbd8dd7e81407da46be39cd52fef62a7
+  - enabled: 1
+    path: Assets/Scenes/CTCMinigame.unity
+    guid: 872d6294e3076f342824281560bfd547
+  - enabled: 1
+    path: Assets/Scenes/Inventory&Crafting.unity
+    guid: c028c248b9b29b247a283870f293cee3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

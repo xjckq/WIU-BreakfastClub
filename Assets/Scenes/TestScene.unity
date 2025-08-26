@@ -501,16 +501,6 @@ MonoBehaviour:
   completedQuests: []
   restoredLandmarks: []
   questProgressList: []
-  QuestUIPanels:
-  - questName: {fileID: 945669456}
-    questDesc: {fileID: 107722583}
-    questPanel: {fileID: 1413110178}
-  - questName: {fileID: 2093401016}
-    questDesc: {fileID: 1810464872}
-    questPanel: {fileID: 703566198}
-  - questName: {fileID: 1244920299}
-    questDesc: {fileID: 1187655261}
-    questPanel: {fileID: 1568933260}
   maxActiveQuests: 3
   killEnemyCount: 0
   playerData: {fileID: 11400000, guid: 491cca77d0c1fca46bd356aa3061b826, type: 2}
@@ -2614,6 +2604,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4634886230977940524, guid: c1d1773bf83f54c45be9a58f92b448b0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 11d76710266d84045a4a6ffbf0778cbc, type: 2}
     - target: {fileID: 9040987565328021346, guid: c1d1773bf83f54c45be9a58f92b448b0, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -2642,7 +2636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1969314481366541009
 Transform:
   m_ObjectHideFlags: 0
@@ -2773,7 +2767,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.25}
-    oldSize: {x: 1, y: 2}
+    oldSize: {x: 0.8, y: 1.6}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

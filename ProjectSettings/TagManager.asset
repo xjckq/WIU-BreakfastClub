@@ -5,14 +5,17 @@ TagManager:
   serializedVersion: 3
   tags:
   - NPC
-  - RightBoundingBox
-  - BoundingBox
-  - TopBoundingBox
-  - BottomBoundingBox
-  - LeftBoundingBox
+  - BlankSpace
+  - CaptureZone
+  - EscapeZone
+  - StoveTrigger
   - Enemy
-  - Zombie
+  - BottomBoundingBox
+  - TopBoundingBox
+  - RightBoundingBox
   - Door
+  - LeftBoundingBox
+  - Zombie
   layers:
   - Default
   - TransparentFX
@@ -20,6 +23,7 @@ TagManager:
   - Player
   - Water
   - UI
+  - Obstacle
   - OpenDoor
   - Door
   - Weapon
@@ -27,7 +31,6 @@ TagManager:
   - Wall
   - Enemy
   - Bullet
-  - 
   - 
   - 
   - 
