@@ -17,7 +17,7 @@ public class CheckTrigger : MonoBehaviour
     {
         foreach (CollisionTarget target in targets)
         {
-            if (other.CompareTag("Enemy"))
+            if (other == target.collider)
             {
                 Debug.Log("Touched: " + target.collider.name);
                 target.onCollisionEnter.Invoke();

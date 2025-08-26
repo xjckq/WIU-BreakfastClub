@@ -9,13 +9,18 @@ public class PlayerController : MonoBehaviour
     InputAction moveAction;
     Vector2 moveDirection;
     public float speed = 5;
-
-
+    [SerializeField] GameObject hitbox;
+    public PlayerData playerData;
     void Awake()
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         body = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        playerData.health = 100;
     }
 
     private void OnEnable()
@@ -80,15 +85,46 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.T))
         {
-            QuestManager.Instance.playerData.TakeDmg(5);
-            Debug.Log("player has " + QuestManager.Instance.playerData.health + "now");
+           TakeDmg(5);
+            Debug.Log("player has " + playerData.health + "now");
         }
+        if (Input.GetKey(KeyCode.X))
+        {
+            hitbox.SetActive(true);
+        }
+        else
+        {
+            hitbox.SetActive(false);
+        }
+        
     }
 
     void FixedUpdate()
     {
         Vector2 movement = moveDirection.normalized * speed;
         body.linearVelocity = movement;
+    }
+
+    public void TakeDmg(int dmg)
+    {
+        playerData.health -= dmg;
+        if (playerData.health < 0)
+            playerData.health = 0;
+    }
+
+    public void Heal(int amt)
+    {
+
+        playerData.health += amt;
+        if (playerData.health > playerData.maxHealth)
+            playerData.health = playerData.maxHealth;
+    }
+
+    public void ResetData()
+    {
+        playerData.health = 100;
+        playerData.money = 0;
+        playerData.maxHealth = 100;
     }
 
 
