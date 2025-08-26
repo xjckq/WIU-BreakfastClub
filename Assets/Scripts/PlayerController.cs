@@ -17,8 +17,6 @@ public class PlayerController : MonoBehaviour
     public GameObject questTab;
     public bool isQuestTabOpen = false;
 
-    public GameObject savePanel;
-    public bool isSavePanelOpen = false;
     public PlayerData playerData;
 
     bool isAttacking, isMoving;
@@ -169,7 +167,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Q) && !isSavePanelOpen)
+        if (Input.GetKeyDown(KeyCode.Q) && !isQuestTabOpen)
         {
             if (!isQuestTabOpen)
             {
@@ -182,20 +180,6 @@ public class PlayerController : MonoBehaviour
                 isQuestTabOpen = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.P) && !isQuestTabOpen)
-        {
-            if (!isSavePanelOpen)
-            {
-                savePanel.SetActive(true);
-                isSavePanelOpen = true;
-            }
-            else
-            {
-                savePanel.SetActive(false);
-                isSavePanelOpen = false;
-            }
-        }
-
     }
 
     void FixedUpdate()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class SaveManager : MonoBehaviour
@@ -18,17 +19,44 @@ public class SaveManager : MonoBehaviour
 
     private SaveData loadedSaveData;
 
+    //public void getTheButtonsByTag()
+    //{
+    //    GameObject saveButtonObj = GameObject.FindGameObjectWithTag("Save");
+    //    if (saveButtonObj != null)
+    //    {
+    //        Button saveButton = saveButtonObj.GetComponent<Button>();
+    //        saveButton.onClick.RemoveAllListeners();
+    //        saveButton.onClick.AddListener(SaveGame);
+    //    }
+
+    //    GameObject loadButtonObj = GameObject.FindGameObjectWithTag("Load");
+    //    if (loadButtonObj != null)
+    //    {
+    //        Button loadButton = loadButtonObj.GetComponent<Button>();
+    //        loadButton.onClick.RemoveAllListeners();
+    //        loadButton.onClick.AddListener(LoadGame);
+    //    }
+
+    //    GameObject deleteButtonObj = GameObject.FindGameObjectWithTag("Delete");
+    //    if (deleteButtonObj != null)
+    //    {
+    //        Button deleteButton = deleteButtonObj.GetComponent<Button>();
+    //        deleteButton.onClick.RemoveAllListeners();
+    //        deleteButton.onClick.AddListener(DeleteGameSave);
+    //    }
+    //}
+
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        //if (instance == null)
+        //{
+        //    instance = this;
+        //    DontDestroyOnLoad(gameObject);
+        //}
+        //else
+        //{
+        //    Destroy(gameObject);
+        //}
     }
 
     public void SaveGame()
@@ -49,6 +77,7 @@ public class SaveManager : MonoBehaviour
 
         if (inventorySystem != null && playerData != null)
         {
+            playerData.inventoryItems.Clear();
             foreach (var itemInstance in playerData.inventoryItems)
             {
                 data.savedInventory.Add(new ItemSaveData
@@ -90,8 +119,8 @@ public class SaveManager : MonoBehaviour
                 isFinished = npc.isFinished
             });
         }
-        //Debug.Log($"Saving active quests: {string.Join(", ", data.activeQuestIDs)}");
-        //Debug.Log($"Saving completed quests: {string.Join(", ", data.completedQuestIDs)}");
+        Debug.Log($"Saving active quests: {string.Join(", ", data.activeQuestIDs)}");
+        Debug.Log($"Saving completed quests: {string.Join(", ", data.completedQuestIDs)}");
         SaveSystem.SaveGame(data);
     }
 
@@ -128,7 +157,7 @@ public class SaveManager : MonoBehaviour
         {
             player.transform.position = new Vector3(data.playerPosition[0], data.playerPosition[1], 0);
         }
-        playerData.health = data.playerHealth;
+        //playerData.health = data.playerHealth;
 
         if (playerData != null)
         {
@@ -225,6 +254,8 @@ public class SaveManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        inventoryUI = FindFirstObjectByType<InventoryUI>();
+
         getAppliedData(loadedSaveData);
         isLoadingSavedGame = false;
         SceneManager.sceneLoaded -= OnSceneLoaded;

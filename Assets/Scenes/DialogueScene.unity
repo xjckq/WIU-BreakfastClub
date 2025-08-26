@@ -245,7 +245,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1640075551}
+      - m_Target: {fileID: 569908144}
         m_TargetAssemblyTypeName: SaveManager, Assembly-CSharp
         m_MethodName: LoadGame
         m_Mode: 1
@@ -2599,7 +2599,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &395333024
 Animator:
   serializedVersion: 7
@@ -4134,6 +4134,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 568775831}
   m_CullTransparentMesh: 1
+--- !u!1 &569908143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 569908145}
+  - component: {fileID: 569908144}
+  m_Layer: 0
+  m_Name: SaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &569908144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569908143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce0a259079da104dad3ee41323b4a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 491cca77d0c1fca46bd356aa3061b826, type: 2}
+  allQuests:
+  - {fileID: 11400000, guid: 075af733eadec1e4a804a6b25e1fd920, type: 2}
+  questManager: {fileID: 877688590}
+  inventorySystem: {fileID: 1041662834}
+  itemDatabase: {fileID: 11400000, guid: d3135d9d8933b184ead379c988226c89, type: 2}
+  inventoryUI: {fileID: 1697159335}
+  isLoadingSavedGame: 0
+--- !u!4 &569908145
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569908143}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.2009544, y: 3.595852, z: 0.036899365}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &588232469
 GameObject:
   m_ObjectHideFlags: 0
@@ -16178,7 +16230,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1640075550}
-  - component: {fileID: 1640075551}
   m_Layer: 5
   m_Name: SAVELOAD
   m_TagString: Untagged
@@ -16206,26 +16257,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1640075551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1640075549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dce0a259079da104dad3ee41323b4a4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: 491cca77d0c1fca46bd356aa3061b826, type: 2}
-  allQuests:
-  - {fileID: 11400000, guid: 075af733eadec1e4a804a6b25e1fd920, type: 2}
-  questManager: {fileID: 877688590}
-  inventorySystem: {fileID: 1041662834}
-  itemDatabase: {fileID: 11400000, guid: d3135d9d8933b184ead379c988226c89, type: 2}
-  inventoryUI: {fileID: 1697159335}
-  isLoadingSavedGame: 0
 --- !u!1 &1645656673
 GameObject:
   m_ObjectHideFlags: 0
@@ -24252,6 +24283,8 @@ GameObject:
   - component: {fileID: 1961852982}
   - component: {fileID: 1961852981}
   - component: {fileID: 1961852983}
+  - component: {fileID: 1961852984}
+  - component: {fileID: 1961852985}
   m_Layer: 0
   m_Name: TV
   m_TagString: Untagged
@@ -24363,7 +24396,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.16584635}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -24373,7 +24406,68 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.875, y: 1.3125}
+  m_Size: {x: 1.875, y: 0.9808073}
+  m_EdgeRadius: 0
+--- !u!114 &1961852984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961852980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5bc267f3f5208044b54aee19f24966b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  savePanel: {fileID: 1640075549}
+  isPlayerInRange: 0
+  emote: {fileID: 503880976006099451}
+--- !u!61 &1961852985
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961852980}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.15308857}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.875, y: 1.3125}
+    newSize: {x: 1.875, y: 1.3125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.875, y: 1.6186771}
   m_EdgeRadius: 0
 --- !u!1 &1965567727
 GameObject:
@@ -29533,7 +29627,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1640075551}
+      - m_Target: {fileID: 569908144}
         m_TargetAssemblyTypeName: SaveManager, Assembly-CSharp
         m_MethodName: SaveGame
         m_Mode: 1
@@ -29666,7 +29760,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1640075551}
+      - m_Target: {fileID: 569908144}
         m_TargetAssemblyTypeName: SaveManager, Assembly-CSharp
         m_MethodName: DeleteGameSave
         m_Mode: 1
@@ -30590,3 +30684,4 @@ SceneRoots:
   - {fileID: 667788186}
   - {fileID: 896153928}
   - {fileID: 1388360309}
+  - {fileID: 569908145}
