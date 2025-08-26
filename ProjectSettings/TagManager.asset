@@ -9,6 +9,10 @@ TagManager:
   - CaptureZone
   - EscapeZone
   - StoveTrigger
+  - QManager
+  - Load
+  - Save
+  - Delete
   layers:
   - Default
   - TransparentFX

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public enum DialogueState
@@ -8,6 +9,14 @@ public enum DialogueState
     Default
 }
 
+[Serializable]
+public class DialogueStatePersist
+{
+    public string npcID;
+    public DialogueState state;
+    public bool isFinished;
+}
+
 public class NPC : MonoBehaviour
 {
     public NPCData npcData;
@@ -16,9 +25,16 @@ public class NPC : MonoBehaviour
     public static NPC activeNPC;
 
     public bool isPlayerInRange = false;
-    public GameObject emote;
+    public bool isFinished = false;
+    public GameObject emote; // the interactiev bubble
 
     [SerializeField] QuestData questData;
+
+    void Start()
+    {
+        currentState = NPCDialogueManager.Instance.GetDialogueState(npcData.npcName);
+        isFinished = NPCDialogueManager.Instance.GetIsFinished(npcData.npcName);
+    }
 
     void Update()
     {
@@ -27,22 +43,18 @@ public class NPC : MonoBehaviour
             TriggerDialogue();
         }
 
-        if (NPC.activeNPC == this)
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-                currentState = DialogueState.QuestOngoing;
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-                currentState = DialogueState.QuestCompleted;
-            if (Input.GetKeyDown(KeyCode.Alpha3))
-                currentState = DialogueState.Default;
-            if (Input.GetKeyDown(KeyCode.Alpha4))
-                currentState = DialogueState.FirstTalk;
-        }
-
         if (questData != null && QuestManager.Instance.IsQuestCompleted(questData))
         {
-            currentState = DialogueState.QuestCompleted;
-            QuestManager.Instance.CompleteQuest(questData);
+            if (!isFinished)
+            {
+                currentState = DialogueState.QuestCompleted;
+                QuestManager.Instance.CompleteQuest(questData);
+            }
+            else if (isFinished && currentState == DialogueState.QuestCompleted)
+            {
+                currentState = DialogueState.Default;
+            }
+            
         }
     }
 
@@ -87,6 +99,13 @@ public class NPC : MonoBehaviour
                 currentState = DialogueState.Default;
             }
         }
+
+        if (currentState == DialogueState.QuestCompleted)
+        {
+            isFinished = true;
+        }
+        
+        NPCDialogueManager.Instance.SaveDialogueState(npcData.npcName, currentState, isFinished);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

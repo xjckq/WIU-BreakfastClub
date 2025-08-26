@@ -13,13 +13,29 @@ MonoBehaviour:
   m_Name: EndCutsceneDialogueData
   m_EditorClassIdentifier: 
   objectLines:
-  - characterName: Ano
+  - characterName: Aliza
     diaTxt: Hey!
-  - characterName: Ano
+  - characterName: Aliza
     diaTxt: Wait for me!!
-  - characterName: Ano
+  - characterName: Aliza
     diaTxt: Finally found you, I've been looking for you, y'know?
-  - characterName: Ano
+  - characterName: Aliza
     diaTxt: I was surprised that you weren't at home when I went to check.
-  - characterName: Ano
+  - characterName: Aliza
     diaTxt: You don't usually go out, especially not for this long.
+  - characterName: Aliza
+    diaTxt: It's been a while since we've hung out. Is now a good time?
+  - characterName: Aliza
+    diaTxt: Nice, let's go to your house. Mine is a bit.. noisy at the moment.
+  - characterName: Aliza
+    diaTxt: So that's what it was.
+  - characterName: Aliza
+    diaTxt: I didn't think you would take any interest in that.
+  - characterName: Aliza
+    diaTxt: No response? Guess your social battery is finally out.
+  - characterName: Aliza
+    diaTxt: You look a lot better than any other time I've seen you.
+  - characterName: Aliza
+    diaTxt: Exhausted, but not too bad.
+  - characterName: Aliza
+    diaTxt: How about we go out more often, yeah?
