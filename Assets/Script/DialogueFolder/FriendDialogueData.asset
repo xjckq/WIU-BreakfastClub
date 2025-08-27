@@ -13,46 +13,46 @@ MonoBehaviour:
   m_Name: FriendDialogueData
   m_EditorClassIdentifier: 
   dialogueLines:
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: Man, I didn't think we'd forget about that playground
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: I don't know what you did but, thanks!
   - characterName: Xing Yi
     diaTxt: Thanks for?
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: Getting our memories back, duh!!
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: We spend a lot of our childhood together there together!
   FirstTalkLines:
   - characterName: Xing Yi
     diaTxt: Hi
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: Hi!! How's it going bud
   - characterName: Xing Yi
     diaTxt: Nothing much.
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: As always, shouldn't have expected anything less, haha.
   - characterName: Xing Yi
     diaTxt: What'd u call me for
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: I called you because of this.. area a few feet away from out block.
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: Hear me out for a bit yeah?
   QuestOngoingLines:
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: It's a bit unnerving that I expect to see something there.
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: I can't keep thinking about it.
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: Like, I know it's important but I can't remember why and what.
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: Ugh, this sucks.
   QuestCompletedLines:
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: This is..
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: Of course, it's the playground!
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: How could we have forgotten?
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: Such a small thing, yet it holds so much to people like us.

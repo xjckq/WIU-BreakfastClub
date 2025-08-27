@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using Unity.Cinemachine;
+using System;
 
 public enum DialogueState
 {
@@ -8,6 +9,14 @@ public enum DialogueState
     QuestOngoing,
     QuestCompleted,
     Default
+}
+
+[Serializable]
+public class DialogueStatePersist
+{
+    public string npcID;
+    public DialogueState state;
+    public bool isFinished;
 }
 
 public class NPC : MonoBehaviour
@@ -18,6 +27,7 @@ public class NPC : MonoBehaviour
     public static NPC activeNPC;
 
     public bool isPlayerInRange = false;
+    public bool isFinished = false;
     public GameObject emote;
 
     [SerializeField] QuestData questData;
@@ -26,6 +36,12 @@ public class NPC : MonoBehaviour
     public float zoomDuration = 5;
 
     [SerializeField] NPCPatrol patrol;
+
+    void Start()
+    {
+        currentState = NPCDialogueManager.Instance.GetDialogueState(npcData.npcName);
+        isFinished = NPCDialogueManager.Instance.GetIsFinished(npcData.npcName);
+    }
 
     void Update()
     {
@@ -54,7 +70,15 @@ public class NPC : MonoBehaviour
 
         if (questData != null && QuestManager.Instance.IsQuestReadyToTurnIn(questData))
         {
-            currentState = DialogueState.QuestCompleted;
+            if (!isFinished)
+            {
+                currentState = DialogueState.QuestCompleted;
+                QuestManager.Instance.CompleteQuest(questData);
+            }
+            else if (isFinished && currentState == DialogueState.QuestCompleted)
+            {
+                currentState = DialogueState.Default;
+            }
         }
     }
 
@@ -119,8 +143,10 @@ public class NPC : MonoBehaviour
                 }
 
             }
+            isFinished = true;
         }
 
+        NPCDialogueManager.Instance.SaveDialogueState(npcData.npcName, currentState, isFinished);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

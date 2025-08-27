@@ -1,9 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class InventorySystem : MonoBehaviour
 {
     public InventoryUI inventoryUI;
     public PlayerData playerData;
+
+    public List<ItemData> allItemData;
 
     void Start()
     {
@@ -64,5 +67,10 @@ public class InventorySystem : MonoBehaviour
                 Debug.Log("buff reverted");
             }
         }
+    }
+
+    public ItemData GetItemDataByID(string id)
+    {
+        return allItemData.Find(item => item.itemName == id);
     }
 }
