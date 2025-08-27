@@ -32,7 +32,7 @@ public class QuestManager : MonoBehaviour
     public QuestData mainQuest3;
 
     public PlayerData playerData;
-
+    [SerializeField] SceneLoader loader;
     bool NPCprogressUpdated = false;
     private void Awake()
     {
@@ -150,6 +150,9 @@ public class QuestManager : MonoBehaviour
     private void GameWin()
     {
         Debug.Log("main quests have all been completed, you win!");
+ 
+        if (loader != null)
+            loader.LoadScene("EndingCutscene");
     }
 
     private void removeItemFromInventory(ItemData itemToRemove, int amountToRemove)

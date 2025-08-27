@@ -18,6 +18,10 @@ public class NPCPatrol : MonoBehaviour
     public bool isInDialogue;
     Animator animator;
     SpriteRenderer spriteRenderer;
+
+    [SerializeField] float stopDist = .8f; 
+    public Transform player; 
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -49,6 +53,23 @@ public class NPCPatrol : MonoBehaviour
             animator.SetBool("isMovingUp", false);
             animator.SetBool("isMovingDown", false);
             return;
+        }
+
+        if (player != null)
+        {
+            Vector2 toPlayer = player.position - transform.position;
+
+            // check if player is in the dir we're moving
+            float dotProduct = Vector2.Dot(direction.normalized, toPlayer.normalized);
+
+            if (dotProduct > .7f && toPlayer.magnitude < stopDist)
+            {
+                rb.linearVelocity = Vector2.zero;
+                animator.SetBool("isMovingSide", false);
+                animator.SetBool("isMovingUp", false);
+                animator.SetBool("isMovingDown", false);
+                return;
+            }
         }
 
         if (isWaiting)
