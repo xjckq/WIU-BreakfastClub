@@ -33,7 +33,7 @@ public class QuestManager : MonoBehaviour
 
     public PlayerData playerData;
 
-    bool NPCprogressUpdated;
+    bool NPCprogressUpdated = false;
     private void Awake()
     {
         if (Instance == null)
