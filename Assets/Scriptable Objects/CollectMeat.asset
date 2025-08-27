@@ -16,7 +16,7 @@ MonoBehaviour:
   desc: Take down the boars
   objectiveType: 0
   requiredAmount: 3
-  moneyReward: 300
+  moneyReward: 100
   landmarkToRestore: {fileID: 0}
   questGiver: {fileID: 5335197361121480086, guid: 5b697076bd68a394790f0d33ce99261c, type: 3}
   npcToTalkTo: {fileID: 11400000, guid: 3f4b59ba4933c8745a2ddcc6905dca28, type: 2}

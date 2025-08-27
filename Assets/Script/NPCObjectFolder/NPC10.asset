@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8c5e3a94ab7ce0469d6d37542a72915, type: 3}
-  m_Name: TankZombieData
+  m_Script: {fileID: 11500000, guid: 8a09019f05091cb4fabc929755be87fb, type: 3}
+  m_Name: NPC10
   m_EditorClassIdentifier: 
-  health: 60
-  moveSpeed: 2
-  damage: 30
+  npcName: Officer
+  dialogueData: {fileID: 11400000, guid: b500c2233f9acb146b6fc856fa44ad7b, type: 2}
+  description: Officer

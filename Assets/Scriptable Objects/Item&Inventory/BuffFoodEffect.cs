@@ -25,10 +25,16 @@ public class BuffFoodEffect : ItemEffect
             Debug.Log($"Buff applied for {duration:F1}s");
         }
 
-        var ps = GameObject.FindFirstObjectByType<ParticleSystem>();
-        if (ps != null)
+        var player = GameObject.FindWithTag("Player");
+        var systems = player.GetComponentsInChildren<ParticleSystem>();
+
+        foreach (var ps in systems)
         {
-            ps.Play();
+            if (ps.gameObject.name == "BuffParticles") 
+            {
+                ps.Play();
+                break;
+            }
         }
     }
 }

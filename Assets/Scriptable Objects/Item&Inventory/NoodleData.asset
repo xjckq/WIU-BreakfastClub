@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Noodles
   itemImage: {fileID: 8406823489743734843, guid: d114ce8f32853b7419d20bbfb255dbba, type: 3}
+  itemCost: 35
