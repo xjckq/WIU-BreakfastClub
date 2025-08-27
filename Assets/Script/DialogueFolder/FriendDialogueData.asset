@@ -13,54 +13,52 @@ MonoBehaviour:
   m_Name: FriendDialogueData
   m_EditorClassIdentifier: 
   dialogueLines:
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: It's amazing, isn't it? These old places aren't just structures but where
       our shared stories live.
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: Anyways, did you manage to find Braxton?
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: He usually lingers around the east side.
   FirstTalkLines:
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: Hey... you see that too, right?
   - characterName: Xing Yi
     diaTxt: Yeah..
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: That empty space over there. It feels... weird.
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: Like I should know what's there, but I just can't remember.
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: It's on the tip of my tongue... a dragon? A slide? It's all fuzzy.
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: I heard Aunty Ah Soh always strolls by the pond in the morning. She's
       lived here forever so she must know what this place used to be.
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: Can you go ask her for me? Maybe she can help us remember.
   - characterName: Xing Yi
     diaTxt: Sure.
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: She's usually strolling around the pond to our left.
   QuestOngoingLines:
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: Have you spoken to Ah Soh yet?
   - characterName: Xing Yi
     diaTxt: No, not yet.
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: She's usually strolling around the pond to our left.
   QuestCompletedLines:
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: A dragon playground... YES! That's it!
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: The Toa Payoh Dragon Playground! How could I forget?
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: I used to beg my parents to take me there every weekend!
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: Thank you so much for helping us bring this piece of my childhood back.
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: Hey, you know who else would love to see this?
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: My friend Braxton!
-  - characterName: Mimi
-    diaTxt: He's always hanging out near the place at the east side.
-  - characterName: Mimi
+  - characterName: Aliza
     diaTxt: He's always hanging out near the place at the east side.

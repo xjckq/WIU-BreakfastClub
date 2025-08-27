@@ -17,7 +17,7 @@ MonoBehaviour:
     diaTxt: I LOVE EGG FRIED RICE
   FirstTalkLines:
   - characterName: Braxton
-    diaTxt: Hey, you're Mimi's friend, right?
+    diaTxt: Hey, you're Aliza's friend, right?
   - characterName: Xing Yi
     diaTxt: Yes
   - characterName: Braxton

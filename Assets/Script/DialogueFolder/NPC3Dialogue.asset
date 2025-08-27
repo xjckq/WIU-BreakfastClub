@@ -18,6 +18,8 @@ MonoBehaviour:
   - characterName: Priya
     diaTxt: If you ever want to make goreng pisang, you'll need one banana and two
       flour.
+  - characterName: Priya
+    diaTxt: It's a crispy fried snack that heals you and lifts your spirits.
   FirstTalkLines:
   - characterName: Priya
     diaTxt: Hello, can you help me with something?
@@ -43,7 +45,9 @@ MonoBehaviour:
   - characterName: Priya
     diaTxt: We must all adapt to survive, just like Singapore did.
   - characterName: Priya
-    diaTxt: Here is some gold, for your trouble.
+    diaTxt: Here is some coins, for your trouble.
   - characterName: Priya
     diaTxt: If you ever want to make goreng pisang, you'll need one banana and two
       flour.
+  - characterName: Priya
+    diaTxt: It's  crispy fried snack that heals you and lifts your spirits.

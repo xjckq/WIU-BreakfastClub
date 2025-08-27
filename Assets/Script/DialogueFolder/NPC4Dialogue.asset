@@ -18,6 +18,9 @@ MonoBehaviour:
   - characterName: Ah Hui
     diaTxt: If you ever want to cook wanton noodles, all you need is one meat and
       two noodles.
+  - characterName: Ah Hui
+    diaTxt: Wanton Mee enhances your agility, letting you move faster for a short
+      while.
   FirstTalkLines:
   - characterName: Ah Hui
     diaTxt: Oi, young lady! Business is bad enough already. Now those troublesome
@@ -55,3 +58,6 @@ MonoBehaviour:
   - characterName: Ah Hui
     diaTxt: If you ever want to cook wanton noodles, all you need is a meat and two
       noodles.
+  - characterName: Ah Hui
+    diaTxt: Wanton Mee enhances your agility, letting you move faster for a short
+      while.

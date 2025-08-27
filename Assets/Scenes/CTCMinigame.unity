@@ -1121,7 +1121,7 @@ MonoBehaviour:
   chaseRange: 7
   manager: {fileID: 41464937}
   pushRadius: 1.5
-  pushForce: 50
+  pushForce: 15
   pushDuration: 0.8
   drag: 8
   animator: {fileID: 315804422}
@@ -2520,7 +2520,7 @@ MonoBehaviour:
   chaseRange: 7
   manager: {fileID: 41464937}
   pushRadius: 1.5
-  pushForce: 50
+  pushForce: 15
   pushDuration: 0.8
   drag: 8
   animator: {fileID: 614722355}
@@ -6965,7 +6965,7 @@ MonoBehaviour:
   chaseRange: 7
   manager: {fileID: 41464937}
   pushRadius: 1.5
-  pushForce: 50
+  pushForce: 15
   pushDuration: 0.8
   drag: 8
   animator: {fileID: 1476926886}
@@ -8296,7 +8296,7 @@ MonoBehaviour:
   chaseRange: 7
   manager: {fileID: 41464937}
   pushRadius: 1.5
-  pushForce: 50
+  pushForce: 15
   pushDuration: 0.8
   drag: 8
   animator: {fileID: 1982765394}
