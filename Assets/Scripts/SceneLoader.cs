@@ -27,11 +27,11 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadOutsideHome()
     {
-        LoadSceneAt("Outside", new Vector3(0, 0, 0));
+        LoadSceneAt("Outside", new Vector3(0, 1, 0));
     }
     public void LoadOutsideCTC()
     {
-        LoadSceneAt("Outside", new Vector3(0, -2, 0));
+        LoadSceneAt("Outside", new Vector3(-6, -8, 0));
     }
 
     public void LoadScene(string sceneName)

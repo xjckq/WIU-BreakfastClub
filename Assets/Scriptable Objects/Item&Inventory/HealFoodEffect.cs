@@ -13,5 +13,11 @@ public class HealFoodEffect : ItemEffect
             player.Heal(healAmount);
             Debug.Log($"Healed {healAmount}, current HP = {player.playerData.health}/{player.playerData.maxHealth}");
         }
+
+        var ps = GameObject.FindFirstObjectByType<ParticleSystem>();
+        if (ps != null)
+        {
+            ps.Play();
+        }
     }
 }

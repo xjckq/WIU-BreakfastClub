@@ -8850,7 +8850,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ba4054e12e5074c996185345f6c24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
   canMove: 1
   questTab: {fileID: 0}
   isQuestTabOpen: 0

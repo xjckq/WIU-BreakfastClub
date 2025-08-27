@@ -20,6 +20,6 @@ MonoBehaviour:
   buffFoodActive: 0
   buffFoodRemainingTime: 0
   inventoryItems: []
-  maxInventorySize: 10
-  spawnPosition: {x: 0.5, y: 15, z: 0}
+  maxInventorySize: 9
+  spawnPosition: {x: 0, y: 1, z: 0}
   hasCustomSpawn: 0
