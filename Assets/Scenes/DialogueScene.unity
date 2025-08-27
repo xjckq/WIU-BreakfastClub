@@ -9263,7 +9263,6 @@ MonoBehaviour:
   isQuestTabOpen: 0
   playerData: {fileID: 11400000, guid: 491cca77d0c1fca46bd356aa3061b826, type: 2}
   healthbar: {fileID: 496760090}
-  questManager: {fileID: 2086336974}
   moneyTxt: {fileID: 1606706899}
 --- !u!50 &1041662831
 Rigidbody2D:
@@ -29026,6 +29025,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6842a64d0c2873049ae4a0bff731575b, type: 2}
   - {fileID: 11400000, guid: a531f1fba3b432a449587a3e4b8426af, type: 2}
   - {fileID: 11400000, guid: 5f192e937d6f6ad44af3ed04977cc16b, type: 2}
+  - {fileID: 11400000, guid: 09ccefa7146a7e540a42d4972440555f, type: 2}
   activeQuests: []
   completedQuests: []
   restoredLandmarks: []

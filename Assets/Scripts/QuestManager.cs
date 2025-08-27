@@ -1,7 +1,8 @@
-using System;
+
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 using static QuestData;
 
 [System.Serializable]
@@ -45,6 +46,25 @@ public class QuestManager : MonoBehaviour
         {
             Destroy(gameObject);
             return;
+        }
+
+    }
+
+    private void OnEnable()
+    {
+       SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        foreach (Landmark landmark in restoredLandmarks)
+        {
+            changeLandmarkColor(landmark);
         }
     }
 
@@ -291,15 +311,24 @@ public class QuestManager : MonoBehaviour
                         particle.Play();
                     }
 
-                    restoredLandmarks.Add(quest.landmarkToRestore);
-
                     Debug.Log("landmark restored: " + quest.landmarkToRestore.landmarkName);
+                    restoredLandmarks.Add(quest.landmarkToRestore);
+                    changeLandmarkColor(quest.landmarkToRestore);
+                }
+            }
+        }
+    }
 
-                }
-                else
-                {
-                    Debug.LogWarning("can't find: " + quest.landmarkToRestore.landmarkSceneName) ;
-                }
+
+    public void changeLandmarkColor(Landmark landmark)
+    {
+        GameObject landmarkObj = GameObject.Find(landmark.landmarkSceneName);
+        if (landmarkObj != null)
+        {
+            SpriteRenderer spriteRenderer = landmarkObj.GetComponent<SpriteRenderer>();
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.color = landmark.restoredColor;
             }
         }
     }

@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
     Vector2 facingDir = Vector2.down;
 
     public HealthbarScript healthbar;
-    public QuestManager questManager;
 
     public TMP_Text moneyTxt;
 

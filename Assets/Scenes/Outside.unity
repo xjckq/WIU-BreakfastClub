@@ -99724,68 +99724,6 @@ Transform:
   - {fileID: 1759168796}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
---- !u!1 &2043912627
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2043912629}
-  - component: {fileID: 2043912628}
-  m_Layer: 0
-  m_Name: QuestManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2043912628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2043912627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d9bab1a3cbdee74ea97d3dae943827a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allQuests:
-  - {fileID: 11400000, guid: 075af733eadec1e4a804a6b25e1fd920, type: 2}
-  - {fileID: 11400000, guid: e6684e9679bcc5345ad43daa5cd65c7b, type: 2}
-  - {fileID: 11400000, guid: 1ce06ae50bfaf3643b09331aef05a820, type: 2}
-  - {fileID: 11400000, guid: 6842a64d0c2873049ae4a0bff731575b, type: 2}
-  - {fileID: 11400000, guid: a531f1fba3b432a449587a3e4b8426af, type: 2}
-  - {fileID: 11400000, guid: 5f192e937d6f6ad44af3ed04977cc16b, type: 2}
-  activeQuests: []
-  completedQuests: []
-  restoredLandmarks: []
-  questProgressList: []
-  maxActiveQuests: 3
-  killEnemyCount: 0
-  mainQuest1: {fileID: 11400000, guid: 075af733eadec1e4a804a6b25e1fd920, type: 2}
-  mainQuest2: {fileID: 11400000, guid: 5f192e937d6f6ad44af3ed04977cc16b, type: 2}
-  mainQuest3: {fileID: 11400000, guid: a531f1fba3b432a449587a3e4b8426af, type: 2}
-  playerData: {fileID: 11400000, guid: 491cca77d0c1fca46bd356aa3061b826, type: 2}
-  loader: {fileID: 813126858}
---- !u!4 &2043912629
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2043912627}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2048615497
 GameObject:
   m_ObjectHideFlags: 0
@@ -100561,7 +100499,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8f6770c5296be5c408901c9046bfdbd8, type: 3}
-  m_Color: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  m_Color: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -101027,7 +100965,6 @@ MonoBehaviour:
   isQuestTabOpen: 0
   playerData: {fileID: 11400000, guid: 491cca77d0c1fca46bd356aa3061b826, type: 2}
   healthbar: {fileID: 345732791}
-  questManager: {fileID: 0}
   moneyTxt: {fileID: 239670518}
 --- !u!114 &2459800334651102382
 MonoBehaviour:
@@ -101341,7 +101278,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: -2607495800017588972, guid: dca2a33ebcc102942a74bd64ec60a6e3, type: 3}
-  m_Color: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  m_Color: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -109512,7 +109449,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: -2012467345074930256, guid: d4080e760be465e4db956c15d6c2a0d5, type: 3}
-  m_Color: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  m_Color: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -109940,7 +109877,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 501255975}
   - {fileID: 1412128156}
-  - {fileID: 2043912629}
   - {fileID: 1447697266}
   - {fileID: 121088182}
   - {fileID: 4188355410987911254}
