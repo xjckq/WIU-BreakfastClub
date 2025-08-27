@@ -7,7 +7,7 @@ public class SaveData
     public int playerHealth;
     public float[] playerPosition = new float[2];
 
-    public string currentSceneName; // save the scene where player saved
+    //public string currentSceneName; // save the scene where player saved
 
     public List<string> activeQuestIDs = new List<string>(); // get the quest IDs
     public List<string> completedQuestIDs = new List<string>(); // get the IDs of completed quests

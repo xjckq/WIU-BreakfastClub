@@ -41,19 +41,4 @@ public class SavePoint : MonoBehaviour
             emote.SetActive(false);
         }
     }
-
-    public void OnSaveButton()
-    {
-        SaveManager.instance.SaveGame();
-    }
-
-    public void OnLoadButton()
-    {
-        SaveManager.instance.LoadGame();
-    }
-
-    public void OnDeleteButton()
-    {
-        SaveManager.instance.DeleteGameSave();
-    }
 }

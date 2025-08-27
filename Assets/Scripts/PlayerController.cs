@@ -167,7 +167,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Q) && !isQuestTabOpen)
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             if (!isQuestTabOpen)
             {

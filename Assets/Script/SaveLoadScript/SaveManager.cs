@@ -14,57 +14,16 @@ public class SaveManager : MonoBehaviour
     public InventorySystem inventorySystem;
     public ItemDatabase itemDatabase;
     public InventoryUI inventoryUI;
+    public QuestUIManager questUIManager;
 
     public bool isLoadingSavedGame = false;
 
     private SaveData loadedSaveData;
 
-    //public void getTheButtonsByTag()
-    //{
-    //    GameObject saveButtonObj = GameObject.FindGameObjectWithTag("Save");
-    //    if (saveButtonObj != null)
-    //    {
-    //        Button saveButton = saveButtonObj.GetComponent<Button>();
-    //        saveButton.onClick.RemoveAllListeners();
-    //        saveButton.onClick.AddListener(SaveGame);
-    //    }
-
-    //    GameObject loadButtonObj = GameObject.FindGameObjectWithTag("Load");
-    //    if (loadButtonObj != null)
-    //    {
-    //        Button loadButton = loadButtonObj.GetComponent<Button>();
-    //        loadButton.onClick.RemoveAllListeners();
-    //        loadButton.onClick.AddListener(LoadGame);
-    //    }
-
-    //    GameObject deleteButtonObj = GameObject.FindGameObjectWithTag("Delete");
-    //    if (deleteButtonObj != null)
-    //    {
-    //        Button deleteButton = deleteButtonObj.GetComponent<Button>();
-    //        deleteButton.onClick.RemoveAllListeners();
-    //        deleteButton.onClick.AddListener(DeleteGameSave);
-    //    }
-    //}
-
-    private void Awake()
-    {
-        //if (instance == null)
-        //{
-        //    instance = this;
-        //    DontDestroyOnLoad(gameObject);
-        //}
-        //else
-        //{
-        //    Destroy(gameObject);
-        //}
-    }
 
     public void SaveGame()
     {
         SaveData data = new SaveData();
-
-        // save the scene first!!
-        data.currentSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
 
         // save the player stuff
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -77,7 +36,7 @@ public class SaveManager : MonoBehaviour
 
         if (inventorySystem != null && playerData != null)
         {
-            playerData.inventoryItems.Clear();
+            data.savedInventory.Clear();
             foreach (var itemInstance in playerData.inventoryItems)
             {
                 data.savedInventory.Add(new ItemSaveData
@@ -121,6 +80,7 @@ public class SaveManager : MonoBehaviour
         }
         Debug.Log($"Saving active quests: {string.Join(", ", data.activeQuestIDs)}");
         Debug.Log($"Saving completed quests: {string.Join(", ", data.completedQuestIDs)}");
+
         SaveSystem.SaveGame(data);
     }
 
@@ -131,21 +91,8 @@ public class SaveManager : MonoBehaviour
 
         isLoadingSavedGame = true;
         loadedSaveData = data;
-
-        // get the scene saved then wait for it to load before loading everything else
-        string sceneToLoad = data.currentSceneName;
-        string currentScene = SceneManager.GetActiveScene().name;
-
-        if (sceneToLoad != currentScene)
-        {
-            SceneManager.sceneLoaded += OnSceneLoaded;
-            SceneManager.LoadSceneAsync(sceneToLoad);
-        }
-        else
-        {
-            getAppliedData(data);
-            isLoadingSavedGame = false;
-        }
+        getAppliedData(data);
+        isLoadingSavedGame = false;
     }
 
     public void getAppliedData(SaveData data)
@@ -168,7 +115,7 @@ public class SaveManager : MonoBehaviour
                 ItemData itemData = itemDatabase.GetItemByName(savedItem.itemID);
                 if (itemData != null)
                 {
-                    ItemInstance newItem = new ItemInstance(itemData, null);
+                    ItemInstance newItem = new ItemInstance(itemData, itemData.theEffect);
                     playerData.inventoryItems.Add(newItem);
                 }
                 else
@@ -188,26 +135,21 @@ public class SaveManager : MonoBehaviour
         questManager.questProgressList.Clear();
         questManager.restoredLandmarks.Clear();
 
-        // load the saved active quests
-        foreach (string questID in data.activeQuestIDs)
-        {
-            QuestData quest = allQuests.Find(q => q.title == questID);
-            if (quest != null)
-                questManager.activeQuests.Add(quest);
-        }
-        // load the saved completed quests
+        // Load completed quests
         foreach (string questID in data.completedQuestIDs)
         {
             QuestData quest = allQuests.Find(q => q.title == questID);
             if (quest != null)
                 questManager.completedQuests.Add(quest);
         }
-        // load the saved progress of quests
+
+        // Load active quests and progress
         foreach (QuestProgressData prog in data.questProgresses)
         {
             QuestData quest = allQuests.Find(q => q.title == prog.questID);
             if (quest != null)
             {
+                questManager.activeQuests.Add(quest);
                 questManager.questProgressList.Add(new QuestProgress
                 {
                     quest = quest,
@@ -223,6 +165,7 @@ public class SaveManager : MonoBehaviour
             if (lm != null)
                 questManager.restoredLandmarks.Add(lm);
         }
+        
 
         // load the saved npc dialogue state
         NPC[] npcs = GameObject.FindObjectsByType<NPC>(FindObjectsSortMode.None);
@@ -240,27 +183,6 @@ public class SaveManager : MonoBehaviour
         }
 
         Debug.Log("Game loaded successfully.");
-    }
-
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        inventoryUI = FindFirstObjectByType<InventoryUI>();
-
-        getAppliedData(loadedSaveData);
-        isLoadingSavedGame = false;
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-
-        loadedSaveData = null;
     }
 
     public void DeleteGameSave()
