@@ -37,9 +37,6 @@ public class PlayerController : MonoBehaviour
         healthbar.SetMaxHealth(playerData.maxHealth);
         healthbar.SetHealth(playerData.health);
 
-        GameObject theQManager = GameObject.FindGameObjectWithTag("QManager");
-        if (theQManager != null)
-            questManager = theQManager.GetComponent<QuestManager>();
     }
 
     private void OnEnable()
