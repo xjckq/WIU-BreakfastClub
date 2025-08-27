@@ -10,22 +10,20 @@ public class PlayerController : MonoBehaviour
     InputAction moveAction;
     InputAction attackAction;
     Vector2 moveDirection;
-    //public float speed = 5;
+    public float speed = 5;
 
     public bool canMove = true;
 
     public GameObject questTab;
     public bool isQuestTabOpen = false;
 
-    public GameObject savePanel;
-    public bool isSavePanelOpen = false;
     public PlayerData playerData;
 
     bool isAttacking, isMoving;
     Vector2 facingDir = Vector2.down;
 
     public HealthbarScript healthbar;
-
+    public QuestManager questManager;
 
     void Awake()
     {
@@ -39,6 +37,10 @@ public class PlayerController : MonoBehaviour
         //ResetData();
         healthbar.SetMaxHealth(playerData.maxHealth);
         healthbar.SetHealth(playerData.health);
+
+        GameObject theQManager = GameObject.FindGameObjectWithTag("QManager");
+        if (theQManager != null)
+            questManager = theQManager.GetComponent<QuestManager>();
     }
 
     private void OnEnable()
@@ -157,7 +159,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Q) && !isSavePanelOpen)
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             if (!isQuestTabOpen)
             {
@@ -170,21 +172,6 @@ public class PlayerController : MonoBehaviour
                 isQuestTabOpen = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.P) && !isQuestTabOpen)
-        {
-            if (!isSavePanelOpen)
-            {
-                savePanel.SetActive(true);
-                isSavePanelOpen = true;
-            }
-            else
-            {
-                savePanel.SetActive(false);
-                isSavePanelOpen = false;
-            }
-        }
-
-
     }
 
     void FixedUpdate()
@@ -195,13 +182,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (CTCManager.Instance != null && CTCManager.Instance.gameOver)
-        {
-            canMove = false;
-        }
-
-
-        Vector2 movement = moveDirection.normalized * playerData.currentSpeed;
+        Vector2 movement = moveDirection.normalized * speed;
         body.linearVelocity = movement;
 
     }
@@ -225,8 +206,6 @@ public class PlayerController : MonoBehaviour
         playerData.health += amt;
         if (playerData.health > playerData.maxHealth)
             playerData.health = playerData.maxHealth;
-
-        healthbar.SetHealth(playerData.health);
     }
 
     public void ResetData()

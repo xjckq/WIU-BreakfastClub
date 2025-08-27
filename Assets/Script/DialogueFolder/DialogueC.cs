@@ -1,7 +1,6 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class DialogueC : MonoBehaviour
 {
@@ -79,14 +78,14 @@ public class DialogueC : MonoBehaviour
         foreach (char c in line)
         {
             dialogueTxt.text += c;
-            yield return new WaitForSeconds(0.03f);
+            yield return new WaitForSeconds(0.01f);
         }
 
         isTyping = false;
 
         if (isPlayingCutscene)
         {
-            yield return new WaitForSeconds(2.5f);
+            yield return new WaitForSeconds(2.0f);
             GoToNextLine();
         }
     }

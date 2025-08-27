@@ -6641,7 +6641,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitionAnim: {fileID: 1440132005}
   transitionTime: 1
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 2089603421}
+  playerData: {fileID: 11400000, guid: 491cca77d0c1fca46bd356aa3061b826, type: 2}
 --- !u!114 &1463098666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6688,8 +6689,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1463098665}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
+        m_MethodName: LoadOutsideCTC
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8673,6 +8674,7 @@ GameObject:
   - component: {fileID: 2089603424}
   - component: {fileID: 2089603423}
   - component: {fileID: 2089603422}
+  - component: {fileID: 2089603428}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -8848,13 +8850,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ba4054e12e5074c996185345f6c24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
   canMove: 1
   questTab: {fileID: 0}
   isQuestTabOpen: 0
-  savePanel: {fileID: 0}
-  isSavePanelOpen: 0
   playerData: {fileID: 11400000, guid: 491cca77d0c1fca46bd356aa3061b826, type: 2}
   healthbar: {fileID: 524588940}
+  questManager: {fileID: 0}
 --- !u!50 &2089603427
 Rigidbody2D:
   serializedVersion: 5
@@ -8882,6 +8884,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2089603428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089603420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa806fe749bdc64388799d4dce03607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 491cca77d0c1fca46bd356aa3061b826, type: 2}
 --- !u!1 &2109417436
 GameObject:
   m_ObjectHideFlags: 0

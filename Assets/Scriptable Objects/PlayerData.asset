@@ -19,11 +19,7 @@ MonoBehaviour:
   currentSpeed: 5
   buffFoodActive: 0
   buffFoodRemainingTime: 0
-  inventoryItems:
-  - itemData: {fileID: 11400000, guid: df94808ad600fcd43bca73d998e3c7c7, type: 2}
-    itemEffect: {fileID: 0}
-  - itemData: {fileID: 11400000, guid: df94808ad600fcd43bca73d998e3c7c7, type: 2}
-    itemEffect: {fileID: 0}
-  - itemData: {fileID: 11400000, guid: df94808ad600fcd43bca73d998e3c7c7, type: 2}
-    itemEffect: {fileID: 0}
+  inventoryItems: []
   maxInventorySize: 10
+  spawnPosition: {x: 0.5, y: 15, z: 0}
+  hasCustomSpawn: 0
