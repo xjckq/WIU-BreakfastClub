@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c5e3a94ab7ce0469d6d37542a72915, type: 3}
   m_Name: TankZombieData
   m_EditorClassIdentifier: 
-  health: 80
+  health: 60
   moveSpeed: 2
   damage: 30

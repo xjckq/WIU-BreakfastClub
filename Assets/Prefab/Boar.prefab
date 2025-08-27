@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7431355642074191323}
   - component: {fileID: 6420439132417469629}
   - component: {fileID: 5898479945967982639}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 5815230851000505830}
   - component: {fileID: 3411969620199050395}
   - component: {fileID: 167480191110307793}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 3741516589819907939}
   - component: {fileID: 8454186595054384801}
   - component: {fileID: 941714989286677703}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Boar
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 897270733271724331}
   - component: {fileID: 7106005910803281483}
   - component: {fileID: 6415339968208584650}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -550,7 +550,7 @@ GameObject:
   - component: {fileID: 7520721021188786842}
   - component: {fileID: 6116987379461915410}
   - component: {fileID: 6277574113389145478}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -623,7 +623,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1818689012737538340}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -661,7 +661,7 @@ GameObject:
   - component: {fileID: 6143287575281341351}
   - component: {fileID: 7874791354042202755}
   - component: {fileID: 5017576320091888172}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

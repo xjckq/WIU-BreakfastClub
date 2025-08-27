@@ -221,7 +221,7 @@ public class MonkeyMovement : MonoBehaviour
             //}
         }
 
-
+        Debug.Log("distance btwn monkey and player: " + distanceToPlayer);
         if (distanceToPlayer <= fleeDistance)
         {
             ChangeState(MonkeyState.Flee);

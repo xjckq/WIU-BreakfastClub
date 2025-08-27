@@ -12,17 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1573afcb516c30b49b3a3529c8c07259, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  health: 9770
+  health: 0
   maxHealth: 100
-  money: 0
+  money: 760
   speed: 5
   currentSpeed: 5
   buffFoodActive: 0
   buffFoodRemainingTime: 0
   inventoryItems:
-  - itemData: {fileID: 11400000, guid: df94808ad600fcd43bca73d998e3c7c7, type: 2}
-    itemEffect: {fileID: 0}
-  - itemData: {fileID: 11400000, guid: df94808ad600fcd43bca73d998e3c7c7, type: 2}
+  - itemData: {fileID: 11400000, guid: 107bd4f40f4fc5949aae05534f329e5b, type: 2}
     itemEffect: {fileID: 0}
   - itemData: {fileID: 11400000, guid: df94808ad600fcd43bca73d998e3c7c7, type: 2}
     itemEffect: {fileID: 0}

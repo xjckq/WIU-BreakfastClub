@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6558000448531990190}
   - component: {fileID: 3914727086458071375}
   - component: {fileID: 736211551283532831}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Monkey
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -243,8 +243,8 @@ MonoBehaviour:
   idleMinDuration: 2
   idleMaxDuration: 5
   fleeSpeed: 2
-  fleeDistance: 5
-  attackRange: 8
+  fleeDistance: 4
+  attackRange: 6
   throwInterval: 1.5
   chaseSpeed: 2
   wallCheckDistance: 2
@@ -260,7 +260,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3775946977798871331}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 6445653200798275931}
   - component: {fileID: 6406907922473528810}
   - component: {fileID: 3379493054776369537}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 3313810644681744868}
   - component: {fileID: 422699484574699998}
   - component: {fileID: 6179442474523637677}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 1697889138607235638}
   - component: {fileID: 4696816897407927451}
   - component: {fileID: 5684470628934810643}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -578,7 +578,7 @@ GameObject:
   - component: {fileID: 626721598617208472}
   - component: {fileID: 6418790634150155841}
   - component: {fileID: 5210179318860929515}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -653,7 +653,7 @@ GameObject:
   - component: {fileID: 8466604277364138663}
   - component: {fileID: 7709817766317173558}
   - component: {fileID: 8284412972679410646}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Banana
   itemImage: {fileID: -9182177788924653191, guid: 365d160142e49b440b5f62d4d383ad31, type: 3}
+  itemCost: 15

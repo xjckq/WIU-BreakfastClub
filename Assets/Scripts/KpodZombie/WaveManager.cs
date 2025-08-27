@@ -122,7 +122,9 @@ public class WaveManager : MonoBehaviour
             currentWaveIndex = Mathf.Max(0, currentWaveIndex);
         }
        // enemiesKilledText.text = "Enemies Killed: " + enemiesKilled.ToString();
-        wavesSurvivedText.text = "Waves Survived: " + (currentWaveIndex + 1).ToString();
+
+        //switch to currentwaveindex instead of +1
+        wavesSurvivedText.text = "Waves Survived: " + (currentWaveIndex).ToString();
     }
 
     public void Restart()
