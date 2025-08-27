@@ -1,5 +1,6 @@
-using System;
+using System.Collections;
 using UnityEngine;
+using Unity.Cinemachine;
 
 public enum DialogueState
 {
@@ -7,14 +8,6 @@ public enum DialogueState
     QuestOngoing,
     QuestCompleted,
     Default
-}
-
-[Serializable]
-public class DialogueStatePersist
-{
-    public string npcID;
-    public DialogueState state;
-    public bool isFinished;
 }
 
 public class NPC : MonoBehaviour
@@ -25,42 +18,52 @@ public class NPC : MonoBehaviour
     public static NPC activeNPC;
 
     public bool isPlayerInRange = false;
-    public bool isFinished = false;
-    public GameObject emote; // the interactiev bubble
+    public GameObject emote;
 
     [SerializeField] QuestData questData;
 
-    void Start()
-    {
-        currentState = NPCDialogueManager.Instance.GetDialogueState(npcData.npcName);
-        isFinished = NPCDialogueManager.Instance.GetIsFinished(npcData.npcName);
-    }
+    public CinemachineCamera zoomOutCamera;
+    public float zoomDuration = 5;
+
+    [SerializeField] NPCPatrol patrol;
 
     void Update()
     {
-        if (isPlayerInRange && Input.GetKey(KeyCode.E))
+        if (isPlayerInRange && Input.GetKey(KeyCode.F))
         {
             TriggerDialogue();
         }
 
-        if (questData != null && QuestManager.Instance.IsQuestCompleted(questData))
+        if (NPC.activeNPC == this)
         {
-            if (!isFinished)
-            {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+                currentState = DialogueState.QuestOngoing;
+            if (Input.GetKeyDown(KeyCode.Alpha2))
                 currentState = DialogueState.QuestCompleted;
-                QuestManager.Instance.CompleteQuest(questData);
-            }
-            else if (isFinished && currentState == DialogueState.QuestCompleted)
-            {
+            if (Input.GetKeyDown(KeyCode.Alpha3))
                 currentState = DialogueState.Default;
-            }
-            
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+                currentState = DialogueState.FirstTalk;
+        }
+
+        //if (questData != null && QuestManager.Instance.IsQuestCompleted(questData))
+        //{
+        //    currentState = DialogueState.QuestCompleted;
+        //    QuestManager.Instance.CompleteQuest(questData);
+        //}
+
+        if (questData != null && QuestManager.Instance.IsQuestReadyToTurnIn(questData))
+        {
+            currentState = DialogueState.QuestCompleted;
         }
     }
 
     public void TriggerDialogue()
     {
-        DialoguePack[] selectedDialogue;
+        if (patrol != null)
+            patrol.isInDialogue = true; 
+
+            DialoguePack[] selectedDialogue;
 
         switch (currentState)
         {
@@ -84,7 +87,12 @@ public class NPC : MonoBehaviour
 
     private void OnDialogueEnd()
     {
+        if (patrol != null)
+            patrol.isInDialogue = false;
+
         dialogueUI.OnDialogueFinished.RemoveListener(OnDialogueEnd);
+
+        QuestManager.Instance.TalkedToNPC(this);
 
         if (currentState == DialogueState.FirstTalk)
         {
@@ -99,13 +107,20 @@ public class NPC : MonoBehaviour
                 currentState = DialogueState.Default;
             }
         }
-
-        if (currentState == DialogueState.QuestCompleted)
+        else if (currentState == DialogueState.QuestCompleted)
         {
-            isFinished = true;
+            if (questData != null)
+            {
+
+                if (zoomOutCamera != null)
+                {
+                    zoomOutCamera.gameObject.SetActive(true);
+                    StartCoroutine(ZoomOutCam());
+                }
+
+            }
         }
-        
-        NPCDialogueManager.Instance.SaveDialogueState(npcData.npcName, currentState, isFinished);
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -127,5 +142,15 @@ public class NPC : MonoBehaviour
             if (activeNPC == this)
                 activeNPC = null;
         }
+    }
+
+    private IEnumerator ZoomOutCam()
+    {
+        yield return new WaitForSeconds(zoomDuration / 2);
+        QuestManager.Instance.CompleteQuest(questData);
+        currentState = DialogueState.Default;
+        yield return new WaitForSeconds(zoomDuration / 2);
+        currentState = DialogueState.Default;
+        zoomOutCamera.gameObject.SetActive(false);
     }
 }

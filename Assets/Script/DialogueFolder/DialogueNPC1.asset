@@ -25,25 +25,23 @@ MonoBehaviour:
     diaTxt: 12x12 Sprites Streets, sidewalks, street signs, customizable buildings
       and houses, a grass tileset, 3 unique trees, vehicles, and concepts for NPCs
   FirstTalkLines:
-  - characterName: Namae
-    diaTxt: Good day today
+  - characterName: Braxton
+    diaTxt: Are you free?
   - characterName: Xing Yi
-    diaTxt: No it's not
-  - characterName: Namae
-    diaTxt: Oh, okay
+    diaTxt: Yes
+  - characterName: Braxton
+    diaTxt: Can you help me with something?
+  - characterName: Xing Yi
+    diaTxt: Sure
+  - characterName: Braxton
+    diaTxt: If you can get me one goreng pisang, I would be very thankful
   QuestOngoingLines:
-  - characterName: Namae
-    diaTxt: You're busy aren't you
-  - characterName: Namae
-    diaTxt: Get going, okay
+  - characterName: Braxton
+    diaTxt: What are you waiting for?
   QuestCompletedLines:
-  - characterName: Namae
-    diaTxt: You did it
+  - characterName: Braxton
+    diaTxt: You got it!
   - characterName: Xing Yi
     diaTxt: Yeah i did the thing
-  - characterName: Xing Yi
-    diaTxt: Can i have the thing now
-  - characterName: Namae
-    diaTxt: Sure
-  - characterName: Namae
-    diaTxt: And have this while ur at it
+  - characterName: Braxton
+    diaTxt: Thanks, here's a reward for your hard work

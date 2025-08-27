@@ -9,10 +9,13 @@ TagManager:
   - CaptureZone
   - EscapeZone
   - StoveTrigger
-  - QManager
-  - Load
-  - Save
-  - Delete
+  - Enemy
+  - BottomBoundingBox
+  - TopBoundingBox
+  - RightBoundingBox
+  - Door
+  - LeftBoundingBox
+  - Zombie
   layers:
   - Default
   - TransparentFX
@@ -21,13 +24,13 @@ TagManager:
   - Water
   - UI
   - Obstacle
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - OpenDoor
+  - Door
+  - Weapon
+  - Zone
+  - Wall
+  - Enemy
+  - Bullet
   - 
   - 
   - 

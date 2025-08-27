@@ -7,10 +7,11 @@ public class HealFoodEffect : ItemEffect
 
     public override void Use(PlayerData playerData)
     {
-        if (playerData != null)
+        var player = GameObject.FindFirstObjectByType<PlayerController>();
+        if (player != null)
         {
-            playerData.Heal(healAmount);
-            Debug.Log($"Healed {healAmount}, current HP = {playerData.health}/{playerData.maxHealth}");
+            player.Heal(healAmount);
+            Debug.Log($"Healed {healAmount}, current HP = {player.playerData.health}/{player.playerData.maxHealth}");
         }
     }
 }

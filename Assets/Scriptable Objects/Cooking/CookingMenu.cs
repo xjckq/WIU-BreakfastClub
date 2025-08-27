@@ -173,6 +173,11 @@ public class CookingMenu : MonoBehaviour
             playerData.inventoryItems.Add(dish);
             inventoryUI.RefreshInventoryUI();
             feedbackText.text = $"Cooked {recipe.recipeName}!";
+
+            if (QuestManager.Instance != null)
+            {
+                QuestManager.Instance.ItemCrafted(recipe.resultItem);
+            }
         }
         else
         {

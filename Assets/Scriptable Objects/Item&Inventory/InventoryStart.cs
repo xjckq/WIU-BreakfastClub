@@ -9,6 +9,7 @@ public class InventoryStart : MonoBehaviour
     {
         playerData.inventoryItems.Clear();
         inventoryUI.RefreshInventoryUI();
+        playerData.ResetData();
 
         // reset buffs
         inventoryUI.ResetBuffs();
