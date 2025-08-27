@@ -13,28 +13,35 @@ MonoBehaviour:
   m_Name: DialogueNPC1
   m_EditorClassIdentifier: 
   dialogueLines:
-  - characterName: Namae
-    diaTxt: Hellow
-  - characterName: Namae
-    diaTxt: How are you doin
-  - characterName: Xing Yi
-    diaTxt: Good probably
-  - characterName: Xing Yi
-    diaTxt: Maybe
-  - characterName: Namae
-    diaTxt: 12x12 Sprites Streets, sidewalks, street signs, customizable buildings
-      and houses, a grass tileset, 3 unique trees, vehicles, and concepts for NPCs
+  - characterName: Braxton
+    diaTxt: I LOVE EGG FRIED RICE
   FirstTalkLines:
   - characterName: Braxton
-    diaTxt: Are you free?
+    diaTxt: Hey, you're Aliza's friend, right?
   - characterName: Xing Yi
     diaTxt: Yes
   - characterName: Braxton
-    diaTxt: Can you help me with something?
-  - characterName: Xing Yi
-    diaTxt: Sure
+    diaTxt: They just messaged me about the dragon playground! That's so amazing,
+      you actually brought it back!
   - characterName: Braxton
-    diaTxt: If you can get me one goreng pisang, I would be very thankful
+    diaTxt: Seeing it again... it's giving me serious nostalgia.
+  - characterName: Braxton
+    diaTxt: It reminds me of the egg fried rice my grandma used to pack for our picnics
+      here.
+  - characterName: Braxton
+    diaTxt: Man, just talking about it makes me crave it.
+  - characterName: Braxton
+    diaTxt: 'Hey, you seem like you know your way around. '
+  - characterName: Braxton
+    diaTxt: You wouldn't know where to get some, or maybe even how to whip up a plate
+      yourself, would you?
+  - characterName: Xing Yi
+    diaTxt: I could try..
+  - characterName: Braxton
+    diaTxt: I'd totally pay you back for it!
+  - characterName: Braxton
+    diaTxt: If you're looking for ingredients, there are some stalls infront of the
+      HDB.
   QuestOngoingLines:
   - characterName: Braxton
     diaTxt: What are you waiting for?
@@ -42,6 +49,24 @@ MonoBehaviour:
   - characterName: Braxton
     diaTxt: You got it!
   - characterName: Xing Yi
-    diaTxt: Yeah i did the thing
+    diaTxt: Yeah I did the thing
   - characterName: Braxton
-    diaTxt: Thanks, here's a reward for your hard work
+    diaTxt: Mmm! This taste... it's familiar
+  - characterName: Braxton
+    diaTxt: 'It tastes like the fried rice my Ah Ma used to make for me after school,
+      back when she still cooked over the old charcoal stove. '
+  - characterName: Braxton
+    diaTxt: She would always make extra on Fridays. She said it was for our Malay
+      neighbours who would be busy preparing for prayers at the Masjid Sultan.
+  - characterName: Braxton
+    diaTxt: I remember the sound of the Azan would always drift through our window
+      as we ate..
+  - characterName: Braxton
+    diaTxt: Wait, that sound.. it's been so quiet lately.
+  - characterName: Braxton
+    diaTxt: '(His eyes light up as the memory fully returns) '
+  - characterName: Braxton
+    diaTxt: Wait... that's it! I can hear it so clearly now!
+  - characterName: Braxton
+    diaTxt: The beautiful call, the community gathering... Thank you. You've brought
+      a piece of it back to life.

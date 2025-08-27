@@ -68,6 +68,7 @@ public class CTCManager : MonoBehaviour
 
         UpdateUI();
         eggsGiven = true;
+        QuestManager.Instance.MinigameCompleted(QuestData.MinigameType.Chicken);
     }
 
     public void UpdateUI()

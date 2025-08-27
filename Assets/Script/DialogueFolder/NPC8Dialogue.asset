@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8590a738d40f9d04b99c981feb766fa4, type: 3}
+  m_Name: NPC8Dialogue
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - characterName: Xing Yi
+    diaTxt: Hello, Mr. Tan has asked me to find you.
+  - characterName: Xing Yi
+    diaTxt: Do you know anythng about an old temple?
+  - characterName: Mdm. Seow
+    diaTxt: Ah, you speak of the Yueh Hai Ching Temple.
+  - characterName: Mdm. Seow
+    diaTxt: A national monument! It is not just a temple but a masterpiece of art.
+  - characterName: Mdm. Seow
+    diaTxt: Its most famous feature is the 'cui shi' porcelain shard work on the
+      roof.
+  - characterName: Mdm. Seow
+    diaTxt: Thousands of ceramic pieces painstakingly placed to create intricate
+      figures and scenes from Chinese mythology.
+  - characterName: Mdm. Seow
+    diaTxt: This temple shows the incredible artistry our ancestors brought with
+      them.
+  - characterName: Mdm. Seow
+    diaTxt: It is a physical piece of our cultural heritage.
+  - characterName: Mdm. Seow
+    diaTxt: In our rush to become a modern city, we must not pave over the beautiful
+      craftsmanship that defines our history.
+  - characterName: Xing Yi
+    diaTxt: Oh I see.. Thank you for sharing!
+  FirstTalkLines: []
+  QuestOngoingLines: []
+  QuestCompletedLines: []

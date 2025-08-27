@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5eaebad2e3cb89e43a59c64827af844e, type: 3}
-  m_Name: SecondQuest
+  m_Name: UnlockMasjidSultan
   m_EditorClassIdentifier: 
-  title: I need 1 goreng pisang
+  title: Give Braxton Egg Fried Rice
   desc: Crafted
   objectiveType: 1
   requiredAmount: 1
@@ -20,4 +20,7 @@ MonoBehaviour:
   landmarkToRestore: {fileID: 11400000, guid: f7c90431ebc545347bb9d3117d7eaa67, type: 2}
   questGiver: {fileID: 8974073395355869496, guid: 2d3e3a94a9a7a2047b9b7a7f933a0132, type: 3}
   npcToTalkTo: {fileID: 0}
-  requiredItem: {fileID: 11400000, guid: db2b537cf2ef3044d85be23a13f7ab30, type: 2}
+  npcsToTalkTo: []
+  requiredItem: {fileID: 11400000, guid: 59ee48fa7f6893f4e9dbc1c6ed63ebdc, type: 2}
+  targetEnemy: 0
+  minigameType: 0
