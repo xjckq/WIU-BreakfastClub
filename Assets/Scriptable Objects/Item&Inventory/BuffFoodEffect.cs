@@ -24,5 +24,17 @@ public class BuffFoodEffect : ItemEffect
             playerData.buffFoodRemainingTime = duration;
             Debug.Log($"Buff applied for {duration:F1}s");
         }
+
+        var player = GameObject.FindWithTag("Player");
+        var systems = player.GetComponentsInChildren<ParticleSystem>();
+
+        foreach (var ps in systems)
+        {
+            if (ps.gameObject.name == "BuffParticles") 
+            {
+                ps.Play();
+                break;
+            }
+        }
     }
 }

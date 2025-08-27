@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8590a738d40f9d04b99c981feb766fa4, type: 3}
+  m_Name: NPC10Dialogue
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - characterName: Officer
+    diaTxt: Thanks for helping out.
+  FirstTalkLines:
+  - characterName: Officer
+    diaTxt: Hey you!
+  - characterName: Xing Yi
+    diaTxt: '?'
+  - characterName: Officer
+    diaTxt: We need you to join us to defend against the K Pod Zombies!
+  - characterName: Officer
+    diaTxt: They're trying to take over Singapore and it's up to stop them!
+  - characterName: Officer
+    diaTxt: Would you be willing to join forces with us?
+  - characterName: Xing Yi
+    diaTxt: Do I have a choice?
+  - characterName: Officer
+    diaTxt: No
+  - characterName: Xing Yi
+    diaTxt: Aw shucks.. fine then.
+  - characterName: Officer
+    diaTxt: I've removed a barricade for you to pass through.
+  - characterName: Officer
+    diaTxt: I've removed a barricade for you to pass through.
+  QuestOngoingLines:
+  - characterName: Officer
+    diaTxt: You're still here?
+  - characterName: Officer
+    diaTxt: Get to work!
+  QuestCompletedLines:
+  - characterName: Officer
+    diaTxt: Thank you for your service.
+  - characterName: Officer
+    diaTxt: Here's your reward.

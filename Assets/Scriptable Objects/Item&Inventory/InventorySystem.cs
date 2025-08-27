@@ -1,9 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class InventorySystem : MonoBehaviour
 {
     public InventoryUI inventoryUI;
     public PlayerData playerData;
+
+    public List<ItemData> allItemData;
 
     void Start()
     {
@@ -23,12 +26,14 @@ public class InventorySystem : MonoBehaviour
             }
 
             ItemInstance picked = item.TakeItem();
+
             if (picked != null)
             {
                 // add to inventory
                 playerData.inventoryItems.Add(picked);
                 inventoryUI.RefreshInventoryUI();
-
+                // track for quest that requires player to collect item
+                QuestManager.Instance.ItemCollected(picked.itemData);
                 Destroy(other.gameObject);
                 Debug.Log($"Picked up {picked.itemData.itemName}");
             }
@@ -64,5 +69,10 @@ public class InventorySystem : MonoBehaviour
                 Debug.Log("buff reverted");
             }
         }
+    }
+
+    public ItemData GetItemDataByID(string id)
+    {
+        return allItemData.Find(item => item.itemName == id);
     }
 }

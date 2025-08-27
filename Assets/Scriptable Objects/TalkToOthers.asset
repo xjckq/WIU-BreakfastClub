@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eaebad2e3cb89e43a59c64827af844e, type: 3}
+  m_Name: TalkToOthers
+  m_EditorClassIdentifier: 
+  title: Talk To The Rest
+  desc: Find out more about the temple
+  objectiveType: 4
+  requiredAmount: 3
+  moneyReward: 0
+  landmarkToRestore: {fileID: 11400000, guid: c7bdc0f2b21069c40aab808ab3e1d3a3, type: 2}
+  questGiver: {fileID: 4574409434018104102, guid: cc6246fa0d81b154fb9dd3a92c885d5b, type: 3}
+  npcToTalkTo: {fileID: 0}
+  npcsToTalkTo:
+  - {fileID: 11400000, guid: 3c411e55fb6c1bb41aa2b6b63bdd54e2, type: 2}
+  - {fileID: 11400000, guid: 5142673e5c08536418648d09d388657a, type: 2}
+  - {fileID: 11400000, guid: 095546c13e8a9214c94740dc88b7a33e, type: 2}
+  requiredItem: {fileID: 0}
+  targetEnemy: 0
+  minigameType: 0

@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5493b8058b0e2544b4a9e3aaa87fb53, type: 3}
+  m_Name: EndCutsceneDialogueData
+  m_EditorClassIdentifier: 
+  objectLines:
+  - characterName: Aliza
+    diaTxt: Hey!
+  - characterName: Aliza
+    diaTxt: Wait for me!!
+  - characterName: Aliza
+    diaTxt: Finally found you, I've been looking for you, y'know?
+  - characterName: Aliza
+    diaTxt: I was surprised that you weren't at home when I went to check.
+  - characterName: Aliza
+    diaTxt: You don't usually go out, especially not for this long.
+  - characterName: Aliza
+    diaTxt: It's been a while since we've hung out. Is now a good time?
+  - characterName: Aliza
+    diaTxt: Nice, let's go to your house. Mine is a bit.. noisy at the moment.
+  - characterName: Aliza
+    diaTxt: So that's what it was.
+  - characterName: Aliza
+    diaTxt: I didn't think you would take any interest in that.
+  - characterName: Aliza
+    diaTxt: No response? Guess your social battery is finally out.
+  - characterName: Aliza
+    diaTxt: You look a lot better than any other time I've seen you.
+  - characterName: Aliza
+    diaTxt: Exhausted, but not too bad.
+  - characterName: Aliza
+    diaTxt: How about we go out more often, yeah?

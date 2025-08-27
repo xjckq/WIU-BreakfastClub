@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Wanton Noodles
   itemImage: {fileID: 1564915983560958764, guid: 06ad4862c75a9d54d91485b53a805e0f, type: 3}
+  theEffect: {fileID: 11400000, guid: 47e04f18fa69579468fd869d32893f7d, type: 2}

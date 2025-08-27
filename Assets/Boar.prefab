@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -295,7 +295,7 @@ MonoBehaviour:
   chaseRange: 10
   stopChasingDistance: 0
   attackRange: 1.5
-  regularAttackDamage: 10
+  regularAttackDamage: 5
   regularAttackInterval: 1
   sprite: {fileID: 897270733271724331}
   playerGO: {fileID: 126915084613449820, guid: 822ab8c0e7f5e184d8b938ed3442b0e4, type: 3}
@@ -392,7 +392,7 @@ MonoBehaviour:
   OnDied:
     m_PersistentCalls:
       m_Calls: []
-  itemPrefab: {fileID: 0}
+  itemPrefab: {fileID: 5616232252232397321, guid: 3736566e1cdb19948afdfcccc44c72e5, type: 3}
 --- !u!58 &941714989286677703
 CircleCollider2D:
   m_ObjectHideFlags: 0

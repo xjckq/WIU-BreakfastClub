@@ -13,46 +13,52 @@ MonoBehaviour:
   m_Name: FriendDialogueData
   m_EditorClassIdentifier: 
   dialogueLines:
-  - characterName: Mimi
-    diaTxt: Man, I didn't think we'd forget about that playground
-  - characterName: Mimi
-    diaTxt: I don't know what you did but, thanks!
-  - characterName: Xing Yi
-    diaTxt: Thanks for?
-  - characterName: Mimi
-    diaTxt: Getting our memories back, duh!!
-  - characterName: Mimi
-    diaTxt: We spend a lot of our childhood together there together!
+  - characterName: Aliza
+    diaTxt: It's amazing, isn't it? These old places aren't just structures but where
+      our shared stories live.
+  - characterName: Aliza
+    diaTxt: Anyways, did you manage to find Braxton?
+  - characterName: Aliza
+    diaTxt: He usually lingers around the east side.
   FirstTalkLines:
+  - characterName: Aliza
+    diaTxt: Hey... you see that too, right?
   - characterName: Xing Yi
-    diaTxt: Hi
-  - characterName: Mimi
-    diaTxt: Hi!! How's it going bud
+    diaTxt: Yeah..
+  - characterName: Aliza
+    diaTxt: That empty space over there. It feels... weird.
+  - characterName: Aliza
+    diaTxt: Like I should know what's there, but I just can't remember.
+  - characterName: Aliza
+    diaTxt: It's on the tip of my tongue... a dragon? A slide? It's all fuzzy.
+  - characterName: Aliza
+    diaTxt: I heard Aunty Ah Soh always strolls by the pond in the morning. She's
+      lived here forever so she must know what this place used to be.
+  - characterName: Aliza
+    diaTxt: Can you go ask her for me? Maybe she can help us remember.
   - characterName: Xing Yi
-    diaTxt: Nothing much.
-  - characterName: Mimi
-    diaTxt: As always, shouldn't have expected anything less, haha.
-  - characterName: Xing Yi
-    diaTxt: What'd u call me for
-  - characterName: Mimi
-    diaTxt: I called you because of this.. area a few feet away from out block.
-  - characterName: Mimi
-    diaTxt: Hear me out for a bit yeah?
+    diaTxt: Sure.
+  - characterName: Aliza
+    diaTxt: She's usually strolling around the pond to our left.
   QuestOngoingLines:
-  - characterName: Mimi
-    diaTxt: It's a bit unnerving that I expect to see something there.
-  - characterName: Mimi
-    diaTxt: I can't keep thinking about it.
-  - characterName: Mimi
-    diaTxt: Like, I know it's important but I can't remember why and what.
-  - characterName: Mimi
-    diaTxt: Ugh, this sucks.
+  - characterName: Aliza
+    diaTxt: Have you spoken to Ah Soh yet?
+  - characterName: Xing Yi
+    diaTxt: No, not yet.
+  - characterName: Aliza
+    diaTxt: She's usually strolling around the pond to our left.
   QuestCompletedLines:
-  - characterName: Mimi
-    diaTxt: This is..
-  - characterName: Mimi
-    diaTxt: Of course, it's the playground!
-  - characterName: Mimi
-    diaTxt: How could we have forgotten?
-  - characterName: Mimi
-    diaTxt: Such a small thing, yet it holds so much to people like us.
+  - characterName: Aliza
+    diaTxt: A dragon playground... YES! That's it!
+  - characterName: Aliza
+    diaTxt: The Toa Payoh Dragon Playground! How could I forget?
+  - characterName: Aliza
+    diaTxt: I used to beg my parents to take me there every weekend!
+  - characterName: Aliza
+    diaTxt: Thank you so much for helping us bring this piece of my childhood back.
+  - characterName: Aliza
+    diaTxt: Hey, you know who else would love to see this?
+  - characterName: Aliza
+    diaTxt: My friend Braxton!
+  - characterName: Aliza
+    diaTxt: He's always hanging out near the place at the east side.

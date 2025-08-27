@@ -21,7 +21,9 @@ public class PlayerData : ScriptableObject
     public List<ItemInstance> inventoryItems = new List<ItemInstance>();
     public int maxInventorySize = 10;
 
-    
+    // player spawn
+    public Vector3 spawnPosition;
+    public bool hasCustomSpawn;
 
     public void AddMoney(int amt)
     {
@@ -39,5 +41,8 @@ public class PlayerData : ScriptableObject
         buffFoodRemainingTime = 0f;
 
         inventoryItems.Clear();
+
+        hasCustomSpawn = false;
+        spawnPosition = Vector3.zero;
     }
 }

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a09019f05091cb4fabc929755be87fb, type: 3}
   m_Name: NPC3
   m_EditorClassIdentifier: 
-  npcName: Braxton
-  dialogueData: {fileID: 0}
-  description: Just a young boy
+  npcName: Priya
+  dialogueData: {fileID: 11400000, guid: 69283407e20f0744d8911a21283d25c6, type: 2}
+  description: An elderly selling fruits to pass time but annoyed at monkeys stealing
+    her bananas

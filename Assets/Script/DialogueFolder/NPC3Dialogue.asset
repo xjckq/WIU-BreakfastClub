@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8590a738d40f9d04b99c981feb766fa4, type: 3}
+  m_Name: NPC3Dialogue
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - characterName: Priya
+    diaTxt: Thanks for the help Ah girl.
+  - characterName: Priya
+    diaTxt: If you ever want to make goreng pisang, you'll need one banana and two
+      flour.
+  - characterName: Priya
+    diaTxt: It's a crispy fried snack that heals you and lifts your spirits.
+  FirstTalkLines:
+  - characterName: Priya
+    diaTxt: Hello, can you help me with something?
+  - characterName: Xing Yi
+    diaTxt: Sure, what can I do for you?
+  - characterName: Priya
+    diaTxt: Those cheeky monkeys keep stealing my bananas!
+  - characterName: Priya
+    diaTxt: Please help me chase them off, or I cannot sell my bananas in peace!
+  QuestOngoingLines:
+  - characterName: Priya
+    diaTxt: You walk a bit to the right, then go up north.
+  - characterName: Priya
+    diaTxt: Turn left after that and you'll confirm find them there.
+  QuestCompletedLines:
+  - characterName: Priya
+    diaTxt: Thank you, ah. You know, my family has sold bananas here for generations.
+  - characterName: Priya
+    diaTxt: My grandfather used to tell me that monkeys and humans used to live side-by-side
+      when there was more jungle.
+  - characterName: Priya
+    diaTxt: We've taken so much from them, but they still can't have my bananas!
+  - characterName: Priya
+    diaTxt: We must all adapt to survive, just like Singapore did.
+  - characterName: Priya
+    diaTxt: Here is some coins, for your trouble.
+  - characterName: Priya
+    diaTxt: If you ever want to make goreng pisang, you'll need one banana and two
+      flour.
+  - characterName: Priya
+    diaTxt: It's  crispy fried snack that heals you and lifts your spirits.
