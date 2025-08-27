@@ -9021,6 +9021,7 @@ GameObject:
   - component: {fileID: 1041662826}
   - component: {fileID: 1041662833}
   - component: {fileID: 1041662834}
+  - component: {fileID: 1041662835}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -9250,8 +9251,8 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1958878789}
           m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-          m_MethodName: LoadScene
-          m_Mode: 5
+          m_MethodName: LoadOutsideHome
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9335,6 +9336,19 @@ MonoBehaviour:
   inventoryUI: {fileID: 1697159335}
   playerData: {fileID: 11400000, guid: 491cca77d0c1fca46bd356aa3061b826, type: 2}
   allItemData: []
+--- !u!114 &1041662835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041662825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa806fe749bdc64388799d4dce03607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 491cca77d0c1fca46bd356aa3061b826, type: 2}
 --- !u!1 &1042813546
 GameObject:
   m_ObjectHideFlags: 0
@@ -24612,7 +24626,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitionAnim: {fileID: 395333024}
   transitionTime: 1
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 1041662832}
+  playerData: {fileID: 11400000, guid: 491cca77d0c1fca46bd356aa3061b826, type: 2}
 --- !u!1 &1961852980
 GameObject:
   m_ObjectHideFlags: 0
