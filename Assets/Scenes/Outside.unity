@@ -69037,7 +69037,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &814474587
 Animator:
   serializedVersion: 7
@@ -79343,6 +79343,7 @@ MonoBehaviour:
   dialogueUI: {fileID: 0}
   currentState: 3
   isPlayerInRange: 0
+  isFinished: 0
   emote: {fileID: 0}
   questData: {fileID: 0}
   zoomOutCamera: {fileID: 0}
@@ -82527,13 +82528,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ba4054e12e5074c996185345f6c24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
   canMove: 1
   questTab: {fileID: 484312198}
   isQuestTabOpen: 0
-  savePanel: {fileID: 0}
-  isSavePanelOpen: 0
   playerData: {fileID: 11400000, guid: 491cca77d0c1fca46bd356aa3061b826, type: 2}
   healthbar: {fileID: 345732791}
+  questManager: {fileID: 0}
 --- !u!212 &2816131204553733486
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -88280,6 +88281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryUI: {fileID: 1412128154}
   playerData: {fileID: 11400000, guid: 491cca77d0c1fca46bd356aa3061b826, type: 2}
+  allItemData: []
 --- !u!114 &9040987566913373093
 MonoBehaviour:
   m_ObjectHideFlags: 0

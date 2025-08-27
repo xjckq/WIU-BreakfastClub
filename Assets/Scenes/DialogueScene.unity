@@ -7085,6 +7085,7 @@ MonoBehaviour:
   questProgressList: []
   maxActiveQuests: 3
   killEnemyCount: 0
+  playerData: {fileID: 0}
 --- !u!4 &877688591
 Transform:
   m_ObjectHideFlags: 0
@@ -7708,6 +7709,9 @@ MonoBehaviour:
   isFinished: 0
   emote: {fileID: 503880976006099451}
   questData: {fileID: 11400000, guid: 075af733eadec1e4a804a6b25e1fd920, type: 2}
+  zoomOutCamera: {fileID: 0}
+  zoomDuration: 5
+  patrol: {fileID: 0}
 --- !u!61 &896153930
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9095,7 +9099,7 @@ Animator:
   m_GameObject: {fileID: 1041662825}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ade470854f64c824fa2ae13c8074d048, type: 2}
+  m_Controller: {fileID: 9100000, guid: 11d76710266d84045a4a6ffbf0778cbc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -24608,6 +24612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitionAnim: {fileID: 395333024}
   transitionTime: 1
+  playerTransform: {fileID: 0}
 --- !u!1 &1961852980
 GameObject:
   m_ObjectHideFlags: 0
