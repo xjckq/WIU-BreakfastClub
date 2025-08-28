@@ -45,7 +45,7 @@ public class WaveManager : MonoBehaviour
             Debug.Log("Starting wave " + (currentWaveIndex + 1) + " of " + waves.Count);
             if (waveText != null)
             {
-                waveText.text = "";
+                waveText.text = "Wave " + (currentWaveIndex + 1) + " / " + waves.Count;
             }
             StartCoroutine(SpawnWaveCoroutine(waves[currentWaveIndex]));
         }
@@ -115,6 +115,7 @@ public class WaveManager : MonoBehaviour
         if (isWon)
         {
             gameOverMessageText.text = "You Win!";
+            wavesSurvivedText.text = "Waves Survived: " + waves.Count.ToString();
             QuestManager.Instance.MinigameCompleted(QuestData.MinigameType.Kpod);
         }
         else
