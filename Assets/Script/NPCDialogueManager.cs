@@ -82,4 +82,9 @@ public class NPCDialogueManager : MonoBehaviour
         }
         return false;
     }
+
+    public void SetDialogueState(string npcID, DialogueState state, bool isFinished)
+    {
+        SaveDialogueState(npcID, state, isFinished);
+    }
 }
