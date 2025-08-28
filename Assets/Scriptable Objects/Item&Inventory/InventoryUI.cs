@@ -15,6 +15,9 @@ public class InventoryUI : MonoBehaviour
     public TMP_Text HPfullText;
     private Coroutine buffFoodCoroutine;
 
+    public AudioSource audioSource;
+    public AudioClip useItemSound;
+
     void Awake()
     {
         RefreshInventoryUI();
@@ -66,7 +69,7 @@ public class InventoryUI : MonoBehaviour
 
     public void AddItemToPlayerData(ItemInstance item)
     {
-        if (playerData != null)
+        if (playerData != null){}
             playerData.inventoryItems.Add(item);
     }
 
@@ -146,6 +149,7 @@ public class InventoryUI : MonoBehaviour
                 if (item.itemEffect != null)
                 {
                     item.itemEffect.Use(playerData);
+                    audioSource.PlayOneShot(useItemSound);
                     playerData.inventoryItems.RemoveAt(index);
 
                     // clear slot image

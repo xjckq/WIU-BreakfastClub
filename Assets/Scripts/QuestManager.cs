@@ -34,6 +34,10 @@ public class QuestManager : MonoBehaviour
 
     public PlayerData playerData;
     bool NPCprogressUpdated = false;
+
+    public AudioSource audioSource;
+    public AudioClip questGetSound;
+    public AudioClip questCompleteSound;
     private void Awake()
     {
         if (Instance == null)
@@ -81,6 +85,8 @@ public class QuestManager : MonoBehaviour
         newProgress.progress = 0;
         questProgressList.Add(newProgress);
 
+        // quest get audio
+        audioSource.PlayOneShot(questGetSound);
         Debug.Log("quest started: " + quest.title);
     }
 
@@ -158,10 +164,10 @@ public class QuestManager : MonoBehaviour
                 }
             }
         }
-
+        audioSource.PlayOneShot(questCompleteSound);
         Debug.Log("quest completed: " + quest.title);
-
-        if (IsQuestCompleted(mainQuest1) && IsQuestCompleted(mainQuest2) &&IsQuestCompleted(mainQuest3))
+        
+        if (IsQuestCompleted(mainQuest1) && IsQuestCompleted(mainQuest2) && IsQuestCompleted(mainQuest3))
             GameWin();
 
     }
@@ -227,7 +233,7 @@ public class QuestManager : MonoBehaviour
                         return questProgressList[i].canTurnInQuest;
                 }
             }
-        }
+        }        
         return false;
     }
 

@@ -30,23 +30,19 @@ public class BoarMovement : MonoBehaviour
     private Rigidbody2D _rb;
     private BoarState currentState;
     private float stateTimer;
-    //private Vector2 patrolDirection;
-    //[SerializeField] BoxCollider2D _collider;
-    //[SerializeField] BoxCollider2D _NPCCollider;
-    //[SerializeField] BoxCollider2D _leftCollider;
-    //[SerializeField] BoxCollider2D _rightCollider;
-    //[SerializeField] BoxCollider2D _topCollider;
-    //[SerializeField] BoxCollider2D _bottomCollider;
+
     [SerializeField] private Transform sprite;
     private Coroutine attackCoroutine;
     private Animator _animator;
+
+    public AudioSource audioSource;
+    public AudioClip AttackBoarSound;
 
     [SerializeField] PlayerController playerGO;
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponentInChildren<Animator>();
-        //_collider = GetComponent<BoxCollider2D>();
         if (_rb == null)
         {
             enabled = false;
@@ -59,15 +55,6 @@ public class BoarMovement : MonoBehaviour
 
     void Update()
     {
-
-        //float _colliderXMin = _collider.bounds.min.x;
-        //float _colliderXMax = _collider.bounds.max.x;
-        //float _colliderYMin = _collider.bounds.min.y;
-        //float _colliderYMax = _collider.bounds.max.y;
-        //Vector2 NPCSize = _NPCCollider.bounds.size;
-
-        //Debug.Log("state : " + currentState);
-
         switch (currentState)
         {
             case BoarState.Patrol:
@@ -84,22 +71,6 @@ public class BoarMovement : MonoBehaviour
                 break;
         }
 
-        //if (transform.position.x <= _colliderXMin)
-        //{
-        //    _rb.linearVelocity = new Vector2(1, 0) * moveSpeed;
-        //}
-        //else if (transform.position.x >= _colliderXMax)
-        //{
-        //    _rb.linearVelocity = new Vector2(-1, 0) * moveSpeed;
-        //}
-        //else if(transform.position.y <= _colliderYMin)
-        //{
-        //    _rb.linearVelocity = new Vector2(0, 1) * moveSpeed;
-        //}
-        //else if(transform.position.y >= _colliderYMax)z
-        //{
-        //    _rb.linearVelocity = new Vector2(vel.x, -1) * moveSpeed;
-        //}
         RotateTowardsMovement();
     }
 
@@ -150,7 +121,6 @@ public class BoarMovement : MonoBehaviour
             }
             ChangeState(BoarState.Patrol);
         }
-        //Debug.Log("Idle for: " + idleDuration + " seconds, current state: " + currentState);
     }
 
     private void HandleChase()
@@ -192,22 +162,7 @@ public class BoarMovement : MonoBehaviour
     {
         _animator.SetBool("isPatrolling", false);
         _animator.SetBool("isChasing", false);
-        //float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-        //if (distanceToPlayer > attackRange)
-        //{
-        //    ChangeState(NPCState.Chase);
-        //    return;
-        //}
-
-        //if (player.position.x > transform.position.x)
-        //{
-        //    transform.localScale = new Vector3(2, 2, 1);
-        //}
-        //else
-        //{
-        //    transform.localScale = new Vector3(-2, 2, 1);
-        //}
         if (player != null && sprite != null)
         {
             Vector2 direction = player.position - transform.position;
@@ -220,27 +175,7 @@ public class BoarMovement : MonoBehaviour
         {
             attackCoroutine = StartCoroutine(RegularAttack());
         }
-        //Debug.Log("Attacking player with regular attack damage: " + regularAttackDamage);
     }
-
-    //private IEnumerator RegularAttack()
-    //{
-    //    while (currentState == NPCState.Attack)
-    //    {
-
-    //        if (player != null)
-    //        {
-    //            //PlayerController playerHealthSystem = player.GetComponent<PlayerController>();
-    //            //if (playerHealthSystem != null)
-    //            //{
-    //                playerGO.TakeDmg(regularAttackDamage);
-    //            //}
-    //        }
-
-    //        yield return new WaitForSeconds(regularAttackInterval);
-    //    }
-    //}
-
     private IEnumerator RegularAttack()
     {
         while (currentState == BoarState.Attack)
@@ -258,6 +193,7 @@ public class BoarMovement : MonoBehaviour
                 if (playerGO != null)
                 {
                     _animator.SetTrigger("AttackTrigger");
+                    audioSource.PlayOneShot(AttackBoarSound);
                     playerGO.TakeDmg(regularAttackDamage);
                 }
             }
@@ -295,15 +231,6 @@ public class BoarMovement : MonoBehaviour
     {
         playerGO = newPlayerGO;
     }
-    //private void RotateTowardsMovement()
-    //{
-    //    if (_rb.linearVelocity.magnitude > 0.1f && sprite != null)
-    //    {
-    //        float angle = Mathf.Atan2(_rb.linearVelocity.y, _rb.linearVelocity.x) * Mathf.Rad2Deg - 90;
-    //        Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
-    //        sprite.transform.rotation = Quaternion.Slerp(sprite.transform.rotation, targetRotation, Time.deltaTime * 5f);
-    //    }
-    //}
     public void HandleTopCollision()
     {
         _rb.linearVelocity = new Vector2(0, -1);
@@ -324,22 +251,6 @@ public class BoarMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        //if (other.CompareTag("LeftBoundingBox"))
-        //{
-        //    _rb.linearVelocity = new Vector2(1, _rb.linearVelocity.y);
-        //}
-        //if (other.CompareTag("RightBoundingBox"))
-        //{
-        //    _rb.linearVelocity = new Vector2(-1, _rb.linearVelocity.y);
-        //}
-        //if (other.CompareTag("TopBoundingBox"))
-        //{
-        //    _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, -1);
-        //}
-        //if (other.CompareTag("BottomBoundingBox"))
-        //{
-        //    _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, 1);
-        //}
         if (collision.gameObject.CompareTag("LeftBoundingBox"))
         {
             _rb.linearVelocity = new Vector2(1, 0);
@@ -357,39 +268,4 @@ public class BoarMovement : MonoBehaviour
             _rb.linearVelocity = new Vector2(0, 1);
         }
     }
-    //void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    //if (other.CompareTag("LeftBoundingBox"))
-    //    //{
-    //    //    _rb.linearVelocity = new Vector2(1, _rb.linearVelocity.y);
-    //    //}
-    //    //if (other.CompareTag("RightBoundingBox"))
-    //    //{
-    //    //    _rb.linearVelocity = new Vector2(-1, _rb.linearVelocity.y);
-    //    //}
-    //    //if (other.CompareTag("TopBoundingBox"))
-    //    //{
-    //    //    _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, -1);
-    //    //}
-    //    //if (other.CompareTag("BottomBoundingBox"))
-    //    //{
-    //    //    _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, 1);
-    //    //}
-    //    if (other.CompareTag("LeftBoundingBox"))
-    //    {
-    //        _rb.linearVelocity = new Vector2(1, 0);
-    //    }
-    //    if (other.CompareTag("RightBoundingBox"))
-    //    {
-    //        _rb.linearVelocity = new Vector2(-1, 0);
-    //    }
-    //    if (other.CompareTag("TopBoundingBox"))
-    //    {
-    //        _rb.linearVelocity = new Vector2(0, -1);
-    //    }
-    //    if (other.CompareTag("BottomBoundingBox"))
-    //    {
-    //        _rb.linearVelocity = new Vector2(0, 1);
-    //    }
-    //}
 }

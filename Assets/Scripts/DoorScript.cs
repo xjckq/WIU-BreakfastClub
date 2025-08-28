@@ -4,6 +4,9 @@ public class DoorScript : MonoBehaviour
 {
     public Sprite closedSprite;
     public Sprite openSprite;
+    public AudioSource audioSource;
+    public AudioClip doorOpenSound;
+    public AudioClip doorCloseSound;
 
     private bool isPlayerInRange = false;
     private bool isOpen = false;
@@ -13,6 +16,7 @@ public class DoorScript : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
 
         spriteRenderer.sprite = closedSprite;
         boxCollider.enabled = true;
@@ -32,12 +36,14 @@ public class DoorScript : MonoBehaviour
         {
             spriteRenderer.sprite = closedSprite;
             isOpen = false;
+            audioSource.PlayOneShot(doorCloseSound);
             boxCollider.enabled = true;
         }
         else
         {
             spriteRenderer.sprite = openSprite;
             isOpen = true;
+            audioSource.PlayOneShot(doorOpenSound);
             boxCollider.enabled = false;
         }
     }

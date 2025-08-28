@@ -12,6 +12,9 @@ public class ShopItemSlot : MonoBehaviour
     public TextMeshProUGUI itemCostText;
     public TextMeshProUGUI itemStockText;
     public Button buyButton;
+
+    public AudioSource audioSource;
+    public AudioClip purchaseSound;
     public void InitialiseItem(ItemData item)
     {
         currentItem = item;
@@ -39,6 +42,7 @@ public class ShopItemSlot : MonoBehaviour
         }
         if (playerData.money >= currentItem.itemCost)
         {
+            audioSource.PlayOneShot(purchaseSound);
             playerData.AddMoney(-currentItem.itemCost);
             PurchaseItem(currentItem);
             currentStock--;

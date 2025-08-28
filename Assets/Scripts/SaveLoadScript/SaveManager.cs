@@ -37,6 +37,7 @@ public class SaveManager : MonoBehaviour
         }
 
         data.playerHealth = playerData.health;
+        data.moneyAmnt = playerData.money;
 
         data.savedInventory.Clear();
         foreach (var itemInstance in playerData.inventoryItems)
@@ -65,16 +66,6 @@ public class SaveManager : MonoBehaviour
         foreach (Landmark landmark in questManager.restoredLandmarks)
             data.restoredLandmarkIDs.Add(landmark.landmarkName);
 
-        //NPC[] npcs = GameObject.FindObjectsByType<NPC>(FindObjectsSortMode.None);
-        //foreach (NPC npc in npcs)
-        //{
-        //    data.npcStates.Add(new NPCSaveData
-        //    {
-        //        npcID = npc.npcData.npcName,
-        //        state = npc.currentState,
-        //        isFinished = npc.isFinished
-        //    });
-        //}
 
         if (NPCDialogueManager.Instance != null)
         {
@@ -134,6 +125,7 @@ public class SaveManager : MonoBehaviour
         }
 
         playerData.health = data.playerHealth;
+        playerData.money = data.moneyAmnt;
         playerData.inventoryItems.Clear();
 
         foreach (ItemSaveData savedItem in data.savedInventory)

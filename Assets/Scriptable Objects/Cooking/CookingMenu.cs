@@ -37,6 +37,10 @@ public class CookingMenu : MonoBehaviour
     private int currentClicks = 0;
     private bool isCooking = false;
 
+    // audio 
+    public AudioSource audioSource;
+    public AudioClip sizzlingSound;
+
     private void Start()
     {
         inventoryUI.ResetBuffs();
@@ -138,8 +142,11 @@ public class CookingMenu : MonoBehaviour
 
         // play VFX
         if (panAnimator != null)
+        {
             panAnimator.SetBool("isCooking", true);
-
+            audioSource.PlayOneShot(sizzlingSound);
+        }
+            
         if (cookingSmoke != null)
         {
             cookingSmoke.Clear();
@@ -158,6 +165,7 @@ public class CookingMenu : MonoBehaviour
 
         // stop cooking anim/smoke
         panAnimator.SetBool("isCooking", false);
+        audioSource.Stop();
         cookingSmoke.Stop();
 
         // disable click UI

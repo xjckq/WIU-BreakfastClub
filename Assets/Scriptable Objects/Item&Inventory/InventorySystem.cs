@@ -8,6 +8,9 @@ public class InventorySystem : MonoBehaviour
 
     public List<ItemData> allItemData;
 
+    public AudioSource audioSource;
+    public AudioClip pickUpSound;
+
     void Start()
     {
         if (playerData != null)
@@ -31,6 +34,7 @@ public class InventorySystem : MonoBehaviour
             {
                 // add to inventory
                 playerData.inventoryItems.Add(picked);
+                audioSource.PlayOneShot(pickUpSound);
                 inventoryUI.RefreshInventoryUI();
                 // track for quest that requires player to collect item
                 QuestManager.Instance.ItemCollected(picked.itemData);

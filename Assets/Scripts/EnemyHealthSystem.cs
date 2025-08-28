@@ -14,6 +14,11 @@ public class EnemyHealthSystem : MonoBehaviour
     //private NPCMovement _npcMovement;
     private BoarMovement _boarMovement;
     private MonkeyMovement _monkeyMovement;
+    
+    public AudioSource audioSource;
+    public AudioClip hitMonkeySound;
+    public AudioClip hitBoarSound;
+    
     void Awake()
     {
         currentHealth = maxHealth;
@@ -37,11 +42,6 @@ public class EnemyHealthSystem : MonoBehaviour
             initialScale.y,
             initialScale.z
         );
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            TakeDamage(20);
-            Debug.Log(currentHealth);
-        }
     }
     public void TakeDamage(float damageAmount)
     {
@@ -53,13 +53,14 @@ public class EnemyHealthSystem : MonoBehaviour
 
         if (currentHealth < maxHealth)
         {
-            //_npcMovement.OnTakeDamage();
             if (_boarMovement != null)
             {
+                audioSource.PlayOneShot(hitBoarSound);
                 _boarMovement.OnTakeDamageBoar();
             }
             if (_monkeyMovement != null)
             {
+                audioSource.PlayOneShot(hitMonkeySound);
                 _monkeyMovement.OnTakeDamageMonkey();
             }
         }

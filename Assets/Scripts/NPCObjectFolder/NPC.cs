@@ -50,18 +50,6 @@ public class NPC : MonoBehaviour
             TriggerDialogue();
         }
 
-        if (NPC.activeNPC == this)
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-                currentState = DialogueState.QuestOngoing;
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-                currentState = DialogueState.QuestCompleted;
-            if (Input.GetKeyDown(KeyCode.Alpha3))
-                currentState = DialogueState.Default;
-            if (Input.GetKeyDown(KeyCode.Alpha4))
-                currentState = DialogueState.FirstTalk;
-        }
-
         //if (questData != null && QuestManager.Instance.IsQuestCompleted(questData))
         //{
         //    currentState = DialogueState.QuestCompleted;

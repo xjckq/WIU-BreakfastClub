@@ -35,6 +35,9 @@ public class MonkeyMovement : MonoBehaviour
     private Coroutine attackCoroutine;
     private float _nextThrowTime = 0f;
     private Animator _animator;
+    
+    public AudioSource audioSource;
+    public AudioClip AttackMonkeySound;
 
     [SerializeField] PlayerController playerGO;
 
@@ -89,12 +92,6 @@ public class MonkeyMovement : MonoBehaviour
     private void HandlePatrol()
     {
         _animator.SetBool("isPatrolling", true);
-        //_animator.SetBool("isFleeing", false);
-        //_animator.SetBool("isAttacking", false);
-        //_animator.SetBool("isChasing", false);
-        //_animator.SetBool("isPatrolling", true);
-        //_animator.SetBool("isFleeing", false);
-        //_animator.SetBool("isAttacking", false);
 
         if (patrolDuration == 0)
         {
@@ -115,11 +112,7 @@ public class MonkeyMovement : MonoBehaviour
     {
         _animator.SetBool("isPatrolling", false);
         _animator.SetBool("isFleeing", false);
-        //_animator.SetBool("isAttacking", false);
         _animator.SetBool("isChasing", false);
-        //_animator.SetBool("isPatrolling", false);
-        //_animator.SetBool("isFleeing", false);
-        //_animator.SetBool("isAttacking", false);
 
         if (idleDuration == 0)
         {
@@ -140,11 +133,7 @@ public class MonkeyMovement : MonoBehaviour
     {
         _animator.SetBool("isPatrolling", false);
         _animator.SetBool("isFleeing", true);
-        //_animator.SetBool("isAttacking", false);
         _animator.SetBool("isChasing", false);
-        //_animator.SetBool("isPatrolling", false);
-        //_animator.SetBool("isFleeing", true);
-        //_animator.SetBool("isAttacking", false);
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
@@ -152,19 +141,11 @@ public class MonkeyMovement : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, wallCheckDistance, LayerMask.GetMask("Wall"));
         if (hit.collider != null)
         {
-            //Debug.Log("Flee path blocked, switching to ThrowAttack state.");
             _rb.linearVelocity = Vector2.zero;
             ChangeState(MonkeyState.ThrowAttack);
             return;
         }
         _rb.linearVelocity = direction * fleeSpeed;
-
-        //if (_rb.linearVelocity.magnitude < fleeSpeed - 1)
-        //{
-        //    Debug.Log("Monkey is stuck, switching to ThrowAttack state.");
-        //    ChangeState(MonkeyState.ThrowAttack);
-        //    _rb.linearVelocity = Vector2.zero;
-        //}
         if (distanceToPlayer >= fleeDistance)
         {
             ChangeState(MonkeyState.ThrowAttack);
@@ -176,11 +157,7 @@ public class MonkeyMovement : MonoBehaviour
     {
         _animator.SetBool("isPatrolling", false);
         _animator.SetBool("isFleeing", false);
-        //_animator.SetBool("isAttacking", true);
         _animator.SetBool("isChasing", false);
-        //_animator.SetBool("isPatrolling", false);
-        //_animator.SetBool("isFleeing", false);
-        //_animator.SetBool("isAttacking", true);
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
@@ -199,6 +176,7 @@ public class MonkeyMovement : MonoBehaviour
             if (bananaPrefab != null)
             {
                 _animator.SetTrigger("AttackTrigger");
+                audioSource.PlayOneShot(AttackMonkeySound);
                 GameObject banana = Instantiate(bananaPrefab, transform.position, Quaternion.identity);
 
                 Banana bananaScript = banana.GetComponent<Banana>();
@@ -207,18 +185,8 @@ public class MonkeyMovement : MonoBehaviour
                     Vector2 directionToPlayer = (player.position - transform.position);
                     bananaScript.Launch(directionToPlayer);
                 }
-                //Debug.Log("Monkey is throwing a banana!");
             }
             _nextThrowTime = Time.time + throwInterval;
-            //distanceToPlayer = Vector2.Distance(transform.position, player.position);
-            //if (distanceToPlayer <= fleeDistance)
-            //{
-            //    ChangeState(MonkeyState.Flee);
-            //}
-            //else if (distanceToPlayer > attackRange)
-            //{
-            //    ChangeState(MonkeyState.Chase);
-            //}
         }
 
 
@@ -248,31 +216,6 @@ public class MonkeyMovement : MonoBehaviour
             ChangeState(MonkeyState.ThrowAttack);
         }
     }
-    //private IEnumerator ThrowBananas()
-    //{
-    //    while (currentState == MonkeyState.ThrowAttack)
-    //    {
-    //        //_animator.SetTrigger("AttackTrigger");
-
-    //        if (bananaPrefab != null)
-    //        {
-    //            GameObject banana = Instantiate(bananaPrefab, transform.position, Quaternion.identity);
-
-    //            Banana bananaScript = banana.GetComponent<Banana>();
-    //            if (banana != null)
-    //            {
-    //                Vector2 directionToPlayer = (player.position - transform.position);
-    //                bananaScript.Launch(directionToPlayer);
-    //            }
-
-    //            Debug.Log("Monkey is throwing a banana!");
-    //        }
-
-    //        yield return new WaitForSeconds(throwInterval);
-    //    }
-
-    //    attackCoroutine = null;
-    //}
 
     private void ChangeState(MonkeyState newState)
     {
@@ -280,13 +223,6 @@ public class MonkeyMovement : MonoBehaviour
         {
             return;
         }
-        //if (_animator != null)
-        //{
-        //    _animator.SetBool("isPatrolling", false);
-        //    _animator.SetBool("isFleeing", false);
-        //    _animator.SetBool("isAttacking", false);
-        //    _animator.SetBool("isChasing", false);
-        //}
         stateTimer = 0f;
         currentState = newState;
     }
