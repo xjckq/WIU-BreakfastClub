@@ -10,14 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5eaebad2e3cb89e43a59c64827af844e, type: 3}
-  m_Name: ThirdQuest
+  m_Name: KPodMinigame
   m_EditorClassIdentifier: 
-  title: Testing
-  desc: Testing
-  objectiveType: 2
-  requiredAmount: 3
-  moneyReward: 0
-  landmarkToRestore: {fileID: 11400000, guid: c7bdc0f2b21069c40aab808ab3e1d3a3, type: 2}
-  questGiver: {fileID: 0}
+  title: Defend Singapore!
+  desc: Defend against the K Pod Zombies
+  objectiveType: 3
+  requiredAmount: 1
+  moneyReward: 300
+  landmarkToRestore: {fileID: 0}
+  questGiver: {fileID: 2260237583904824420, guid: fb57704118e2136489e0f648194613c1, type: 3}
   npcToTalkTo: {fileID: 0}
+  npcsToTalkTo: []
   requiredItem: {fileID: 0}
+  targetEnemy: 0
+  minigameType: 2

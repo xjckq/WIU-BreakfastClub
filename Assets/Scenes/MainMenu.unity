@@ -1141,6 +1141,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitionAnim: {fileID: 901347549}
   transitionTime: 1
+  playerTransform: {fileID: 0}
+  playerData: {fileID: 0}
 --- !u!114 &803612588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1841,6 +1843,7 @@ MonoBehaviour:
   transitionAnim: {fileID: 901347549}
   transitionTime: 1
   playerTransform: {fileID: 0}
+  playerData: {fileID: 0}
 --- !u!114 &1036639805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2282,6 +2285,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitionAnim: {fileID: 901347549}
   transitionTime: 1
+  playerTransform: {fileID: 0}
+  playerData: {fileID: 0}
 --- !u!114 &1188765865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3467,6 +3472,7 @@ MonoBehaviour:
   menuBGM: {fileID: 8300000, guid: dc3ac058d2eda1544b19a94df8b7a0c2, type: 3}
   homeBGM: {fileID: 8300000, guid: 02508cce3f01077459bf20cc0bb14d13, type: 3}
   outsideBGM: {fileID: 8300000, guid: c9f23e27797bf98499c0ccc4dca187e7, type: 3}
+  minigameBGM: {fileID: 8300000, guid: 31778456400d40a44bd23dd295d50296, type: 3}
 --- !u!82 &2049287817
 AudioSource:
   m_ObjectHideFlags: 0

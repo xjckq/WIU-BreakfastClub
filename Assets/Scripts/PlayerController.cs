@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour
     Vector2 facingDir = Vector2.down;
 
     public HealthbarScript healthbar;
-    public QuestManager questManager;
+
+    public TMP_Text moneyTxt;
 
     void Awake()
     {
@@ -168,6 +169,9 @@ public class PlayerController : MonoBehaviour
                 isQuestTabOpen = false;
             }
         }
+
+        if(moneyTxt != null)
+            moneyTxt.text = playerData.money.ToString();
     }
 
     void FixedUpdate()

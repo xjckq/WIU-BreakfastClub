@@ -10,6 +10,7 @@ public class BGMManager : MonoBehaviour
     public AudioClip menuBGM;
     public AudioClip homeBGM;
     public AudioClip outsideBGM;
+    public AudioClip minigameBGM;
 
     private string currentScene;
 
@@ -65,6 +66,10 @@ public class BGMManager : MonoBehaviour
                 break;
             case "Outside":
                 changeBGM = outsideBGM;
+                break;
+            case "CTCMinigame":
+            case "KpodZombies":
+                changeBGM = minigameBGM;
                 break;
             default:
                 changeBGM = null;

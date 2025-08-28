@@ -16,7 +16,7 @@ MonoBehaviour:
   desc: Take down the monkeys
   objectiveType: 2
   requiredAmount: 3
-  moneyReward: 300
+  moneyReward: 100
   landmarkToRestore: {fileID: 0}
   questGiver: {fileID: 4992316444029924917, guid: 88512810545cdbb4b88a3a288cc0a981, type: 3}
   npcToTalkTo: {fileID: 0}

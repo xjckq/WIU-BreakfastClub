@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: ce1f580dfe1da3c4bb5692c78b125f64
+guid: 20c3eedfec2feb64a9999418ac5e029f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 133982719826790466
-    second: Untitled_0
+      213: 3262445072376977568
+    second: 16x32 NPC1_IdleSide_0
+  - first:
+      213: 5934547225461777142
+    second: 16x32 NPC1_IdleSide_1
+  - first:
+      213: 5456896468877502650
+    second: 16x32 NPC1_IdleSide_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -74,7 +80,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -96,17 +102,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Untitled_0
+      name: 16x32 NPC1_IdleSide_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 192
-        height: 192
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +134,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2480155e2900cd100800000000000000
-      internalID: 133982719826790466
+      spriteID: 0a8d0461288864d20800000000000000
+      internalID: 3262445072376977568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x32 NPC1_IdleSide_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f2ed6c424fbb5250800000000000000
+      internalID: 5934547225461777142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x32 NPC1_IdleSide_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab8e6833d6acabb40800000000000000
+      internalID: 5456896468877502650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x32 NPC1_IdleSide_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9eb33a1f6568384ea005f580c224f31
+      internalID: 826976134
       vertices: []
       indices: 
       edges: []
@@ -125,7 +210,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8210397881be88d4fae5739da9b4273e
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +220,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Untitled_0: 133982719826790466
+      16x32 NPC1_IdleSide_0: 3262445072376977568
+      16x32 NPC1_IdleSide_1: 5934547225461777142
+      16x32 NPC1_IdleSide_2: 5456896468877502650
+      16x32 NPC1_IdleSide_3: 826976134
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

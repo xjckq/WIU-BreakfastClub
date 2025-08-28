@@ -150,7 +150,7 @@ public class InventoryUI : MonoBehaviour
 
                     // clear slot image
                     currentImage.sprite = null;
-                    currentImage.color = new Color(0, 0.7f, 0.7f, 1);
+                    currentImage.color = new Color(0, 0.7f, 0.7f, 0);
 
                     ShiftCells(index);
                 }
@@ -178,7 +178,7 @@ public class InventoryUI : MonoBehaviour
         // clear slot image
         Image currentImage = foodCell.GetChild(index).GetComponentInChildren<Image>();
         currentImage.sprite = null;
-        currentImage.color = new Color(0, 0.7f, 0.7f, 1);
+        currentImage.color = new Color(0, 0.7f, 0.7f, 0);
 
         ShiftCells(index);
 
@@ -212,12 +212,12 @@ public class InventoryUI : MonoBehaviour
                 thisImg.sprite = nextImg.sprite;
                 thisImg.color = Color.white;
                 nextImg.sprite = null;
-                nextImg.color = new Color(0, 0.7f, 0.7f, 1);
+                nextImg.color = new Color(0, 0.7f, 0.7f, 0);
             }
             else
             {
                 thisImg.sprite = null;
-                thisImg.color = new Color(0, 0.7f, 0.7f, 1);
+                thisImg.color = new Color(0, 0.7f, 0.7f, 0);
                 break;
             }
         }
@@ -232,7 +232,7 @@ public class InventoryUI : MonoBehaviour
             if (img != null)
             {
                 img.sprite = null;
-                img.color = new Color(0, 0.7f, 0.7f, 1);
+                img.color = new Color(0, 0.7f, 0.7f, 0);
             }
         }
 

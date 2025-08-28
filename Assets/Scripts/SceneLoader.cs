@@ -9,7 +9,7 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private Transform playerTransform;
 
     [SerializeField] private PlayerData playerData;
-
+    bool isLoading = false;
     public void LoadSceneAt(string sceneName, Vector3 spawnPoint)
     {
         if (spawnPoint != null)
@@ -27,15 +27,21 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadOutsideHome()
     {
-        LoadSceneAt("Outside", new Vector3(0, 0, 0));
+        LoadSceneAt("Outside", new Vector3(0, 1, 0));
     }
     public void LoadOutsideCTC()
     {
-        LoadSceneAt("Outside", new Vector3(0, -2, 0));
+        LoadSceneAt("Outside", new Vector3(-6, -8, 0));
     }
 
     public void LoadScene(string sceneName)
     {
+
+        if (isLoading) 
+            return;
+
+        isLoading = true;
+
         //SceneManager.LoadScene(sceneName);
         if (transitionAnim != null)
             StartCoroutine(PlayTransition(sceneName));
@@ -56,6 +62,8 @@ public class SceneLoader : MonoBehaviour
 
         // load scene
         LoadingScreenManager.loadingInstance.SwitchToScene(sceneName);
+
+        isLoading = false;
     }
 
     public void SetTimeScale(float scale)

@@ -5,5 +5,6 @@ public class ItemData : ScriptableObject
 {
     public string itemName;
     public Sprite itemImage;
+    public int itemCost;
     public ItemEffect theEffect;
 }

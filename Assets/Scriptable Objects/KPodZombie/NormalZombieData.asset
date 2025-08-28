@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c5e3a94ab7ce0469d6d37542a72915, type: 3}
   m_Name: NormalZombieData
   m_EditorClassIdentifier: 
-  health: 50
+  health: 40
   moveSpeed: 3
   damage: 20
