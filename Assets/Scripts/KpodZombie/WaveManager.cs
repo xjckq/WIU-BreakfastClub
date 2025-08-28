@@ -27,6 +27,28 @@ public class WaveManager : MonoBehaviour
         GameUI.SetActive(false);
         gameOverPanel.SetActive(false);
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            // Only allow the cheat if a wave is currently active
+            if (currentWaveIndex >= 0 && currentWaveIndex < waves.Count)
+            {
+                // Calculate how many more enemies need to be "killed" to complete the wave
+                int remainingEnemies = waves[currentWaveIndex].totalEnemiesToSpawn - enemiesKilled;
+
+                // Log a message to the console to confirm the cheat
+                Debug.Log("Cheat activated! Skipping wave " + (currentWaveIndex + 1));
+
+                // Call the EnemyKilled method for each remaining enemy
+                // This will trigger the wave completion logic
+                for (int i = 0; i < remainingEnemies; i++)
+                {
+                    EnemyKilled();
+                }
+            }
+        }
+    }
     public void StartGame()
     {
         menuPanel.SetActive(false);
@@ -45,7 +67,7 @@ public class WaveManager : MonoBehaviour
             Debug.Log("Starting wave " + (currentWaveIndex + 1) + " of " + waves.Count);
             if (waveText != null)
             {
-                waveText.text = "";
+                waveText.text = "Wave " + (currentWaveIndex + 1) + " / " + waves.Count;
             }
             StartCoroutine(SpawnWaveCoroutine(waves[currentWaveIndex]));
         }
@@ -115,6 +137,7 @@ public class WaveManager : MonoBehaviour
         if (isWon)
         {
             gameOverMessageText.text = "You Win!";
+            wavesSurvivedText.text = "Waves Survived: " + waves.Count.ToString();
             QuestManager.Instance.MinigameCompleted(QuestData.MinigameType.Kpod);
         }
         else
