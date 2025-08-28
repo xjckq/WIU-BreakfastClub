@@ -14,29 +14,26 @@ public class BGMManager : MonoBehaviour
 
     private string currentScene;
 
-    void Start()
+    void Awake()
+{
+    if (instance == null)
     {
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
         currentScene = SceneManager.GetActiveScene().name;
         UpdateMusicForScene(currentScene);
     }
-
-    void Awake()
+    else
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-
-            if (audioSource == null)
-                audioSource = GetComponent<AudioSource>();
-            SceneManager.sceneLoaded += OnSceneLoaded;
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
+        Destroy(gameObject);
     }
+}
 
     void OnDestroy()
     {

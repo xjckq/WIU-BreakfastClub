@@ -33,8 +33,8 @@ public class SceneLoader : MonoBehaviour
     {
         LoadSceneAt("Outside", new Vector3(-6, -8, 0));
     }
-    
-        public void LoadAtKpodEntrance()
+
+    public void LoadAtKpodEntrance()
     {
         LoadSceneAt("Outside", new Vector3(-14, -23, 0));
     }
@@ -79,5 +79,10 @@ public class SceneLoader : MonoBehaviour
     public void SetTimeScale(float scale)
     {
         Time.timeScale = scale;
+    }
+    
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
