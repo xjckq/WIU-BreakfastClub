@@ -87,4 +87,19 @@ public class NPCDialogueManager : MonoBehaviour
     {
         SaveDialogueState(npcID, state, isFinished);
     }
+
+    public List<NPCSaveData> GetDialogueSaveData()
+    {
+        List<NPCSaveData> result = new List<NPCSaveData>();
+        foreach (var state in npcStates)
+        {
+            result.Add(new NPCSaveData
+            {
+                npcID = state.npcID,
+                state = state.state,
+                isFinished = state.isFinished
+            });
+        }
+        return result;
+    }
 }

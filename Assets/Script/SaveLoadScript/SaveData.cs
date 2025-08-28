@@ -6,6 +6,7 @@ public class SaveData
 {
     public int playerHealth;
     public float[] playerPosition = new float[2];
+    public int moneyAmnt;
 
     //public string currentSceneName; // save the scene where player saved
 

@@ -14,26 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHealth: 100
-  money: 9690
+  money: 0
   speed: 5
   currentSpeed: 5
   buffFoodActive: 0
   buffFoodRemainingTime: 0
   inventoryItems:
-  - itemData: {fileID: 11400000, guid: 67c1ab711f593234c82ecd1ffe5982a5, type: 2}
-    itemEffect: {fileID: 0}
-  - itemData: {fileID: 11400000, guid: 67c1ab711f593234c82ecd1ffe5982a5, type: 2}
-    itemEffect: {fileID: 0}
-  - itemData: {fileID: 11400000, guid: 67c1ab711f593234c82ecd1ffe5982a5, type: 2}
-    itemEffect: {fileID: 0}
-  - itemData: {fileID: 11400000, guid: 67c1ab711f593234c82ecd1ffe5982a5, type: 2}
-    itemEffect: {fileID: 0}
-  - itemData: {fileID: 11400000, guid: 98ea9656ccf26514e843d042d9c1c731, type: 2}
+  - itemData: {fileID: 11400000, guid: f51ba95608815ca48beb41b82f0a13e5, type: 2}
     itemEffect: {fileID: 0}
   - itemData: {fileID: 11400000, guid: 107bd4f40f4fc5949aae05534f329e5b, type: 2}
     itemEffect: {fileID: 0}
-  - itemData: {fileID: 11400000, guid: f51ba95608815ca48beb41b82f0a13e5, type: 2}
+  - itemData: {fileID: 11400000, guid: 98ea9656ccf26514e843d042d9c1c731, type: 2}
+    itemEffect: {fileID: 0}
+  - itemData: {fileID: 11400000, guid: 98ea9656ccf26514e843d042d9c1c731, type: 2}
+    itemEffect: {fileID: 0}
+  - itemData: {fileID: 11400000, guid: 59ee48fa7f6893f4e9dbc1c6ed63ebdc, type: 2}
     itemEffect: {fileID: 0}
   maxInventorySize: 9
-  spawnPosition: {x: -6, y: -8, z: 0}
+  spawnPosition: {x: 0.5, y: 15, z: 0}
   hasCustomSpawn: 0

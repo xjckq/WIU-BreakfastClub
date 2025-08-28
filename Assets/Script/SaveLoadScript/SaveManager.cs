@@ -11,6 +11,7 @@ public class SaveManager : MonoBehaviour
     public ItemDatabase itemDatabase;
     public InventoryUI inventoryUI;
     public QuestUIManager questUIManager;
+    public LandmarkDatabse landmarkDatabase;
 
     public List<QuestData> allQuests = new List<QuestData>();
 
@@ -36,6 +37,7 @@ public class SaveManager : MonoBehaviour
         }
 
         data.playerHealth = playerData.health;
+        data.moneyAmnt = playerData.money;
 
         data.savedInventory.Clear();
         foreach (var itemInstance in playerData.inventoryItems)
@@ -64,16 +66,22 @@ public class SaveManager : MonoBehaviour
         foreach (Landmark landmark in questManager.restoredLandmarks)
             data.restoredLandmarkIDs.Add(landmark.landmarkName);
 
-        NPC[] npcs = GameObject.FindObjectsByType<NPC>(FindObjectsSortMode.None);
-        foreach (NPC npc in npcs)
+        //NPC[] npcs = GameObject.FindObjectsByType<NPC>(FindObjectsSortMode.None);
+        //foreach (NPC npc in npcs)
+        //{
+        //    data.npcStates.Add(new NPCSaveData
+        //    {
+        //        npcID = npc.npcData.npcName,
+        //        state = npc.currentState,
+        //        isFinished = npc.isFinished
+        //    });
+        //}
+
+        if (NPCDialogueManager.Instance != null)
         {
-            data.npcStates.Add(new NPCSaveData
-            {
-                npcID = npc.npcData.npcName,
-                state = npc.currentState,
-                isFinished = npc.isFinished
-            });
+            data.npcStates = NPCDialogueManager.Instance.GetDialogueSaveData();
         }
+        Debug.Log($"Saved {data.npcStates.Count} NPC dialogue states.");
 
         SaveSystem.SaveGame(data);
         Debug.Log("Game saved.");
@@ -127,6 +135,7 @@ public class SaveManager : MonoBehaviour
         }
 
         playerData.health = data.playerHealth;
+        playerData.money = data.moneyAmnt;
         playerData.inventoryItems.Clear();
 
         foreach (ItemSaveData savedItem in data.savedInventory)
@@ -147,47 +156,89 @@ public class SaveManager : MonoBehaviour
         questManager.questProgressList.Clear();
         questManager.restoredLandmarks.Clear();
 
+
+        // restore the completed quests
         foreach (string questID in data.completedQuestIDs)
         {
-            foreach (var quest in allQuests)
+            QuestData quest = null;
+            foreach (var q in allQuests)
             {
-                if (quest.title == questID)
+                if (q.title == questID)
                 {
-                    questManager.completedQuests.Add(quest);
+                    quest = q;
                     break;
                 }
             }
+
+            if (quest != null && !questManager.completedQuests.Contains(quest))
+            {
+                questManager.completedQuests.Add(quest);
+            }
         }
 
+        // restore all the active quests
+        foreach (string questID in data.activeQuestIDs)
+        {
+            QuestData quest = null;
+            foreach (var q in allQuests)
+            {
+                if (q.title == questID)
+                {
+                    quest = q;
+                    break;
+                }
+            }
+
+            if (quest != null && !questManager.activeQuests.Contains(quest))
+            {
+                questManager.activeQuests.Add(quest);
+            }
+        }
+
+        // restore all the quest progress
         foreach (QuestProgressData progressData in data.questProgresses)
         {
-            foreach (var quest in allQuests)
+            QuestData quest = null;
+            foreach (var q in allQuests)
             {
-                if (quest.title == progressData.questID)
+                if (q.title == progressData.questID)
                 {
-                    questManager.activeQuests.Add(quest);
-                    questManager.questProgressList.Add(new QuestProgress
-                    {
-                        quest = quest,
-                        progress = progressData.progress
-                    });
+                    quest = q;
                     break;
                 }
+            }
+
+            if (quest != null)
+            {
+                QuestProgress progress = new QuestProgress
+                {
+                    quest = quest,
+                    progress = progressData.progress
+                };
+                questManager.questProgressList.Add(progress);
             }
         }
 
-        Landmark[] sceneLandmarks = GameObject.FindObjectsByType<Landmark>(FindObjectsSortMode.None);
         foreach (string lmID in data.restoredLandmarkIDs)
         {
-            foreach (var landmark in sceneLandmarks)
+            Landmark landmark = null;
+
+            foreach (var l in landmarkDatabase.allLandmarks)
             {
-                if (landmark.landmarkName == lmID)
+                if (l.landmarkName == lmID)
                 {
-                    questManager.restoredLandmarks.Add(landmark);
+                    landmark = l;
                     break;
                 }
             }
+
+            if (landmark != null)
+            {
+                Debug.Log($"Restoring landmark: {landmark.landmarkName}");
+                questManager.restoredLandmarks.Add(landmark);
+            }
         }
+
 
         // load the saved npcs states
         NPC[] npcs = GameObject.FindObjectsByType<NPC>(FindObjectsSortMode.None);
@@ -209,12 +260,13 @@ public class SaveManager : MonoBehaviour
                 npc.isFinished = npcData.isFinished;
             }
 
-            // update the dialogueManager too!!
+            // update dialogue manager
             if (NPCDialogueManager.Instance != null)
             {
                 NPCDialogueManager.Instance.SetDialogueState(npcData.npcID, npcData.state, npcData.isFinished);
             }
         }
+        Debug.Log($"Loading {data.npcStates.Count} NPC dialogue states.");
     }
 
     public void DeleteGameSave()
