@@ -14,17 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHealth: 100
-  money: 0
+  money: 50
   speed: 5
-  currentSpeed: 5
-  buffFoodActive: 0
-  buffFoodRemainingTime: 0
+  currentSpeed: 7
+  buffFoodActive: 1
+  buffFoodRemainingTime: 6.729732
   inventoryItems:
-  - itemData: {fileID: 11400000, guid: f51ba95608815ca48beb41b82f0a13e5, type: 2}
+  - itemData: {fileID: 11400000, guid: 67c1ab711f593234c82ecd1ffe5982a5, type: 2}
     itemEffect: {fileID: 0}
-  - itemData: {fileID: 11400000, guid: 107bd4f40f4fc5949aae05534f329e5b, type: 2}
-    itemEffect: {fileID: 0}
-  - itemData: {fileID: 11400000, guid: 98ea9656ccf26514e843d042d9c1c731, type: 2}
+  - itemData: {fileID: 11400000, guid: 67c1ab711f593234c82ecd1ffe5982a5, type: 2}
     itemEffect: {fileID: 0}
   - itemData: {fileID: 11400000, guid: 98ea9656ccf26514e843d042d9c1c731, type: 2}
     itemEffect: {fileID: 0}
