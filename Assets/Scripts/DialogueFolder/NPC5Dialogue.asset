@@ -26,8 +26,7 @@ MonoBehaviour:
     diaTxt: How am I supposed to sell eggs with no chickens? I'm too old to run after
       them.
   - characterName: Meihua
-    diaTxt: Can you please help me catch them in this minigame? I'll give you free
-      eggs after, I promise!
+    diaTxt: Can you please help me catch them? I'll give you free eggs after, I promise!
   - characterName: Xing Yi
     diaTxt: Okay.
   - characterName: Meihua

@@ -33,11 +33,16 @@ public class SceneLoader : MonoBehaviour
     {
         LoadSceneAt("Outside", new Vector3(-6, -8, 0));
     }
+    
+        public void LoadAtKpodEntrance()
+    {
+        LoadSceneAt("Outside", new Vector3(-14, -23, 0));
+    }
 
     public void LoadScene(string sceneName)
     {
 
-        if (isLoading) 
+        if (isLoading)
             return;
 
         isLoading = true;
@@ -46,7 +51,12 @@ public class SceneLoader : MonoBehaviour
         if (transitionAnim != null)
             StartCoroutine(PlayTransition(sceneName));
         else
-            LoadingScreenManager.loadingInstance.SwitchToScene(sceneName);
+        {
+            if (LoadingScreenManager.loadingInstance != null)
+                LoadingScreenManager.loadingInstance.SwitchToScene(sceneName);
+            else
+                SceneManager.LoadScene(sceneName);
+        }
     }
 
     IEnumerator PlayTransition(string sceneName)

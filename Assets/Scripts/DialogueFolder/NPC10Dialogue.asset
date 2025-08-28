@@ -34,8 +34,6 @@ MonoBehaviour:
     diaTxt: Aw shucks.. fine then.
   - characterName: Officer
     diaTxt: I've removed a barricade for you to pass through.
-  - characterName: Officer
-    diaTxt: I've removed a barricade for you to pass through.
   QuestOngoingLines:
   - characterName: Officer
     diaTxt: You're still here?

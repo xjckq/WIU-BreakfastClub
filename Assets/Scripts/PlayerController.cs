@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 using TMPro;
 
 public class PlayerController : MonoBehaviour
@@ -24,6 +25,10 @@ public class PlayerController : MonoBehaviour
     public HealthbarScript healthbar;
 
     public TMP_Text moneyTxt;
+
+    [SerializeField] SceneLoader loader;
+    [SerializeField] SpriteRenderer bubble;
+    bool gameOver = false;
 
     void Awake()
     {
@@ -151,7 +156,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.T))
         {
-            TakeDmg(5);
+            TakeDmg(10);
             Debug.Log("player has " + playerData.health + "now");
         }
 
@@ -170,12 +175,23 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if(moneyTxt != null)
+        if (moneyTxt != null)
             moneyTxt.text = playerData.money.ToString();
+
+        // stop bubble from flipping
+        if (transform.localScale.x < 0)
+            bubble.flipX = true;
+        else
+            bubble.flipX = false;
+            
+            
     }
 
     void FixedUpdate()
     {
+        if(gameOver)
+            return;
+
         if (isAttacking)
         {
             body.linearVelocity = Vector2.zero;
@@ -200,11 +216,51 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDmg(int dmg)
     {
+
         playerData.health -= dmg;
+        StartCoroutine(OnHit());
         healthbar.SetHealth(playerData.health);
-        if (playerData.health < 0)
-            playerData.health = 0;
+        if (playerData.health <= 0 && !gameOver)
+        {
+            StartCoroutine(OnDeath());
+        }
+        
     }
+
+    IEnumerator OnHit()
+    {
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(.1f);
+        spriteRenderer.color = Color.white;
+    }
+
+    IEnumerator OnDeath()
+    {
+        gameOver = true;
+        canMove = false;
+        animator.enabled = false;
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(.1f);
+        spriteRenderer.color = Color.white;
+        yield return new WaitForSeconds(.1f);
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(.1f);
+        spriteRenderer.color = Color.white;
+        yield return new WaitForSeconds(.1f);
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(.1f);
+        spriteRenderer.color = Color.white;
+        yield return new WaitForSeconds(.1f);
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(.1f);
+        spriteRenderer.color = Color.white;
+        yield return new WaitForSeconds(.1f);
+        spriteRenderer.color = Color.red;
+        spriteRenderer.enabled = false;
+        if (loader != null)
+            loader.LoadScene("GameLose");
+    }
+
 
     public void Heal(int amt)
     {

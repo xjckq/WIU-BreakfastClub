@@ -22,7 +22,7 @@ public class CheckTrigger : MonoBehaviour
 {
 
     public CollisionTarget[] targets;
-    private bool isLoading = false;
+    //private bool isLoading = false;
     private Collider2D interactCollider;
 
     void Update()
@@ -46,7 +46,7 @@ public class CheckTrigger : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (isLoading) return; // already loading, ignore further triggers
+       // if (isLoading) return; // already loading, ignore further triggers
 
         foreach (CollisionTarget target in targets)
         {
@@ -58,7 +58,7 @@ public class CheckTrigger : MonoBehaviour
                     target.onCollisionEnter.Invoke();
                     if (gameObject.layer != LayerMask.NameToLayer("Player"))
                     {
-                        isLoading = true; // prevent multiple loads
+                       // isLoading = true; // prevent multiple loads
                     }
                 }
 
