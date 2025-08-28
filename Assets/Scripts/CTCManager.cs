@@ -1,6 +1,6 @@
-using System;
-using TMPro;
+
 using UnityEngine;
+using TMPro;
 public class CTCManager : MonoBehaviour
 {
     public static CTCManager Instance;
@@ -19,6 +19,9 @@ public class CTCManager : MonoBehaviour
     public bool gameOver;
     bool eggsGiven;
     public int totalChickens = 4;
+    float soundTimer = 3;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip chickenSound;
 
     private void Awake()
     {
@@ -45,18 +48,26 @@ public class CTCManager : MonoBehaviour
         if (!gameOver)
         {
             timer -= Time.deltaTime;
+            soundTimer -= Time.deltaTime;
+            if (soundTimer <= 0)
+            {
+                audioSource.PlayOneShot(chickenSound);
+                soundTimer = 3;
+            }
             timerTxt.text = Mathf.Ceil(timer).ToString();
             if (timer <= 0 || (capturedNum + escapedNum >= totalChickens))
             {
                 gameOver = true;
                 displayResults();
             }
+
         }
     }
 
+
     private void displayResults()
     {
-        if (eggsGiven) 
+        if (eggsGiven)
             return;
 
         resultsPanel.SetActive(true);

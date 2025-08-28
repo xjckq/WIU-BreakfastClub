@@ -160,6 +160,13 @@ public class PlayerController : MonoBehaviour
             Debug.Log("player has " + playerData.health + "now");
         }
 
+        //money
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            AddMoney(1000);
+            Debug.Log("player has " + playerData.money + "now");
+        }
+
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
