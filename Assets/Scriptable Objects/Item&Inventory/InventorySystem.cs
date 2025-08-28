@@ -26,12 +26,14 @@ public class InventorySystem : MonoBehaviour
             }
 
             ItemInstance picked = item.TakeItem();
+
             if (picked != null)
             {
                 // add to inventory
                 playerData.inventoryItems.Add(picked);
                 inventoryUI.RefreshInventoryUI();
-
+                // track for quest that requires player to collect item
+                QuestManager.Instance.ItemCollected(picked.itemData);
                 Destroy(other.gameObject);
                 Debug.Log($"Picked up {picked.itemData.itemName}");
             }

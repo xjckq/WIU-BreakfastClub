@@ -18,6 +18,7 @@ public class ClickItemHandler : MonoBehaviour, IPointerClickHandler
         else if (eventData.button == PointerEventData.InputButton.Right)
         {
             inventoryUI.DropItem(btn);
+            Debug.Log("Right click detected, dropping item.");
         }
     }
 }

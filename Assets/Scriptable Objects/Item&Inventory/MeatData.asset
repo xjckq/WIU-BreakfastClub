@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Meat
   itemImage: {fileID: -2844531463381759980, guid: c59c750395d54a647bcad37126b1d1a4, type: 3}
+  itemCost: 15

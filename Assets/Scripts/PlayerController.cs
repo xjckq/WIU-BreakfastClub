@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     InputAction moveAction;
     InputAction attackAction;
     Vector2 moveDirection;
-    public float speed = 5;
 
     public bool canMove = true;
 
@@ -23,7 +22,8 @@ public class PlayerController : MonoBehaviour
     Vector2 facingDir = Vector2.down;
 
     public HealthbarScript healthbar;
-    public QuestManager questManager;
+
+    public TMP_Text moneyTxt;
 
     void Awake()
     {
@@ -38,9 +38,6 @@ public class PlayerController : MonoBehaviour
         healthbar.SetMaxHealth(playerData.maxHealth);
         healthbar.SetHealth(playerData.health);
 
-        GameObject theQManager = GameObject.FindGameObjectWithTag("QManager");
-        if (theQManager != null)
-            questManager = theQManager.GetComponent<QuestManager>();
     }
 
     private void OnEnable()
@@ -172,6 +169,9 @@ public class PlayerController : MonoBehaviour
                 isQuestTabOpen = false;
             }
         }
+
+        if(moneyTxt != null)
+            moneyTxt.text = playerData.money.ToString();
     }
 
     void FixedUpdate()
@@ -182,7 +182,13 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        Vector2 movement = moveDirection.normalized * speed;
+       if (CTCManager.Instance != null && CTCManager.Instance.gameOver)
+       {
+           canMove = false;
+       }
+
+
+        Vector2 movement = moveDirection.normalized * playerData.currentSpeed;
         body.linearVelocity = movement;
 
     }
@@ -206,6 +212,8 @@ public class PlayerController : MonoBehaviour
         playerData.health += amt;
         if (playerData.health > playerData.maxHealth)
             playerData.health = playerData.maxHealth;
+
+        healthbar.SetHealth(playerData.health);
     }
 
     public void ResetData()

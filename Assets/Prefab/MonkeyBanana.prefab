@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launchForce: 5
-  damageAmount: 10
+  damageAmount: 5
   rotationSpeed: 250
 --- !u!50 &5550983413042483420
 Rigidbody2D:

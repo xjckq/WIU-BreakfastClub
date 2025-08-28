@@ -45,7 +45,7 @@ public class NPC : MonoBehaviour
 
     void Update()
     {
-        if (isPlayerInRange && Input.GetKey(KeyCode.F))
+        if (isPlayerInRange && Input.GetKey(KeyCode.E))
         {
             TriggerDialogue();
         }
@@ -73,13 +73,13 @@ public class NPC : MonoBehaviour
             if (!isFinished)
             {
                 currentState = DialogueState.QuestCompleted;
-                QuestManager.Instance.CompleteQuest(questData);
             }
             else if (isFinished && currentState == DialogueState.QuestCompleted)
             {
                 currentState = DialogueState.Default;
             }
         }
+
     }
 
     public void TriggerDialogue()
@@ -140,6 +140,11 @@ public class NPC : MonoBehaviour
                 {
                     zoomOutCamera.gameObject.SetActive(true);
                     StartCoroutine(ZoomOutCam());
+                }
+                else
+                {
+                    QuestManager.Instance.CompleteQuest(questData);
+                    currentState = DialogueState.Default;
                 }
 
             }

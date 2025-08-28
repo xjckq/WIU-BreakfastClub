@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a09019f05091cb4fabc929755be87fb, type: 3}
   m_Name: NPC1
   m_EditorClassIdentifier: 
-  npcName: NPC1
+  npcName: Braxton
   dialogueData: {fileID: 11400000, guid: c2780ef91d05c07419d677cd9a405eb7, type: 2}
   description: A local around here. A bit pushy but, whatever.

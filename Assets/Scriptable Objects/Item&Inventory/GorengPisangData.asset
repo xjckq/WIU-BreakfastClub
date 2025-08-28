@@ -14,4 +14,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Health Food
   itemImage: {fileID: -1838813238098323438, guid: ae3adfda36d298043917cb6392dcb777, type: 3}
-  theEffect: {fileID: 11400000, guid: c0fc7e26d7e72294d9cc77563f88adf5, type: 2}

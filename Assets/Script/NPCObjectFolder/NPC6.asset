@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a09019f05091cb4fabc929755be87fb, type: 3}
   m_Name: NPC6
   m_EditorClassIdentifier: 
-  npcName: Penny
-  dialogueData: {fileID: 0}
-  description: A young girl that enjoys
+  npcName: Uncle Tan
+  dialogueData: {fileID: 11400000, guid: 699aa48828b5cd7479736cd551bd0fe2, type: 2}
+  description: Uncle

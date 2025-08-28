@@ -115,6 +115,7 @@ public class WaveManager : MonoBehaviour
         if (isWon)
         {
             gameOverMessageText.text = "You Win!";
+            QuestManager.Instance.MinigameCompleted(QuestData.MinigameType.Kpod);
         }
         else
         {
@@ -122,7 +123,7 @@ public class WaveManager : MonoBehaviour
             currentWaveIndex = Mathf.Max(0, currentWaveIndex);
         }
        // enemiesKilledText.text = "Enemies Killed: " + enemiesKilled.ToString();
-        wavesSurvivedText.text = "Waves Survived: " + (currentWaveIndex + 1).ToString();
+        wavesSurvivedText.text = "Waves Survived: " + currentWaveIndex.ToString();
     }
 
     public void Restart()
